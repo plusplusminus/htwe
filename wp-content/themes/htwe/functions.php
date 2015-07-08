@@ -151,18 +151,6 @@ function secondary_nav($nav = 'secondary-nav',$class='nav_secondary') {
     ));
 } /* end bones main nav */
 
-function camelCase($str, array $noStrip = [])
-{
-        // non-alpha and non-numeric characters become spaces
-        $str = preg_replace('/[^a-z0-9' . implode("", $noStrip) . ']+/i', ' ', $str);
-        $str = trim($str);
-        // uppercase the first character of each word
-        $str = ucwords($str);
-        $str = str_replace(" ", "", $str);
-        $str = lcfirst($str);
- 
-        return $str;
-}
 
 add_filter('post_thumbnail_html', 'tpb_thumbnail_attr',10,5);
 
