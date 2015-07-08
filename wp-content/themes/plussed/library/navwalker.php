@@ -112,7 +112,7 @@ class wp_bootstrap_navwalker extends Walker_Nav_Menu {
 			 * property is NOT null we apply it as the class name for the glyphicon.
 			 */
 			if ( ! empty( $item->attr_title ) )
-				if ($item->attr_title == 'home') 
+				if ($item->attr_title == 'Home') 
 					$item_output .= '<a'. $attributes .'><span class="nav-title"><svg class="svg-icon shape-logo-wordmark-incolour"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#shape-logo-wordmark-incolour"></use></svg>';
 				else
 					$item_output .= '<a'. $attributes .'><span class="nav-title">'.esc_attr( $item->attr_title ).'</span>';
