@@ -242,7 +242,7 @@ function get_grid_class($class=1){
     }
 }
 
-unction ppm_register_metabox() {
+function ppm_register_metabox() {
 
     // Start with an underscore to hide fields from custom fields list
     $prefix = '_ppm_';
