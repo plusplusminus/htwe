@@ -222,356 +222,6 @@ function tpb_thumbnail_attr($html, $post_id, $post_thumbnail_id, $size, $attr ) 
 }
 
 
-function filter_ptags_on_images($content){
-   return preg_replace('/<p>\s*(<a .*>)?\s*(<img .* \/>)\s*(<\/a>)?\s*<\/p>/iU', '\1\2\3', $content);
-}
-
-add_filter('the_content', 'filter_ptags_on_images');
-
-function give_linked_images_class($html, $id, $caption, $title, $align, $url, $size, $alt = '' ){
-    $gallery = wp_get_attachment_image_src($id,'full');
-    $img = wp_get_attachment_image_src($id,$size);
-
-    $attachment = get_post( $id );
-
-    $image = '<a class="fancybox" data-title="'.$attachment->post_title.'" href="'.$gallery[0].'" rel="gallery"><img class="'.$align.'" src="'.$img[0].'" alt="'.$attachment->post_title.'" width="'.$img[1].'" height="'.$img[2].'" /></a>';
-  
-  return $image;
-}
-add_filter('image_send_to_editor','give_linked_images_class',10,8);
-
-function update_swiftype_document( $document, $post ) {
-    $stack = array();
-
-    $taxonomies[0] = array('name'=>'Type','slug'=>'type' );
-    $taxonomies[1] = array('name'=>'Location','slug'=>'location' );
-    $taxonomies[2] = array('name'=>'Venue','slug'=>'venue' );
-    $taxonomies[3] = array('name'=>'Setting','slug'=>'setting' );
-    $taxonomies[4] = array('name'=>'Style','slug'=>'style' );
-    $taxonomies[5] = array('name'=>'Culture/Religion','slug'=>'culture' );
-
-    foreach ($taxonomies as $taxonomy) {
-        $terms = wp_get_post_terms($post->ID, $taxonomy['slug'], array("fields" => "ids"));
-
-        $document['fields'][] = array( 
-            'name' => $taxonomy['slug'],
-            'type' => 'enum',
-            'value' => $terms
-        );
-
-        $stack = array_merge($stack, $terms);
-
-    }
-
-    $document['fields'][] = array( 
-            'name' => 'terms',
-            'type' => 'enum',
-            'value' => $stack);
-
-   return $document;
-}
-
-add_filter( 'swiftype_document_builder', 'update_swiftype_document', 10, 2 );
-
-add_action("wp_ajax_get_faceted_search", "get_facets");
-add_action("wp_ajax_nopriv_get_faceted_search", "get_facets");
-
-function get_facets() {
-
-    global $cpt;
-    $facets = isset($_REQUEST["facets"]) ? $_REQUEST["facets"] : array();
-
-    $results = $cpt->facet_search_posts($facets);
-
-    if(!empty($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERVER['HTTP_X_REQUESTED_WITH']) == 'xmlhttprequest') {
-
-
-        foreach ($results["facets"] as $key => $terms) {
-
-            foreach ($terms as $id => $count) {
-                $term = get_term_by('id', $id, $key);
-
-                if ($term->parent != 0 ) {
-
-                    $pterm = get_term_by('id', $term->parent, $key);
-                         
-                    $options[$key][] = array('value'=>$term->term_id,'text'=> $term->name,'class'=>$pterm->slug,'order'=>$term->term_order);
-         
-                } else {
-
-                    // get children of current parent.
-                    $tchildren = get_term_children($term->term_id, $key);
-
-                    
-                    if (empty($tchildren))
-                        $options[$key][] = array('value'=>$term->term_id,'text'=> $term->name,'order'=>$term->term_order);
-                    else $options[$key][] = array('value'=>$term->term_id,'text'=> 'All '.$term->name,'order'=>$term->term_order,'class'=>$term->slug);
-                }
-                
-            }
-
-        }
-
-        $return = array(
-                'message'   => 'Saved',
-                'data' => $options,
-                'result' => $results
-        );
-
-        wp_send_json($return);
-    }
-    else {
-    header("Location: ".$_SERVER["HTTP_REFERER"]);
-    }
-
-    die();
-}
-
-
-add_filter('woothemes_testimonials_post_type_args','change_testimonials_to_reviews',10,1);
-
-function change_testimonials_to_reviews($args) {
-
-    $labels = array(
-        'name' => _x( 'Reviews', 'post type general name', 'woothemes-reviews' ),
-        'singular_name' => _x( 'Review', 'post type singular name', 'woothemes-reviews' ),
-        'add_new' => _x( 'Add New', 'review', 'woothemes-reviews' ),
-        'add_new_item' => sprintf( __( 'Add New %s', 'woothemes-reviews' ), __( 'Review', 'woothemes-reviews' ) ),
-        'edit_item' => sprintf( __( 'Edit %s', 'woothemes-reviews' ), __( 'Review', 'woothemes-reviews' ) ),
-        'new_item' => sprintf( __( 'New %s', 'woothemes-reviews' ), __( 'Review', 'woothemes-reviews' ) ),
-        'all_items' => sprintf( __( 'All %s', 'woothemes-reviews' ), __( 'Reviews', 'woothemes-reviews' ) ),
-        'view_item' => sprintf( __( 'View %s', 'woothemes-reviews' ), __( 'Review', 'woothemes-reviews' ) ),
-        'search_items' => sprintf( __( 'Search %a', 'woothemes-reviews' ), __( 'Reviews', 'woothemes-reviews' ) ),
-        'not_found' =>  sprintf( __( 'No %s Found', 'woothemes-reviews' ), __( 'Reviews', 'woothemes-reviews' ) ),
-        'not_found_in_trash' => sprintf( __( 'No %s Found In Trash', 'woothemes-reviews' ), __( 'Reviews', 'woothemes-reviews' ) ),
-        'parent_item_colon' => '',
-        'menu_name' => __( 'Reviews', 'woothemes-reviews' )
-
-    );
-
-    $args['labels'] = $labels;
-    $args['has_archive'] = false;
-    $args['rewrite'] = array( 'slug' => 'review', 'with_front' => false );
-
-    return $args;
-
-}
-
-
-function get_tax_opts($tax,$name) {
-    // Set your custom taxonomy
-    $taxonomy = $tax;
-     
-    // the current selected taxonomy slug ( would come from a QUERY VAR)
-    $current_selected = "";
-     
-    // Get all terms of the chosen taxonomy
-    $terms = get_terms($taxonomy, array('orderby' => 'name'));
-     
-    // our content variable
-    $list_of_terms .= '<select placeholder="'.$name.'" class="selectize" id="'.$taxonomy.'-select" name="search['.$taxonomy.']">';
-    
-     
-    $list_of_terms .= '</select>';
-
-    echo $list_of_terms;
-
-
-}
-
-
-add_action("wp_ajax_get_selectize_options", "get_tax_opts_ajax");
-add_action("wp_ajax_nopriv_get_selectize_options", "get_tax_opts_ajax");
-
-
-function get_tax_opts_ajax($tax) {
-    // Set your custom taxonomy
-    $taxonomy = $_POST['tax'];
-     
-    // the current selected taxonomy slug ( would come from a QUERY VAR)
-    $current_selected = "";
-    $optgroups = array();
-    $options = array();
-     
-    // Get all terms of the chosen taxonomy
-    $terms = get_terms($taxonomy, array('orderby' => 'name'));
-     
-    foreach($terms as $term){
-             
-        $select = ($current_selected == $term->slug) ? "selected" : "";
-        $options[] = array('value'=>'','text'=> $taxonomy);
-        if ($term->parent == 0 ) {
-                 
-            // get children of current parent.
-            $tchildren = get_term_children($term->term_id, $taxonomy);
-             
-            $children = array();
-            foreach ($tchildren as $child) {
-                $cterm = get_term_by( 'id', $child, $taxonomy );
-                $children[$cterm->name] = $cterm;
-            }
-            ksort($children);
-
-                 
-            // OPTGROUP FOR PARENTS
-            if (count($children) > 0 ) {
-                $optgroups[] = array('value'=>$term->slug,'text'=> $term->name);
-            } else $options[] = array('value'=>$term->term_id,'text'=> $term->name);
-             
-             
-            // now the CHILDREN.
-            foreach($children as $child) {
-                $options[] = array('value'=>$child->term_id,'text'=> $child->name,'class'=>$term->slug);
-                      
-            } //end foreach
-     
-        }
-            
-    }
-     
-    $array = array('opts'=>$options,'optgroups'=>$optgroups);
-
-    wp_send_json($array);;
-
-    die();
-
-}
-
-function swiftype_search_params_filter( $params ) {
-    // set the fields to search and their boosts
-    $params['search_fields[posts]'] = array( 'title^3', 'tags^2', 'author^2', 'body', 'excerpt' );
-    $params['filters[posts][object_type]'] = array( 'post', 'storytelling','portfolio','details','inspiration' );
-    return $params;
-}
-
-add_filter( 'swiftype_search_params', 'swiftype_search_params_filter', 8, 1 );
-
-function exclude_swiftype_documents( $document, $post ) {
-    $excluded_post_types = array('page','testimonial');
-    $post_type = get_post_type( $post );
-
-    if ( in_array( $post_type, $excluded_post_types ) ) {
-        return NULL;
-    }
-
-    return $document;
-}
-
-add_filter( 'swiftype_document_builder', 'exclude_swiftype_documents', 10, 2 );
-
-function ppm_get_wysiwyg_output( $meta_key, $post_id = 0 ) {
-    global $wp_embed;
-
-    $post_id = $post_id ? $post_id : get_the_id();
-
-    $content = get_post_meta( $post_id, $meta_key, 1 );
-    $content = $wp_embed->autoembed( $content );
-    $content = $wp_embed->run_shortcode( $content );
-    $content = do_shortcode( $content );
-    $content = wpautop( $content );
-
-    return $content;
-}
-
-function get_search_opts($taxonomy) {
-
-    $list_of_terms = '';
-     
-    $terms = get_terms($taxonomy['slug'], array('orderby' => 'name'));
-    // our content variable
-
-    if ($taxonomy['optgroup'] == true) {
-
-         
-        foreach($terms as $term){
-                 
-            $select = ($current_selected == $term->slug) ? "selected" : "";
-                    
-            if ($term->parent == 0 ) {
-
-                // The $term is an object, so we don't need to specify the $taxonomy.
-                $term_link = get_term_link( $term );
-               
-                // If there was an error, continue to the next term.
-                if ( is_wp_error( $term_link ) ) {
-                    continue;
-                }
-                     
-                // get children of current parent.
-                $tchildren = get_term_children($term->term_id, $taxonomy['slug']);
-                 
-                $children = array();
-                foreach ($tchildren as $child) {
-                    $cterm = get_term_by( 'id', $child, $taxonomy['slug'] );
-                    $children[$cterm->name] = $cterm;
-                }
-                ksort($children);
-                     
-                // OPTGROUP FOR PARENTS
-                if (count($children) > 0 ) {
-                         if ($term->count > 0)
-                         $list_of_terms .= '<li class="group-header" value="'.$term->slug.'" '.$select.'><a href="'.$term_link.'">All '. $term->name .'</a></li>';
-                    } else
-                    $list_of_terms .= '<li value="'.$term->slug.'" '.$select.'><a href="'.$term_link.'">'. $term->name .'</a></li>';
-                $i++;
-                 
-                 
-                // now the CHILDREN.
-                foreach($children as $child) {
-                    // The $term is an object, so we don't need to specify the $taxonomy.
-                    $cterm_link = get_term_link( $child );
-
-                    // If there was an error, continue to the next term.
-                    if ( is_wp_error( $term_link ) ) {
-                    continue;
-                    }
-                     $select = ($current_selected == $cterm->slug) ? "selected" : "";
-                     $list_of_terms .= '<li value="'.$child->slug.'" '.$select.'><a href="'.$cterm_link.'">'. $child->name.' </a></li>';
-                      
-                } //end foreach
-                 
-         
-            }
-                
-        }
-         
-        echo '<div class="btn-group">';
-        echo  '<button type="button" class="css-dropdown dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                '.$taxonomy['name'].' <span class="caret"></span>
-              </button>';
-         
-        echo '<ul class="dropdown-menu">'.$list_of_terms.'</ul>';
-
-        echo '</div>';
-
-    } else {
-        $list_of_terms .= '<div class="btn-group">';
-
-        $list_of_terms .= '<button type="button" class="css-dropdown dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                '.$taxonomy['name'].' <span class="caret"></span>
-              </button>';
-         
-        $list_of_terms .= '<ul class="dropdown-menu">';
-
-        foreach($terms as $term){
-
-            // The $term is an object, so we don't need to specify the $taxonomy.
-            $term_link = get_term_link( $term );
-           
-            // If there was an error, continue to the next term.
-            if ( is_wp_error( $term_link ) ) {
-                continue;
-            }
-
-            // We successfully got a link. Print it out.
-            $list_of_terms .= '<li><a href="' . esc_url( $term_link ) . '">' . $term->name . '</a></li>';
-        }
-        $list_of_terms .= '</ul></div>';
-
-        echo $list_of_terms;
-    }
-}
-
 function get_grid_class($class=1){
     switch ($class) {
         case 1:
@@ -591,5 +241,51 @@ function get_grid_class($class=1){
             break;
     }
 }
+
+unction ppm_register_metabox() {
+
+    // Start with an underscore to hide fields from custom fields list
+    $prefix = '_ppm_';
+
+    /**
+     * Sample metabox to demonstrate each field type included
+     */
+    $products_meta = new_cmb2_box( array(
+        'id'            => $prefix . 'products_metabox',
+        'title'         => __( 'Products Meta', 'cmb2' ),
+        'object_types'  => array( 'products', ), // Post type
+        'context'       => 'normal',
+        'priority'      => 'high',
+        'show_names'    => true, // Show field names on the left
+        // 'cmb_styles' => false, // false to disable the CMB stylesheet
+        // 'closed'     => true, // true to keep the metabox closed by default
+    ) );
+
+    $products_meta->add_field( array(  
+        'id' => 'product_current',
+        'name' => __( 'Current', 'woothemes' ),
+        'type' => 'text_email',
+        'desc' => __( 'Enter the product currency', 'woothemes' ) 
+    ));
+
+    $products_meta->add_field( array(  
+        'id' => 'product_price',
+        'name' => __( 'Price', 'woothemes' ),
+        'type' => 'text_email',
+        'desc' => __( 'Enter the product price', 'woothemes' ) 
+    ));
+
+    $products_meta->add_field(array(  
+        'id' => 'vendor_contact',
+        'name' => __( 'Artist Name', 'woothemes' ),
+        'type' => 'text',
+        'desc' => __( 'Vendor Artist Name', 'woothemes' ) 
+    ));
+
+
+
+}
+
+add_action( 'cmb2_init', 'ppm_register_metabox' );
 
 ?>
