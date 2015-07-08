@@ -1,5 +1,5 @@
 <?php
-	global $post->ID;
+	global $post;
 	$currency = get_post_meta($post->ID,'product_currency',true);
 	$price = get_post_meta($post->ID,'product_price',true);
 	$artist = get_post_meta($post->ID,'product_artist',true);
