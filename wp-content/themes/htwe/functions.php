@@ -262,21 +262,21 @@ function ppm_register_metabox() {
     ) );
 
     $products_meta->add_field( array(  
-        'id' => 'product_current',
+        'id' => 'product_currency',
         'name' => __( 'Current', 'woothemes' ),
-        'type' => 'text_email',
+        'type' => 'text_small',
         'desc' => __( 'Enter the product currency', 'woothemes' ) 
     ));
 
     $products_meta->add_field( array(  
         'id' => 'product_price',
         'name' => __( 'Price', 'woothemes' ),
-        'type' => 'text_email',
+        'type' => 'text',
         'desc' => __( 'Enter the product price', 'woothemes' ) 
     ));
 
     $products_meta->add_field(array(  
-        'id' => 'vendor_contact',
+        'id' => 'product_artist',
         'name' => __( 'Artist Name', 'woothemes' ),
         'type' => 'text',
         'desc' => __( 'Vendor Artist Name', 'woothemes' ) 
