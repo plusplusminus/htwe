@@ -8,7 +8,7 @@
           <div class="col-md-6">
             <div class="footer_attribution">
               <span>&copy; <?php echo date('Y'); ?> <?php bloginfo( 'name' ); ?>.</span>
-              <span>Made in <span class="fa fa-africa"></span> by <a href="http://www.plusplusminus.co.za/?utm_source=Aevitas&amp;utm_medium=Footer&amp;utm_campaign=Credit" title="PlusPlusMinus Design &amp; Development" target="_blank">PlusPlusMinus</a></span>
+              <span>Made in <svg class="svg-icon shape-icon-africa"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#shape-icon-africa"></use></svg> by <a href="http://www.plusplusminus.co.za/?utm_source=Aevitas&amp;utm_medium=Footer&amp;utm_campaign=Credit" title="PlusPlusMinus Design &amp; Development" target="_blank">PlusPlusMinus</a></span>
             </div>
           </div>
         </div>

@@ -25,6 +25,11 @@ query_posts( $query_args );
 							</article>
 						<?php endwhile; ?>
 					</div>
+					<div class="row">
+						<div class="load-more col-md-12">
+							<a class="load-more--btn">Show me more</a>
+						</div>
+					</div>
 				<?php endif; ?>
 				<?php wp_reset_query(); ?>
 			</div>
