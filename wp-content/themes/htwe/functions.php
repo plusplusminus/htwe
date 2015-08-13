@@ -282,10 +282,86 @@ function ppm_register_metabox() {
         'desc' => __( 'Vendor Artist Name', 'woothemes' ) 
     ));
 
+    $group_field_id = $products_meta->add_field( array(
+        'id'          => 'features_group',
+        'type'        => 'group',
+        'description' => __( 'Product Features', 'cmb' ),
+        'options'     => array(
+            'group_title'   => __( 'Feature {#}', 'cmb' ), // since version 1.1.4, {#} gets replaced by row number
+            'add_button'    => __( 'Add Another Feature', 'cmb' ),
+            'remove_button' => __( 'Remove Feature', 'cmb' ),
+            'sortable'      => true, // beta
+        ),
+    ) );
 
+    // Id's for group's fields only need to be unique for the group. Prefix is not needed.
+    $products_meta->add_group_field( $group_field_id, array(
+        'name' => 'Feature Title',
+        'id'   => 'feature_title',
+        'type' => 'text',
+        // 'repeatable' => true, // Repeatable fields are supported w/in repeatable groups (for most types)
+    ) );
+
+    $products_meta->add_group_field( $group_field_id, array(
+        'name' => 'Feature Detail',
+        'id'   => 'feature_detail',
+        'type' => 'text',
+    ) );
 
 }
 
 add_action( 'cmb2_init', 'ppm_register_metabox' );
+
+// Breadcrumbs
+function custom_breadcrumb() {
+  if(!is_home()) {
+    echo '<ol class="breadcrumb">';
+    echo '<li><a href="'.get_option('home').'">Home</a></li>';
+    if (is_single()) {
+      echo '<li>';
+      the_category(', ');
+      echo '</li>';
+      if (is_single()) {
+        echo '<li>';
+        the_title();
+        echo '</li>';
+      }
+    } elseif (is_category()) {
+      echo '<li>';
+      single_cat_title();
+      echo '</li>';
+    } elseif (is_page() && (!is_front_page())) {
+      echo '<li>';
+      the_title();
+      echo '</li>';
+    } elseif (is_tag()) {
+      echo '<li>Tag: ';
+      single_tag_title();
+      echo '</li>';
+    } elseif (is_day()) {
+      echo'<li>Archive for ';
+      the_time('F jS, Y');
+      echo'</li>';
+    } elseif (is_month()) {
+      echo'<li>Archive for ';
+      the_time('F, Y');
+      echo'</li>';
+    } elseif (is_year()) {
+      echo'<li>Archive for ';
+      the_time('Y');
+      echo'</li>';
+    } elseif (is_author()) {
+      echo'<li>Author Archives';
+      echo'</li>';
+    } elseif (isset($_GET['paged']) && !empty($_GET['paged'])) {
+      echo '<li>Blog Archives';
+      echo'</li>';
+    } elseif (is_search()) {
+      echo'<li>Search Results';
+      echo'</li>';
+    }
+    echo '</ol>';
+  }
+}
 
 ?>

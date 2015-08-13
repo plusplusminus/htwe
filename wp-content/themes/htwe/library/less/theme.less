@@ -38,6 +38,27 @@
 
 // Header
 
+header{
+	margin-bottom: 50px;
+}
+
+.breadcrumbs{
+	.breadcrumb{
+		background: none;
+		li{
+			font-size: @font-size-xsmall;
+			text-transform: uppercase;
+			letter-spacing: 0.2em;
+			font-weight: 600;
+			a{
+				color: @gray-light;
+			}
+			+li:before{
+				content: "\003E";
+			}
+		}
+	}
+}
 .header_top {
 	background-color: @brand-bronze;
 	position: relative;
@@ -91,25 +112,17 @@
 }
 
 .triangle-divider {
-	background: #fff;
-	margin-top: 20px;
-	text-align: center;
-	position: relative;
-	&:after {
-		content: "";
-		position: absolute;
-		height: 10px;
-		background-color: #fff;
-		/* border-radius: 200%; */
-		left: 50%;
-		width: 20px;
-		height: 20px;
-		-webkit-transform: translateX(-50%) rotate(45deg);
-		transform: translateX(-50%) rotate(45deg);
-		bottom: -20px;
-		z-index: 10;
-		background: inherit;
-	}
+  	text-indent: -9999px;
+  	width: 40px;
+  	height: 20px;
+  	background: url(../images/split.svg);
+  	background-size: 100px 20px;
+  	margin: auto;
+  	position: absolute;
+  	right: 0;
+  	left: 0;
+  	background-repeat: no-repeat;
+  	background-position: center top;
 }
 
 // Navigation
@@ -129,7 +142,9 @@
 			> a {
 				color:#fff;
 				.transition(0.8s);
-				&:hover {
+				&:hover,
+				&:active,
+				&:focus {
 					background: transparent;
 					color: darken(#fff, 10%);
 				}
@@ -203,7 +218,6 @@
 
 
 .header_main {
-	margin-bottom: 50px;
 	background: #fff;
 }
 
@@ -395,6 +409,23 @@
 	}
 }
 
+.welcome_content--image,
+.shop_content--image{
+	&:before{
+		content: "";
+		position: absolute;
+		top: 0;
+		bottom: 0;
+		left: 0;
+		right: 0;
+		height: 100%;
+		width: 100%;
+		display: block;
+		background-color: #000;
+		.opacity(0.4);
+	}
+}
+
 .section_shop {
 	max-width: 80%;
 	margin: auto;
@@ -458,8 +489,8 @@
 
 	.content_heading--title {
 		font-family: @font-family-hand;
-		font-size: 48px;
-		color: #fff;
+		font-size: 80px;
+		color: @brand-bronze-light;
 	}
 }
 
@@ -645,6 +676,7 @@
 
 // Lad More
 .load-more{
+	margin-top: 20px;
 	.load-more--btn{
 		.btn();
 		.btn-block();
@@ -656,6 +688,38 @@
 			border-color: @brand-bronze-light;
 			color: #fff;
 		}
+	}
+}
+
+// Post CTA
+.post_cta{
+	padding: 40px;
+	background: @gray-light;
+	margin-bottom: 60px;
+	background-size: cover;
+	.text-center();
+	.post_cta--header{
+		.svg-icon{
+			height: 30px;
+		}
+	}
+	.post_cta--title{
+		font-size: @font-size-h5;
+		letter-spacing: 0.2em;
+		color: #fff;
+		font-weight: 600;
+		text-transform: uppercase;
+		font-family: @font-family-base;
+		margin-bottom: 20px;
+	}
+	.post_cta--text p{
+		.lead();
+		font-family: @font-family-serif;
+		color: #fff;
+	}
+	.post_cta--btn{
+		.btn();
+		.btn-primary();
 	}
 }
 
@@ -763,39 +827,74 @@
 	padding-top: 70px;
 	max-width: 70%;
 	margin: auto;
+	.page &{
+		padding-top: 0px;
+	}
 }
 
 .post_heading--title {
 	text-align: center;
 	margin-bottom: 35px;
+	.single-products &{
+		text-align: left;
+	}
+	a{
+		.transition(0.8s);
+	}
 }
 
 .post_content--excerpt {
 	.lead();
-
 	max-width: 70%;
 	margin-left:auto;
 	margin-right: auto;
 	text-align: center;
 	margin-bottom: 60px;
-
-	
-
 	color: @gray-light;
 	font-weight: 200;
 }
 
 .post_readmore {
-	.triangle-divider();
-
 	text-transform: uppercase;
 	font-size: @font-size-small;
 	font-family: @font-family-serif;
 	letter-spacing: 0.02em;
+	color: @gray-light;
+	text-align: center; 
+	position: relative;
+}
+
+// Post Entry
+.post_entry{
+	a{
+		border-bottom: 1px solid @brand-primary;
+		color: @brand-primary;
+		.transition(0.8s);
+		&:hover{
+			border-bottom: 1px solid #fff;
+		}
+	}
+	p, ul, ol{
+		font-weight: 200;
+	}
+	img{
+		max-width: 100%;
+		height: auto;
+	}
+	.wp-caption{
+		max-width: 100%;
+		.wp-caption-text{
+			font-family: @font-family-serif;
+			text-align: right;
+			font-size: @font-size-small;
+			padding-top: 5px;
+			color: @gray-light;
+		}
+	}
 }
 
 .section_article {
-	margin: 60px 0;
+	margin:50px 0;
 }
 
 .article_meta {
@@ -814,15 +913,22 @@
 
 .author_item {
 	text-transform: uppercase;
-	font-size: @font-size-small;
+	font-size: @font-size-xsmall;
 	font-weight: 700;
-	letter-spacing: 0.02em;
-
+	letter-spacing: 0.2em;
 	
 	&+li:before {
 	  padding: 0px 10px 0 10px;
 	  color: @gray-dark;
 	  content: "|";
+	}
+
+	&.meta_author--twitter a{
+		color: @brand-bronze;
+		.transition(0.8s);
+		&:hover{
+			border-bottom: 1px solid @brand-bronze;
+		}
 	}
 }
 
@@ -842,24 +948,35 @@
 .post_social {
 	padding: 10px 0;
 	margin-bottom: 35px;
-
 	border-top:1px solid @gray-lighter;
 	border-bottom:1px solid @gray-lighter;
-
-
 }
+
 .social_buttons {
 	.list-inline();
-
 	margin-bottom: 0;
 	margin-left: 0;
-
 	.pull-left();
-
+	li{
+		padding-left: 0px;
+		a{
+			.transition(0.8s);
+			&:hover{
+				.opacity(0.5);
+				color: #fff;
+			}
+		}
+	}
 	.social_button+li:before {
-	  padding: 0px 10px 0 0px;
-	  color: @gray-lighter;
-	  content: "|";
+	    color: #eee;
+	    content: "";
+	    width: 1px;
+	    background: @gray-lighter;
+	    margin-left: 0px;
+	    display: inline-block;
+	    height: 25px;
+	    margin-right: 5px;
+	    vertical-align: bottom;
 	}
 
 }
@@ -868,13 +985,17 @@
 	.list-inline();
 	margin-bottom: 0;
 	margin-left: 0;
+	padding: 6px 0;
+	font-size: @font-size-xsmall;
+	font-weight: 600;
 	color: @brand-primary;
 	.pull-right();
-
-	padding: 10px 0;
-
 	a {
 		color: @brand-primary;
+		.transition(0.8s);
+		&:hover{
+			color: lighten(@brand-primary, 10%)
+		}
 	}
 }
 
@@ -882,8 +1003,10 @@
 	.btn();
 
 	color: #fff;
-
 	background: @gray-dark;
+	width: 25px;
+	height: 25px;
+	padding: 2px 4px;
 
 	&.css-pinterest {
 		background: #cb2027;
@@ -898,6 +1021,19 @@
 	}
 
 }
+
+.article_post{
+	padding-bottom: 60px;
+	margin-bottom: 60px;
+	border-bottom: 1px solid @gray-lighter;
+}
+
+.related_posts--heading{
+	text-align: center;
+	margin: auto;
+	height: 120px;
+}
+
 
 .section_page {
 	padding: 35px 0;
@@ -918,12 +1054,49 @@
 	background: #fff;
 	flex-grow: 1;
 	margin-bottom: 10px;
-
 	.meta_list {
 		>li {
 			padding-left:0;
 			padding-right: 0;
 		}
 	}
+	.article_content--price{
+		display: block;
+	}
+	.article_content--artist{
+		display: block;
+	}
+
 }
 
+// Gravity
+
+body .gform_wrapper{
+	border-top: 1px solid @gray-lighter;
+	padding-top: 40px;
+	margin-top: 40px;
+	.gform_heading{
+		.gform_title{
+			font-weight: 500;
+			font-size: @font-size-h4;
+		}
+	}
+	.gform_body{
+		.gform_fields{
+			.gfield{
+				margin-bottom: 10px;
+				.gfield_label{
+					font-family: @font-family-serif;
+					font-weight: 400;
+					margin-bottom: 0px;
+				}
+			}
+		}
+	}
+	.gform_footer{
+		input[type=submit] {
+			.btn();
+			.btn-primary();
+		}
+	}
+}

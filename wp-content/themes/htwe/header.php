@@ -82,6 +82,15 @@
 	        	<?php bones_main_nav(); ?> 
 	        </nav>
 
+	        <?php if ( function_exists('custom_breadcrumb') ) { ?>
+    			<div class="breadcrumbs container-fluid">
+    				<div class="row">	
+    					<div class="col-md-12">
+    						<?php custom_breadcrumb(); ?>
+    					</div>
+  					</div>
+  				</div>
+  			<?php }?>
 		</header> <?php // end header ?>
 
 
