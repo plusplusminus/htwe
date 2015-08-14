@@ -4,6 +4,9 @@ class htweCustomPostTypes {
 	public function __construct() {
 		add_action('init',array($this,'htwe_products'));
 		add_action('init',array($this,'htwe_productscat'));
+		add_action('init',array($this,'htwe_productstag'));
+
+		add_action('init',array($this,'htwe_internals'));
 	}
 
     public function htwe_productscat() {
@@ -29,6 +32,31 @@ class htweCustomPostTypes {
 				)
 		);
 	}
+
+    public function htwe_productstag() {
+
+		register_taxonomy(	"product-tag", 
+			array(	"products"	), 
+			array (	"hierarchical" 		=> fasle, 
+					"label" 			=> "Types", 
+					'labels' 			=> array(	'name' 				=> __('Product Tags'),
+													'singular_name' 	=> __('Product Tag'),
+													'search_items' 		=> __('Search Product Tags'),
+													'popular_items' 	=> __('Popular Product Tags'),
+													'all_items' 		=> __('All Product Tags'),
+													'parent_item' 		=> __('Parent Product Tag'),
+													'parent_item_colon' => __('Parent Product Tag:'),
+													'edit_item' 		=> __('Edit Product Tag'),
+													'update_item'		=> __('Update Product Tag'),
+													'add_new_item' 		=> __('Add New Product Tag'),
+													'new_item_name' 	=> __('New Product Tag Name')	), 
+					'public' 			=> true,
+					'show_ui' 			=> true,
+					"rewrite" 			=> array('slug' => 'product-tag', 'hierarchical' => false)	
+				)
+		);
+	}
+
 
 
     function htwe_products()
@@ -58,6 +86,45 @@ class htweCustomPostTypes {
 					'has_archive' 		=> true,
 					'rewrite' 			=> array(	"slug" => "product"	), // Permalinks
 					'query_var' 		=> "product", // This goes to the WP_Query schema
+					'supports' 			=> array(	'title',																
+													'editor',
+													'thumbnail'
+													),
+					'show_in_nav_menus'	=> false ,
+					'taxonomies'		=> array(	
+
+													)
+				)
+			);			
+	}
+
+    function htwe_internals()
+	{
+		// Register custom post types
+		register_post_type(	'internals', 
+			array(	'label' 			=> __('Internals'),
+					'labels' 			=> array(	'name' 					=> __('Internals'),
+													'singular_name' 		=> __('Internal'),
+													'add_new' 				=> __('Add New'),
+													'add_new_item' 			=> __('Add New Internal'),
+													'edit' 					=> __('Edit'),
+													'edit_item' 			=> __('Edit Internal'),
+													'new_item' 				=> __('New Internal'),
+													'view_item'				=> __('View Internal'),
+													'search_items' 			=> __('Search Internals'),
+													'not_found' 			=> __('No Internal found'),
+													'not_found_in_trash' 	=> __('No Internal found in trash')	),
+					'public' 			=> true,
+					'can_export'		=> true,
+					'show_ui' 			=> true, // UI in admin panel
+					'_builtin' 			=> false, // It's a custom post type, not built in
+					'_edit_link' 		=> 'post.php?post=%d',
+					'capability_type' 	=> 'post',
+					'menu_icon' 		=> 'dashicons-pressthis',
+					'hierarchical' 		=> false,
+					'has_archive' 		=> false,
+					'rewrite' 			=> array(	"slug" => "internal"	), // Permalinks
+					'query_var' 		=> "internal", // This goes to the WP_Query schema
 					'supports' 			=> array(	'title',																
 													'editor',
 													'thumbnail'

@@ -6,7 +6,6 @@
 
 	  	<?php get_template_part('templates/page/page','content'); ?>
 
-
 	</div>
 
 	<?php get_template_part('templates/section','newsletter'); ?>

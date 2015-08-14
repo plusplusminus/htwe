@@ -76,6 +76,35 @@ function child_sections($sections){
         )
     );
 
+    $sections[] = array(
+        'icon'          => 'envelope',
+        'icon_class'    => 'fa fa-envelope',
+        'title'         => __('Newsletter Section', 'peadig-framework'),
+        'desc'          => __('<p class="description">Newsletter section options</p>', 'ppm'),
+        'fields' => array(
+                array(
+                        'id'=>'news_title',
+                        'type' => 'text', 
+                        'title' => __('Newsletter Title', 'ppm'),
+                        ),
+                array(
+                        'id'=>'news_text',
+                        'type' => 'textarea', 
+                        'title' => __('Newsletter Description', 'ppm'),
+                        ),
+                array(
+                        'id'=>'news_image',
+                        'type' => 'media', 
+                        'url'=> true,
+                        'title' => __('Newsletter Section Image', 'ppm'),
+                        'compiler' => 'true',
+                        //'mode' => false, // Can be set to false to allow any media type, or can also be set to any mime type.
+                        'desc'=> __('Select background image from media gallery', 'ppm'),
+                        'default'=>array('url'=>'http://s.wordpress.org/style/images/codeispoetry.png'),
+                        ),
+        )
+    );
+
 
      $sections[] = array(
         'icon'          => 'ok',
@@ -247,9 +276,31 @@ function ppm_register_metabox() {
     // Start with an underscore to hide fields from custom fields list
     $prefix = '_ppm_';
 
-    /**
-     * Sample metabox to demonstrate each field type included
-     */
+    $internals_meta = new_cmb2_box( array(
+        'id'            => $prefix . 'internals_metabox',
+        'title'         => __( 'Internals Meta', 'cmb2' ),
+        'object_types'  => array( 'internals', ), // Post type
+        'context'       => 'normal',
+        'priority'      => 'high',
+        'show_names'    => true, // Show field names on the left
+        // 'cmb_styles' => false, // false to disable the CMB stylesheet
+        // 'closed'     => true, // true to keep the metabox closed by default
+    ) );
+
+    $internals_meta->add_field( array(  
+        'id' => 'internal_link',
+        'name' => __( 'Link', 'woothemes' ),
+        'type' => 'text',
+        'desc' => __( 'Enter the link for the CTA (incl http://)', 'woothemes' ) 
+    ));
+
+    $internals_meta->add_field( array(  
+        'id' => 'internal_link_text',
+        'name' => __( 'CTA Text', 'woothemes' ),
+        'type' => 'text',
+        'desc' => __( 'Enter the text for the CTA', 'woothemes' ) 
+    ));
+
     $products_meta = new_cmb2_box( array(
         'id'            => $prefix . 'products_metabox',
         'title'         => __( 'Products Meta', 'cmb2' ),
@@ -308,13 +359,28 @@ function ppm_register_metabox() {
         'type' => 'text',
     ) );
 
+    $products_meta->add_field(array(  
+        'id' => 'product_link',
+        'name' => __( 'Custom Link', 'woothemes' ),
+        'type' => 'text',
+        'desc' => __( 'Custom or affiliate link (incl http://). Will display button in place of Enquiry form', 'woothemes' ),
+    ));
+
+    $products_meta->add_field(array(  
+        'id' => 'product_link_text',
+        'name' => __( 'Custom Link Text', 'woothemes' ),
+        'type' => 'text',
+        'desc' => __( 'Text to appear on Button', 'woothemes' ),
+    ));
+
 }
 
 add_action( 'cmb2_init', 'ppm_register_metabox' );
 
 // Breadcrumbs
 function custom_breadcrumb() {
-  if(!is_home()) {
+  if(!is_front_page() && !is_home() ) {
+  
     echo '<ol class="breadcrumb">';
     echo '<li><a href="'.get_option('home').'">Home</a></li>';
     if (is_single()) {

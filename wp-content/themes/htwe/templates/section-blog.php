@@ -1,6 +1,5 @@
-
-
 <?php
+
 // Exclude categories on the homepage.
 
 $query_args = array(
@@ -8,7 +7,7 @@ $query_args = array(
 	'posts_per_page' => 6
 );
 
-query_posts( $query_args );
+
 
 ?>
 
@@ -16,6 +15,14 @@ query_posts( $query_args );
 	<div class="wrap container-fluid">
 		<div class="row">
 			<div class="col-md-8">
+				<div class="row">
+					<?php  if ( is_single() ) { ?>
+						<div class="related_posts--heading">	
+							<svg class="svg-icon shape-youmightalsolike"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#shape-youmightalsolike"></use></svg>
+						</div>
+					<?php  };?>
+				</div>
+				<?php query_posts( $query_args ); ?>
 				<?php if ( have_posts() ) : $count = 0; ?>
 					<div class="row">
 						<?php while ( have_posts() ) : the_post(); $count++;?>

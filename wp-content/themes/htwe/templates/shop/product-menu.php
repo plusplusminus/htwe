@@ -1,13 +1,13 @@
 <nav class="nav_shop-menu">
 	<ul class="shop-menu_list">
 		<li class="meta_list--item">
-			<a href="#">All</a>
+			<a href="http://localhost/htwe/shop/">All</a>
 		</li>
 		<li class="meta_list--item">
-			<a href="#">Featured</a>
+			<a href="http://localhost/htwe/product-category/gallery/">Gallery</a>
 		</li>
 		<li class="meta_list--item">
-			<a href="#">Popular</a>
+			<a href="http://localhost/htwe/product-category/boutique/">Boutique</a>
 		</li>
 	</ul>
 </nav>

@@ -13,7 +13,9 @@
 		
 		<div class="post_readmore">
 			<p>Continue Reading</p>
-		</div> 
+			<div class="triangle-divider"></div>
+		</div>
+
 		<?php the_post_thumbnail('full',array('class'=>'img-responsive')); ?>
 		<figcaption class="post_image--caption"></figcaption>
 

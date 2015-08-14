@@ -372,7 +372,7 @@ header{
 		left: 0;
 		right: 0;
 		text-align: center;
-		width: 60%;
+		width: 65%;
 		margin: auto;
 		.shape-welcome{
 			fill: #dcc092;
@@ -410,7 +410,9 @@ header{
 }
 
 .welcome_content--image,
-.shop_content--image{
+.shop_content--image,
+.section_newsletter,
+.post_cta{
 	&:before{
 		content: "";
 		position: absolute;
@@ -567,7 +569,8 @@ header{
 	background: #f5f4f0;
 }
 
-.blog_article {
+.blog_article,
+.product_article{
 	background: #fff;
 	flex-grow: 1;
 	margin-bottom: 10px;
@@ -580,7 +583,7 @@ header{
 }
 
 .article_content {
-	padding: 25px;
+	padding: 25px 25px 35px;
 }
 
 .css-fullwidth {
@@ -595,7 +598,8 @@ header{
 	}
 }
 
-.grid_article {
+.grid_article,
+.grid_product{
 	display: flex;
 }
 
@@ -660,6 +664,10 @@ header{
 		}
 		> a {
 			color: @text-color;
+			&.btn{
+				color: #fff;
+				text-transform: none;
+			}
 		}
 
 		&.css-date {
@@ -697,7 +705,12 @@ header{
 	background: @gray-light;
 	margin-bottom: 60px;
 	background-size: cover;
+	position: relative;
 	.text-center();
+	.post_cta--content{
+		z-index: 20;
+		position: relative;
+	}
 	.post_cta--header{
 		.svg-icon{
 			height: 30px;
@@ -747,6 +760,8 @@ header{
 }
 
 .newsletter_content{
+	position: relative;
+	z-index: 20;
 	.shape-logo-symbol{
 		width: 55px;
 		height: 55px;
@@ -1051,9 +1066,7 @@ header{
 /* products */
 
 .product_article {
-	background: #fff;
 	flex-grow: 1;
-	margin-bottom: 10px;
 	.meta_list {
 		>li {
 			padding-left:0;
@@ -1066,7 +1079,11 @@ header{
 	.article_content--artist{
 		display: block;
 	}
-
+	.product_image{
+		.single-products &{
+			padding: 0 40px 40px 40px;
+		}
+	}
 }
 
 // Gravity
