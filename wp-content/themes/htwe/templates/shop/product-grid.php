@@ -4,7 +4,7 @@
 	$price = get_post_meta($post->ID,'product_price',true);
 	$artist = get_post_meta($post->ID,'product_artist',true);
 
-	$format = '<small class="article_content--price">%s %d</small>';
+	$format = '<small class="article_content--price">%s%d</small>';
 	
 ?>
 
