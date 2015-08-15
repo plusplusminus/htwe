@@ -1,16 +1,13 @@
 
 
 <?php
-// Exclude categories on the homepage.
-
-$query_args = array(
-	'post_type' => 'post', 
-	'posts_per_page' => 1,
-	'tag' => 'home-feature'
-);
-
-query_posts( $query_args );
-
+	global $post;
+	$query_args = array(
+		'post_type' => 'post', 
+		'posts_per_page' => 1,
+		'tag' => 'home-feature'
+	);
+	query_posts( $query_args );
 ?>
 
 <?php if ( have_posts() ) : ?>
@@ -20,15 +17,23 @@ query_posts( $query_args );
 				<div class="home_featured">
 					<div class="featured_gallery">
 						<a href="<?php the_permalink();?>" title="<?php the_title(); ?>">
-							<div class="item q10">
-								<img width="992" height="506" src="http://localhost/htwe/wp-content/uploads/2015/08/image1.jpg" class="img-responsive wp-post-image" alt="Screen Shot 2015-06-23 at 1.37.58 PM">
-							</div>
-							<div class="item q8">
-								<img width="992" height="506" src="http://localhost/htwe/wp-content/uploads/2015/08/image2.jpg" class="img-responsive wp-post-image" alt="Screen Shot 2015-06-23 at 1.37.58 PM">
-							</div>
-							<div class="item q11">
-								<img width="992" height="506" src="http://localhost/htwe/wp-content/uploads/2015/08/image3.jpg" class="img-responsive wp-post-image" alt="Screen Shot 2015-06-23 at 1.37.58 PM">
-							</div>
+							<?php $groups = get_post_meta($post->ID,'featured_group',true);?>
+							<?php if (!empty($groups)) { ?>
+
+								<?php foreach ($groups as $key => $group) : ?>	
+									<?php $class = $group['featured_img_class'];?>
+									<?php $img = $group['featured_img'];?>
+									<div class="item <?php echo $class; ?>">
+										<img src="<?php echo $img; ?>" class="img-responsive">
+									</div>
+								<?php endforeach;
+								
+							} else {
+								
+								the_post_thumbnail('full',array('class'=>'img-responsive'));
+							
+							} ?>
+
 						</a>
 					</div>
 					<div class="featured_content">

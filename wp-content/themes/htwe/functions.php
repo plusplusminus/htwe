@@ -301,6 +301,43 @@ function ppm_register_metabox() {
         'desc' => __( 'Enter the text for the CTA', 'woothemes' ) 
     ));
 
+    $featured_meta = new_cmb2_box( array(
+        'id'            => $prefix . 'featured_metabox',
+        'title'         => __( 'Featured Meta', 'cmb2' ),
+        'object_types'  => array( 'post', ), // Post type
+        'context'       => 'normal',
+        'priority'      => 'high',
+        'show_names'    => true, // Show field names on the left
+        // 'cmb_styles' => false, // false to disable the CMB stylesheet
+        // 'closed'     => true, // true to keep the metabox closed by default
+    ) );
+
+    $group_field_id = $featured_meta->add_field( array(
+        'id'          => 'featured_group',
+        'type'        => 'group',
+        'description' => __( 'Featured Images', 'cmb' ),
+        'options'     => array(
+            'group_title'   => __( 'Image {#}', 'cmb' ), // since version 1.1.4, {#} gets replaced by row number
+            'add_button'    => __( 'Add Another Image', 'cmb' ),
+            'remove_button' => __( 'Remove Image', 'cmb' ),
+            'sortable'      => true, // beta
+        ),
+    ) );
+
+    $featured_meta->add_group_field( $group_field_id, array(
+        'name' => 'Featured Image',
+        'id'   => 'featured_img',
+        'type' => 'file',
+        // 'repeatable' => true, // Repeatable fields are supported w/in repeatable groups (for most types)
+    ) );
+
+    $featured_meta->add_group_field( $group_field_id, array(
+        'name' => 'Layout Class',
+        'id'   => 'featured_img_class',
+        'type' => 'text',
+        // 'repeatable' => true, // Repeatable fields are supported w/in repeatable groups (for most types)
+    ) );
+
     $products_meta = new_cmb2_box( array(
         'id'            => $prefix . 'products_metabox',
         'title'         => __( 'Products Meta', 'cmb2' ),
