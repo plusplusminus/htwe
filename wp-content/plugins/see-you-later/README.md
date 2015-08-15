@@ -1,2 +1,0 @@
-WooThemes See You Later
-=======================
