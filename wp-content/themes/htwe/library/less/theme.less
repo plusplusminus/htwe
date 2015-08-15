@@ -629,6 +629,17 @@ header{
 	-webkit-align-items: center;
 	-ms-flex-align: center;
 	align-items: center;
+	.quote_content--excerpt{
+		border: none;
+		p{
+			font-family: @font-family-serif;
+		}
+	}
+	.quote_content--title{
+		text-transform: uppercase;
+		font-size: @font-size-small;
+		font-weight: 400;
+	}
 }
 
 .quote_content--excerpt {
@@ -883,6 +894,14 @@ header{
 	color: @gray-light;
 	text-align: center; 
 	position: relative;
+}
+
+.post_image{
+	.single &{
+		img{
+			width: 100%;
+		}
+	}
 }
 
 // Post Entry
