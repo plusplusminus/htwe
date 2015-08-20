@@ -1,3 +1,4 @@
+<<<<<<< Updated upstream
 <?php
 	global $post;
 	$currency = get_post_meta($post->ID,'product_currency',true);
@@ -12,6 +13,8 @@
 	
 ?>
 
+=======
+>>>>>>> Stashed changes
 <div class="product_article">
 <<<<<<< HEAD
 	<a href="<?php the_permalink();?>">
@@ -29,11 +32,15 @@
 		<?php the_post_thumbnail('grid',array('class'=>'img-responsive')); ?>
 	</figure>
 
-
 	<div class="article_content">
+<<<<<<< Updated upstream
 		<h3 class="article_content--title"><?php the_title(); echo sprintf($format, $currency, $price); ?></h3>
 		<small class="article_content--price"><?php echo sprintf($artist); ?></small>
 >>>>>>> origin/master
+=======
+		<h3 class="article_content--title"><?php the_title(); ?>	<small class="article_content--price">$700</small></h3>
+		<small class="article_content--price">Artist Name</small>
+>>>>>>> Stashed changes
 		<div class="article_content--excerpt">
 			<?php the_excerpt(); ?>
 		</div>
