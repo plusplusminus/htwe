@@ -9,11 +9,7 @@ class GF_Field_Post_Content extends GF_Field {
 	public $type = 'post_content';
 
 	public function get_form_editor_field_title() {
-<<<<<<< HEAD
 		return esc_attr__( 'Body', 'gravityforms' );
-=======
-		return __( 'Body', 'gravityforms' );
->>>>>>> origin/master
 	}
 
 	function get_form_editor_field_settings() {
@@ -40,21 +36,13 @@ class GF_Field_Post_Content extends GF_Field {
 		);
 	}
 
-<<<<<<< HEAD
 	public function is_conditional_logic_supported() {
-=======
-	public function is_conditional_logic_supported(){
->>>>>>> origin/master
 		return true;
 	}
 
 	public function get_field_input( $form, $value = '', $entry = null ) {
 
-<<<<<<< HEAD
 		$form_id         = absint( $form['id'] );
-=======
-		$form_id         = $form['id'];
->>>>>>> origin/master
 		$is_entry_detail = $this->is_entry_detail();
 		$is_form_editor  = $this->is_form_editor();
 
@@ -79,7 +67,6 @@ class GF_Field_Post_Content extends GF_Field {
 				</div>";
 	}
 
-<<<<<<< HEAD
 	public function allow_html() {
 		return true;
 	}
@@ -88,11 +75,6 @@ class GF_Field_Post_Content extends GF_Field {
 
 		return $format == 'html' && ! $nl2br ? nl2br( $value ) : $value;
 	}
-=======
-	public function allow_html(){
-		return true;
-	}
->>>>>>> origin/master
 }
 
 GF_Fields::register( new GF_Field_Post_Content() );

@@ -10,11 +10,7 @@ class GF_Field_Product extends GF_Field {
 	public $type = 'product';
 
 	public function get_form_editor_field_title() {
-<<<<<<< HEAD
 		return esc_attr__( 'Product', 'gravityforms' );
-=======
-		return __( 'Product', 'gravityforms' );
->>>>>>> origin/master
 	}
 
 	function get_form_editor_field_settings() {

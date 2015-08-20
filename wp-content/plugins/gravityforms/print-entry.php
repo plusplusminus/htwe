@@ -68,20 +68,13 @@ $page_break = rgget( 'page_break' ) ? 'print-page-break' : false;
 sort( $lead_ids );
 
 if ( empty( $form_id ) || empty( $lead_ids ) ) {
-<<<<<<< HEAD
 	die( esc_html__( 'Form Id and Lead Id are required parameters.', 'gravityforms' ) );
-=======
-	die( __( 'Form Id and Lead Id are required parameters.', 'gravityforms' ) );
->>>>>>> origin/master
 }
 
 $form = RGFormsModel::get_form_meta( $form_id );
 
-<<<<<<< HEAD
 $min = defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG || isset( $_GET['gform_debug'] ) ? '' : '.min';
 
-=======
->>>>>>> origin/master
 ?>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
@@ -96,17 +89,10 @@ $min = defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG || isset( $_GET['gform_debug'] 
 	<meta http-equiv="Imagetoolbar" content="No" />
 	<title>
 		Print Preview :
-<<<<<<< HEAD
 		<?php echo esc_html( $form['title'] ) ?> :
 		<?php echo count( $lead_ids ) > 1 ? esc_html__( 'Entry # ', 'gravityforms' ) . $lead_ids[0] : esc_html__( 'Bulk Print', 'gravityforms' ); ?>
 	</title>
 	<link rel='stylesheet' href='<?php echo GFCommon::get_base_url() ?>/css/print<?php echo $min; ?>.css' type='text/css' />
-=======
-		<?php echo $form['title'] ?> :
-		<?php echo count( $lead_ids ) > 1 ? __( 'Entry # ', 'gravityforms' ) . $lead_ids[0] : 'Bulk Print' ?>
-	</title>
-	<link rel='stylesheet' href='<?php echo GFCommon::get_base_url() ?>/css/print.css' type='text/css' />
->>>>>>> origin/master
 <?php
 $styles = apply_filters( 'gform_print_styles', false, $form );
 if ( ! empty( $styles ) ) {
@@ -120,11 +106,7 @@ if ( ! empty( $styles ) ) {
 
 <div id="print_preview_hdr" style="display:none">
 	<div>
-<<<<<<< HEAD
 		<span class="actionlinks"><a href="javascript:;" onclick="window.print();" class="header-print-link">print this page</a> | <a href="javascript:window.close()" class="close_window"><?php esc_html_e( 'close window', 'gravityforms' ) ?></a></span><?php esc_html_e( 'Print Preview', 'gravityforms' ) ?>
-=======
-		<span class="actionlinks"><a href="javascript:;" onclick="window.print();" class="header-print-link">print this page</a> | <a href="javascript:window.close()" class="close_window"><?php _e( 'close window', 'gravityforms' ) ?></a></span><?php _e( 'Print Preview', 'gravityforms' ) ?>
->>>>>>> origin/master
 	</div>
 </div>
 <div id="view-container">
@@ -138,7 +120,6 @@ foreach ( $lead_ids as $lead_id ) {
 
 	do_action( 'gform_print_entry_header', $form, $lead );
 
-<<<<<<< HEAD
 	// Separate each entry inside a form element so radio buttons don't get treated as a single group across multiple entries.
 	echo '<form>';
 
@@ -146,10 +127,6 @@ foreach ( $lead_ids as $lead_id ) {
 
 	echo '</form>';
 
-=======
-	GFEntryDetail::lead_detail_grid( $form, $lead );
-
->>>>>>> origin/master
 	if ( rgget( 'notes' ) ) {
 		$notes = RGFormsModel::get_lead_notes( $lead['id'] );
 		if ( ! empty( $notes ) ) {

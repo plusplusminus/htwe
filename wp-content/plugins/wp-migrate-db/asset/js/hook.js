@@ -1,8 +1,4 @@
-<<<<<<< HEAD
 (function( $ ) {
-=======
-(function($) {
->>>>>>> origin/master
 
 	$.wpmdb = {
 		/**
@@ -29,7 +25,6 @@
 			jQuery.wpmdb.remove_hook( 'filter', action, tag );
 		},
 		add_hook: function( hook_type, action, callable, tag ) {
-<<<<<<< HEAD
 			if ( undefined === jQuery.wpmdb.hooks[hook_type][action] ) {
 				jQuery.wpmdb.hooks[hook_type][action] = [];
 			}
@@ -51,34 +46,10 @@
 				}
 			}
 			if ( 'filter' === hook_type ) {
-=======
-			if ( undefined == jQuery.wpmdb.hooks[hook_type][action] ) {
-				jQuery.wpmdb.hooks[hook_type][action] = [];
-			}
-			var hooks = jQuery.wpmdb.hooks[hook_type][action];
-			if ( undefined == tag ) {
-				tag = action + '_' + hooks.length;
-			}
-			jQuery.wpmdb.hooks[hook_type][action].push( { tag:tag, callable:callable } );
-		},
-		do_hook: function( hook_type, action, value, args ) {
-			if ( undefined != jQuery.wpmdb.hooks[hook_type][action] ) {
-				var hooks = jQuery.wpmdb.hooks[hook_type][action];
-				for( var i=0; i<hooks.length; i++) {
-					if ( 'action'==hook_type ) {
-						hooks[i].callable(args);
-					} else {
-						value = hooks[i].callable(value, args);
-					}
-				}
-			}
-			if ( 'filter'==hook_type ) {
->>>>>>> origin/master
 				return value;
 			}
 		},
 		remove_hook: function( hook_type, action, tag ) {
-<<<<<<< HEAD
 			if ( undefined !== jQuery.wpmdb.hooks[hook_type][action] ) {
 				var hooks = jQuery.wpmdb.hooks[hook_type][action];
 				for ( var i = hooks.length - 1; 0 < i; i-- ) {
@@ -91,16 +62,3 @@
 	};
 
 })( jQuery );
-=======
-			if ( undefined != jQuery.wpmdb.hooks[hook_type][action] ) {
-				var hooks = jQuery.wpmdb.hooks[hook_type][action];
-				for( var i=hooks.length-1; i>=0; i--) {
-					if (undefined==tag||tag==hooks[i].tag)
-						hooks.splice(i,1);
-					}
-			}
-		}
-	}
-
-})(jQuery);
->>>>>>> origin/master

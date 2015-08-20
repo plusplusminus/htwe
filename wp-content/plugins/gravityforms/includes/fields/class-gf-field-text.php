@@ -10,11 +10,7 @@ class GF_Field_Text extends GF_Field {
 	public $type = 'text';
 
 	public function get_form_editor_field_title() {
-<<<<<<< HEAD
 		return esc_attr__( 'Single Line Text', 'gravityforms' );
-=======
-		return __( 'Single Line Text', 'gravityforms' );
->>>>>>> origin/master
 	}
 
 	function get_form_editor_field_settings() {
@@ -39,20 +35,12 @@ class GF_Field_Text extends GF_Field {
 		);
 	}
 
-<<<<<<< HEAD
 	public function is_conditional_logic_supported() {
-=======
-	public function is_conditional_logic_supported(){
->>>>>>> origin/master
 		return true;
 	}
 
 	public function get_field_input( $form, $value = '', $entry = null ) {
-<<<<<<< HEAD
 		$form_id         = absint( $form['id'] );
-=======
-		$form_id         = $form['id'];
->>>>>>> origin/master
 		$is_entry_detail = $this->is_entry_detail();
 		$is_form_editor  = $this->is_form_editor();
 
@@ -82,13 +70,8 @@ class GF_Field_Text extends GF_Field {
 		return sprintf( "<div class='ginput_container'>%s</div>", $input );
 	}
 
-<<<<<<< HEAD
 	public function allow_html() {
 		return in_array( $this->type, array( 'post_custom_field', 'post_tags' ) ) ? true : false;
-=======
-	public function allow_html(){
-		return in_array( $this->type, array( 'post_custom_field', 'post_tags' )  ) ? true : false;
->>>>>>> origin/master
 	}
 }
 

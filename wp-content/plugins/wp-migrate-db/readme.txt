@@ -3,24 +3,16 @@ Contributors: bradt
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=5VPMGLLK94XJC
 Tags: database, migrate, backup, mysql
 Requires at least: 3.0
-<<<<<<< HEAD
 Tested up to: 4.3
 Stable tag: 0.7.1
-=======
-Tested up to: 4.2
-Stable tag: 0.6.1
->>>>>>> origin/master
 License: GPLv2
 
 Exports your database, does a find and replace on URLs and file paths, then allows you to save it to your computer.
 
 == Description ==
 
-<<<<<<< HEAD
 https://www.youtube.com/watch?v=m8oScnEK5y0
 
-=======
->>>>>>> origin/master
 WP Migrate DB exports your database as a MySQL data dump (much like phpMyAdmin), does a find and replace on URLs and file paths, then allows you to save it to your computer. It is perfect for developers who need to update their local install with fresh data from the production site, or copy their locally developed site to a staging or production server.
 
 It even takes into account serialized data (both arrays and objects) and updates the string length values.
@@ -29,7 +21,6 @@ Example: <code>s:5:"hello"</code> becomes <code>s:11:"hello world"</code>
 
 **PRO Version with Email Support and More Features**
 
-<<<<<<< HEAD
 * Push and pull your databases
 * Find & replace that handles serialized data
 * Backups
@@ -48,21 +39,6 @@ Example: <code>s:5:"hello"</code> becomes <code>s:11:"hello world"</code>
 See the video below or [visit the web site](http://deliciousbrains.com/wp-migrate-db-pro/?utm_source=wordpress.org&utm_medium=web&utm_content=desc&utm_campaign=freeplugin) to learn more about the pro version.
 
 https://www.youtube.com/watch?v=fHFcH4bCzmU
-=======
-* Select the tables you want to migrate
-* Pull production db down and replace local db
-* Push local db up and replace production/staging db
-* Multisite support
-* Video walkthroughs and howtos
-* Media files migration
-* Fire migrations from the command line or via a function call
-* More frequent bug fixes and improvements
-* And more features on the way!
-
-See the video below or [visit the web site](http://deliciousbrains.com/wp-migrate-db-pro/?utm_source=wordpressorg&utm_medium=web&utm_content=faq&utm_campaign=freeplugin) to learn more about the pro version.
-
-http://www.youtube.com/watch?v=IFdHIpf6jjc
->>>>>>> origin/master
 
 == Installation ==
 
@@ -73,19 +49,11 @@ http://www.youtube.com/watch?v=IFdHIpf6jjc
 
 = Does this plugin support multisite? =
 
-<<<<<<< HEAD
 Yes, in a limited capacity. The Developer license of the [pro version](http://deliciousbrains.com/wp-migrate-db-pro/?utm_source=wordpress.org&utm_medium=web&utm_content=faq&utm_campaign=freeplugin) fully supports multisite.
 
 = Does the plugin migrate files as well? =
 
 No, it only operates on the database. The pro version's [Media Files addon](https://deliciousbrains.com/wp-migrate-db-pro/doc/media-files-addon/?utm_source=wordpress.org&utm_medium=web&utm_content=faq&utm_campaign=freeplugin) allows you to migrate media files.
-=======
-Yes, in a limited capacity. The Developer license of the [pro version](http://deliciousbrains.com/wp-migrate-db-pro/?utm_source=wordpressorg&utm_medium=web&utm_content=faq&utm_campaign=freeplugin) fully supports multisite.
-
-= Does the plugin migrate files as well? =
-
-No, it only operates on the database.
->>>>>>> origin/master
 
 = Why do I end up with a wp-login.php download instead of the exported SQL file? =
 
@@ -99,7 +67,6 @@ It is likely you have a download manager plugin or extension installed in your w
 
 == Changelog ==
 
-<<<<<<< HEAD
 = 0.7.1 - 2015-07-09 =
 
 * Improvement: Added more diagnostic info to facilitate debugging
@@ -135,8 +102,6 @@ It is likely you have a download manager plugin or extension installed in your w
 * Bug fix: Custom post type links broken after migration with Compatibility Mode enabled
 * Bug fix: Saving a new profile does not change the URL to that saved profile URL
 
-=======
->>>>>>> origin/master
 = 0.6.1 - 2014-10-29 =
 * New: breadcrumb-style UI for saved profiles
 * New: Brazilian Portugese translation
@@ -189,11 +154,7 @@ It is likely you have a download manager plugin or extension installed in your w
 * Bug fix: [Find & replace is case-sensitive but shouldn't](https://github.com/bradt/wp-migrate-db/issues/13)
 
 = 0.4.4 - 2013-05-19 =
-<<<<<<< HEAD
 * [Pro version has arrived!](http://deliciousbrains.com/wp-migrate-db-pro/?utm_source=wordpress.org&utm_medium=web&utm_content=changelog&utm_campaign=freeplugin) Added some info to the sidebar.
-=======
-* [Pro version has arrived!](http://deliciousbrains.com/wp-migrate-db-pro/?utm_source=wordpressorg&utm_medium=web&utm_content=changelog&utm_campaign=freeplugin) Added some info to the sidebar.
->>>>>>> origin/master
 * Updated required version to WordPress 3.0+
 * Bug fix: [Does not handle serialized objects](https://github.com/bradt/wp-migrate-db/issues/11)
 * Bug fix: [Admin menu disappears when DISALLOW_FILE_MODS is true](https://github.com/bradt/wp-migrate-db/issues/8)

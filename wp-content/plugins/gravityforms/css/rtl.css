@@ -405,13 +405,10 @@ html[dir="rtl"] div#preview_hdr div:first-child {
 	padding-right: 26px !important;
 }
 
-<<<<<<< HEAD
 html[dir="rtl"] .gform_wrapper .gf_invisible {
     left: auto; right: -9999px;
 }
 
-=======
->>>>>>> origin/master
 /* Admin RTL support ----------------------------------------------------*/
 
 html[dir="rtl"] body.wp-admin  * {

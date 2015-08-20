@@ -1,8 +1,4 @@
-<<<<<<< HEAD
 <div class="option-section slider-outer-wrapper max-request-size">
-=======
-<div class="option-section slider-outer-wrapper">
->>>>>>> origin/master
 	<div class="clearfix slider-label-wrapper">
 		<div class="slider-label"><span><?php _e( 'Maximum Request Size', 'wp-migrate-db' ); ?></span>
 			<a class="general-helper slider-helper js-action-link" href="#"></a>

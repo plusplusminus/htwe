@@ -31,13 +31,8 @@
 		<link href='http://fonts.googleapis.com/css?family=Nothing+You+Could+Do' rel='stylesheet' type='text/css'>
 		<link rel="pingback" href="<?php bloginfo('pingback_url'); ?>">
 
-<<<<<<< HEAD
 		<script src="//use.typekit.net/ncr8xos.js"></script>
 		<script>try{Typekit.load({ async: true });}catch(e){}</script>
-=======
-		<script src="//use.typekit.net/qub1zxv.js"></script>
-		<script>try{Typekit.load();}catch(e){}</script>
->>>>>>> origin/master
 		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/3.9.3/lodash.min.js"></script>
 
 		<?php // wordpress head functions ?>
@@ -70,7 +65,7 @@
 	    		</div>
 	    		<div class="top_social">
 					<ul class="social_menu">
-						<li class="social_menu--title">Get in Touch</li>
+						<li class="social_menu--title"><a href="<?php echo $tpb_options['contact_url'];?>">Get in Touch</a></li>
 						<li class="social_menu--item"><a href="<?php echo $tpb_options['twitter_url'];?>"><span class="fa fa-twitter"></span></a></li>
 						<li class="social_menu--item"><a href="<?php echo $tpb_options['facebook_url'];?>"><span class="fa fa-facebook"></span></a></li>
 						<li class="social_menu--item"><a href="<?php echo $tpb_options['instagram_url'];?>"><span class="fa fa-instagram"></span></a></li>
@@ -78,7 +73,21 @@
 					</ul>
 	    		</div>
 	    		<div class="top_search">
-	    			<button class="btn btn-default"><span class="fa fa-search"></span></button>
+	    			<form>
+
+		<p class="expandSearch">
+			<input type="text" placeholder="Search" />
+			<a href="#">
+				<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="20px" height="20px" viewBox="375.045 607.885 30.959 30.33" enable-background="new 375.045 607.885 30.959 30.33" xml:space="preserve">
+					<path fill="#fff" d="M405.047,633.805l-7.007-6.542c-0.129-0.121-0.267-0.226-0.408-0.319c1.277-1.939,2.025-4.258,2.025-6.753 c0-6.796-5.51-12.306-12.307-12.306s-12.306,5.51-12.306,12.306s5.509,12.306,12.306,12.306c2.565,0,4.945-0.786,6.916-2.128 c0.122,0.172,0.257,0.337,0.418,0.488l7.006,6.542c1.122,1.048,2.783,1.093,3.709,0.101 C406.327,636.507,406.169,634.853,405.047,633.805z M387.351,629.051c-4.893,0-8.86-3.967-8.86-8.86s3.967-8.86,8.86-8.86 s8.86,3.967,8.86,8.86S392.244,629.051,387.351,629.051z"/>
+				</svg>
+			</a>
+		</p>
+
+		<div class="clearfix"></div>
+
+	</form>
+	    			
 	    		</div>
 	    		<div class="clearfix"></div>
 	    	</nav>
@@ -87,7 +96,6 @@
 	        	<?php bones_main_nav(); ?> 
 	        </nav>
 
-<<<<<<< HEAD
 	        <?php if ( function_exists('custom_breadcrumb') ) { ?>
     			<div class="breadcrumbs container-fluid">
     				<div class="row">	
@@ -97,8 +105,6 @@
   					</div>
   				</div>
   			<?php }?>
-=======
->>>>>>> origin/master
 		</header> <?php // end header ?>
 
 

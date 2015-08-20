@@ -128,10 +128,7 @@
             $select.siblings(".gform-filter-value").replaceWith(getFilterValues(filter, operatorSelect.value));
         }
         setDisabledFields();
-<<<<<<< HEAD
         if(window['gformInitDatepicker']) {gformInitDatepicker();}
-=======
->>>>>>> origin/master
     }
 
     function changeField (fieldSelect) {
@@ -169,7 +166,6 @@
     }
 
     function getFilterValues (filter, selectedOperator) {
-<<<<<<< HEAD
         var i, val, text, str, options = "", placeholder, cssClass;
         cssClass = 'gform-filter-value';
 
@@ -183,27 +179,16 @@
                 options += '<option value="">{0}</option>'.format(filter.placeholder);
             }
 
-=======
-        var i, val, text, str, options = "";
-
-        if ( filter && filter.values && selectedOperator != 'contains' ) {
->>>>>>> origin/master
             for (i = 0; i < filter.values.length; i++) {
                 val = filter.values[i].value;
                 text = filter.values[i].text;
                 options += '<option value="{0}">{1}</option>'.format(val, text);
             }
-<<<<<<< HEAD
             str = "<select name='v[]' class='{0}'>{1}</select>".format(cssClass, options);
         } else {
             placeholder = ( filter && typeof filter.placeholder != 'undefined' ) ? "placeholder='{0}'".format(filter.placeholder) : '';
 
             str = "<input type='text' value='' name='v[]' class='{0}' {1}/>".format(cssClass, placeholder);
-=======
-            str = "<select name='v[]' class='gform-filter-value'>{0}</select>".format(options);
-        } else {
-            str = "<input type='text' value='' name='v[]' class='gform-filter-value' />";
->>>>>>> origin/master
         }
 
         return str;

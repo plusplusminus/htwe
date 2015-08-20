@@ -29,19 +29,12 @@ class GFAPI {
 	 *
 	 * @param int $form_id The ID of the Form
 	 *
-<<<<<<< HEAD
 	 * @return mixed The form meta array or false
 	 */
 	public static function get_form( $form_id ) {
 
 		$form_id = absint( $form_id );
 
-=======
-	 * @return mixed The form meta array or a WP_Error instance
-	 */
-	public static function get_form( $form_id ) {
-
->>>>>>> origin/master
 		$form = GFFormsModel::get_form_meta( $form_id );
 		if ( ! $form ) {
 			return false;
@@ -190,35 +183,22 @@ class GFAPI {
 
 		// Strip confirmations and notifications
 		$form_display_meta = $form;
-<<<<<<< HEAD
 		unset( $form_display_meta['confirmations'] );
 		unset( $form_display_meta['notifications'] );
-=======
-		unset($form_display_meta['confirmations']);
-		unset($form_display_meta['notifications']);
->>>>>>> origin/master
 
 		$result = GFFormsModel::update_form_meta( $form_id, $form_display_meta );
 		if ( false === $result ) {
 			return new WP_Error( 'error_updating_form', __( 'Error updating form', 'gravityforms' ), $wpdb->last_error );
 		}
 
-<<<<<<< HEAD
 		if ( isset( $form['confirmations'] ) && is_array( $form['confirmations'] ) ) {
-=======
-		if(isset($form['confirmations']) && is_array($form['confirmations'])){
->>>>>>> origin/master
 			$result = GFFormsModel::update_form_meta( $form_id, $form['confirmations'], 'confirmations' );
 			if ( false === $result ) {
 				return new WP_Error( 'error_updating_confirmations', __( 'Error updating form confirmations', 'gravityforms' ), $wpdb->last_error );
 			}
 		}
 
-<<<<<<< HEAD
 		if ( isset( $form['notifications'] ) && is_array( $form['notifications'] ) ) {
-=======
-		if(isset($form['notifications']) && is_array($form['notifications'])){
->>>>>>> origin/master
 			$result = GFFormsModel::update_form_meta( $form_id, $form['notifications'], 'notifications' );
 			if ( false === $result ) {
 				return new WP_Error( 'error_updating_notifications', __( 'Error updating form notifications', 'gravityforms' ), $wpdb->last_error );
@@ -621,10 +601,7 @@ class GFAPI {
 			return new WP_Error( 'invalid_form_id', __( 'The form for this entry does not exist', 'gravityforms' ) );
 		}
 
-<<<<<<< HEAD
 
-=======
->>>>>>> origin/master
 		$entry = apply_filters( 'gform_entry_pre_update', $entry, $original_entry );
 
 		// use values in the entry object if present
@@ -691,12 +668,9 @@ class GFAPI {
 		$current_fields    = $wpdb->get_results( $wpdb->prepare( "SELECT id, field_number FROM $lead_detail_table WHERE lead_id=%d", $entry_id ) );
 
 		$form = GFFormsModel::get_form_meta( $form_id );
-<<<<<<< HEAD
 
 		$form = gf_apply_filters( 'gform_form_pre_update_entry', $form_id, $form, $entry, $entry_id );
 
-=======
->>>>>>> origin/master
 		foreach ( $form['fields'] as $field ) {
 			/* @var GF_Field $field */
 			$type = GFFormsModel::get_input_type( $field );
@@ -719,13 +693,8 @@ class GFAPI {
 					}
 				}
 			} else {
-<<<<<<< HEAD
 				$field_id    = $field->id;
 				$field_value = isset( $entry[ (string) $field_id ] ) ? $entry[ (string) $field_id ] : '';
-=======
-				$field_id       = $field->id;
-				$field_value    = isset( $entry[ (string) $field_id ] ) ? $entry[ (string) $field_id ] : '';
->>>>>>> origin/master
 				if ( $field_value != $current_entry[ $field_id ] ) {
 					$lead_detail_id = GFFormsModel::get_lead_detail_id( $current_fields, $field_id );
 					$result         = GFFormsModel::update_lead_field_value( $form, $entry, $field, $lead_detail_id, $field_id, $field_value );
@@ -770,7 +739,6 @@ class GFAPI {
 			}
 		}
 
-<<<<<<< HEAD
 		/**
 		 * Fires after the Entry is updated.
 		 *
@@ -778,9 +746,6 @@ class GFAPI {
 		 * @param array $original_entry The entry object before being updated.
 		 */
 		gf_do_action( 'gform_post_update_entry', $form_id, $entry, $original_entry );
-=======
-		do_action( 'gform_post_update_entry', $entry, $original_entry );
->>>>>>> origin/master
 
 		return true;
 	}
@@ -893,11 +858,7 @@ class GFAPI {
 		if ( is_array( $entry_meta ) ) {
 			foreach ( array_keys( $entry_meta ) as $key ) {
 				if ( isset( $entry[ $key ] ) ) {
-<<<<<<< HEAD
 					gform_update_meta( $entry_id, $key, $entry[ $key ], $form['id'] );
-=======
-					gform_update_meta( $entry_id, $key, $entry[ $key ] );
->>>>>>> origin/master
 				}
 			}
 		}
@@ -975,16 +936,12 @@ class GFAPI {
 
 		$field = GFFormsModel::get_field( $form, $input_id );
 
-<<<<<<< HEAD
 		$input_id_min = (float) $input_id - 0.0001;
 		$input_id_max = (float) $input_id + 0.0001;
 
 		$lead_details_table_name = GFFormsModel::get_lead_details_table_name();
 
 		$lead_detail_id = $wpdb->get_var( $wpdb->prepare( "SELECT id FROM {$lead_details_table_name} WHERE lead_id=%d AND field_number BETWEEN %s AND %s", $entry_id, $input_id_min, $input_id_max ) );
-=======
-		$lead_detail_id = $wpdb->get_var( $wpdb->prepare( "SELECT id FROM {$wpdb->prefix}rg_lead_detail WHERE lead_id=%d AND CAST(field_number as DECIMAL(4,2))=%s", $entry_id, $input_id ) );
->>>>>>> origin/master
 
 		$result = true;
 		if ( ! isset( $entry[ $input_id ] ) || $entry[ $input_id ] != $value ){
@@ -1041,7 +998,6 @@ class GFAPI {
 	 *
 	 * @return array An array containing the result of the submission.
 	 */
-<<<<<<< HEAD
 	public static function submit_form( $form_id, $input_values, $field_values = array(), $target_page = 0, $source_page = 1 ) {
 		$form_id = absint( $form_id );
 		$form    = GFAPI::get_form( $form_id );
@@ -1055,15 +1011,6 @@ class GFAPI {
 		$input_values[ 'gform_target_page_number_' . $form_id ] = absint( $target_page );
 		$input_values[ 'gform_source_page_number_' . $form_id ] = absint( $source_page );
 		$input_values['gform_field_values']                     = $field_values;
-=======
-	public static function submit_form($form_id, $input_values, $field_values = array(), $target_page = 0, $source_page = 1){
-		$form_id = absint( $form_id );
-		$input_values[ 'is_submit_' . $form_id ] = true;
-		$input_values['gform_submit'] = $form_id;
-		$input_values[ 'gform_target_page_number_' . $form_id ] = absint( $target_page );
-		$input_values[ 'gform_source_page_number_' . $form_id ] = absint( $source_page );
-		$input_values['gform_field_values'] = $field_values;
->>>>>>> origin/master
 
 		require_once(GFCommon::get_base_path() . '/form_display.php');
 
@@ -1079,13 +1026,10 @@ class GFAPI {
 			return new WP_Error( 'error_processing_form', __( 'There was an error while processing the form:', 'gravityforms' ) . ' ' . $ex->getCode() . ' ' . $ex->getMessage() );
 		}
 
-<<<<<<< HEAD
 		if ( empty( GFFormDisplay::$submission ) ) {
 			return new WP_Error( 'error_processing_form', __( 'There was an error while processing the form:', 'gravityforms' ) );
 		}
 
-=======
->>>>>>> origin/master
 		$submissions_array = GFFormDisplay::$submission;
 
 		$submission_details = $submissions_array[ $form_id ];
@@ -1104,13 +1048,8 @@ class GFAPI {
 			$result['validation_messages'] = $validation_messages;
 		}
 
-<<<<<<< HEAD
 		$result['page_number']          = $submission_details['page_number'];
 		$result['source_page_number']   = $submission_details['source_page_number'];
-=======
-		$result['page_number'] = $submission_details['page_number'];
-		$result['source_page_number'] = $submission_details['source_page_number'];
->>>>>>> origin/master
 		$result['confirmation_message'] = $submission_details['confirmation_message'];
 
 		if ( isset( $submission_details['resume_token'] ) ) {
@@ -1279,12 +1218,8 @@ class GFAPI {
 			return array();
 		}
 
-<<<<<<< HEAD
 		$entry_id = rgar( $entry, 'id' );
 		GFCommon::log_debug( "GFAPI::send_notifications(): Gathering notifications for {$event} event for entry #{$entry_id}." );
-=======
-		GFCommon::log_debug( "GFAPI::send_notifications(): Gathering notifications for {$event} event." );
->>>>>>> origin/master
 
 		$notifications_to_send = array();
 
@@ -1295,30 +1230,18 @@ class GFAPI {
 			}
 
 			if ( $event == 'form_submission' ) {
-<<<<<<< HEAD
 				if ( rgar( $notification, 'type' ) == 'user' && gf_apply_filters( 'gform_disable_user_notification', $form['id'], false, $form, $entry ) ) {
 					GFCommon::log_debug( "GFAPI::send_notifications(): Notification is disabled by gform_disable_user_notification hook, not including notification (#{$notification['id']} - {$notification['name']})." );
 					//skip user notification if it has been disabled by a hook
 					continue;
 				} elseif ( rgar( $notification, 'type' ) == 'admin' && gf_apply_filters( 'gform_disable_admin_notification', $form['id'], false, $form, $entry ) ) {
-=======
-				if ( rgar( $notification, 'type' ) == 'user' && apply_filters( "gform_disable_user_notification_{$form['id']}", apply_filters( 'gform_disable_user_notification', false, $form, $entry ), $form, $entry ) ) {
-					GFCommon::log_debug( "GFAPI::send_notifications(): Notification is disabled by gform_disable_user_notification hook, not including notification (#{$notification['id']} - {$notification['name']})." );
-					//skip user notification if it has been disabled by a hook
-					continue;
-				} else if ( rgar( $notification, 'type' ) == 'admin' && apply_filters( "gform_disable_admin_notification_{$form['id']}", apply_filters( 'gform_disable_admin_notification', false, $form, $entry ), $form, $entry ) ) {
->>>>>>> origin/master
 					GFCommon::log_debug( "GFAPI::send_notifications(): Notification is disabled by gform_disable_admin_notification hook, not including notification (#{$notification['id']} - {$notification['name']})." );
 					//skip admin notification if it has been disabled by a hook
 					continue;
 				}
 			}
 
-<<<<<<< HEAD
 			if ( gf_apply_filters( 'gform_disable_notification', $form['id'], false, $notification, $form, $entry ) ) {
-=======
-			if ( apply_filters( "gform_disable_notification_{$form['id']}", apply_filters( 'gform_disable_notification', false, $notification, $form, $entry ), $notification, $form, $entry ) ) {
->>>>>>> origin/master
 				GFCommon::log_debug( "GFAPI::send_notifications(): Notification is disabled by gform_disable_notification hook, not including notification (#{$notification['id']} - {$notification['name']})." );
 				//skip notifications if it has been disabled by a hook
 				continue;
@@ -1348,7 +1271,6 @@ class GFAPI {
 		return GFCommon::current_user_can_any( $capabilities );
 	}
 
-<<<<<<< HEAD
 	// FIELDS -----------------------------------------------------
 
 	/**
@@ -1365,9 +1287,6 @@ class GFAPI {
 	public static function get_fields_by_type( $form, $types, $use_input_type = false ) {
 		return GFFormsModel::get_fields_by_type( $form, $types, $use_input_type );
 	}
-=======
-
->>>>>>> origin/master
 
 	// HELPERS ----------------------------------------------------
 

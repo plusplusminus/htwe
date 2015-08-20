@@ -19,11 +19,8 @@ class GF_Field extends stdClass implements ArrayAccess {
 
 	private static $deprecation_notice_fired = false;
 
-<<<<<<< HEAD
 	private $_is_entry_detail = null;
 
-=======
->>>>>>> origin/master
 	public function __construct( $data = array() ) {
 		if ( empty( $data ) ) {
 			return;
@@ -130,11 +127,7 @@ class GF_Field extends stdClass implements ArrayAccess {
 		return $value;
 	}
 
-<<<<<<< HEAD
 	public function get_value_merge_tag( $value, $input_id, $entry, $form, $modifier, $raw_value, $url_encode, $esc_html, $format, $nl2br ) {
-=======
-	public function get_value_merge_tag( $value, $input_id, $entry, $form, $modifier, $raw_value, $url_encode, $esc_html, $format ) {
->>>>>>> origin/master
 		return $value;
 	}
 
@@ -240,7 +233,6 @@ class GF_Field extends stdClass implements ArrayAccess {
 			'shipping',
 			'creditcard'
 		);
-<<<<<<< HEAD
 		$duplicate_field_link = ! in_array( $this->type, $duplicate_disabled ) ? "<a class='field_duplicate_icon' id='gfield_duplicate_{$this->id}' title='" . esc_attr__( 'click to duplicate this field', 'gravityforms' ) . "' href='#' onclick='StartDuplicateField(this); return false;'><i class='fa fa-files-o fa-lg'></i></a>" : '';
 
 		/**
@@ -259,24 +251,12 @@ class GF_Field extends stdClass implements ArrayAccess {
 		 */
 		$delete_field_link = apply_filters( 'gform_delete_field_link', $delete_field_link );
 		$field_type_title  = esc_html( GFCommon::get_field_type_title( $this->type ) );
-=======
-		$duplicate_field_link = ! in_array( $this->type, $duplicate_disabled ) ? "<a class='field_duplicate_icon' id='gfield_duplicate_{$this->id}' title='" . __( 'click to duplicate this field', 'gravityforms' ) . "' href='#' onclick='StartDuplicateField(this); return false;'><i class='fa fa-files-o fa-lg'></i></a>" : '';
-		$duplicate_field_link = apply_filters( 'gform_duplicate_field_link', $duplicate_field_link );
-
-		$delete_field_link = "<a class='field_delete_icon' id='gfield_delete_{$this->id}' title='" . __( 'click to delete this field', 'gravityforms' ) . "' href='#' onclick='StartDeleteField(this); return false;'><i class='fa fa-times fa-lg'></i></a>";
-		$delete_field_link = apply_filters( 'gform_delete_field_link', $delete_field_link );
-		$field_type_title  = GFCommon::get_field_type_title( $this->type );
->>>>>>> origin/master
 
 		$is_form_editor  = $this->is_form_editor();
 		$is_entry_detail = $this->is_entry_detail();
 		$is_admin        = $is_form_editor || $is_entry_detail;
 
-<<<<<<< HEAD
 		$admin_buttons = $is_admin ? "<div class='gfield_admin_icons'><div class='gfield_admin_header_title'>{$field_type_title} : " . esc_html__( 'Field ID', 'gravityforms' ) . " {$this->id}</div>" . $delete_field_link . $duplicate_field_link . "<a class='field_edit_icon edit_icon_collapsed' title='" . esc_attr__( 'click to expand and edit the options for this field', 'gravityforms' ) . "'><i class='fa fa-caret-down fa-lg'></i></a></div>" : '';
-=======
-		$admin_buttons = $is_admin ? "<div class='gfield_admin_icons'><div class='gfield_admin_header_title'>{$field_type_title} : " . __( 'Field ID', 'gravityforms' ) . " {$this->id}</div>" . $delete_field_link . $duplicate_field_link . "<a class='field_edit_icon edit_icon_collapsed' title='" . __( 'click to expand and edit the options for this field', 'gravityforms' ) . "'><i class='fa fa-caret-down fa-lg'></i></a></div>" : '';
->>>>>>> origin/master
 
 		return $admin_buttons;
 	}
@@ -301,11 +281,7 @@ class GF_Field extends stdClass implements ArrayAccess {
 			$value = GFFormsModel::maybe_trim_input( $value, $form_id, $this );
 
 			return $value;
-<<<<<<< HEAD
 		} elseif ( $this->allowsPrepopulate ) {
-=======
-		} else if ( $this->allowsPrepopulate ) {
->>>>>>> origin/master
 			return GFFormsModel::get_parameter_value( $custom_name, $field_values, $this );
 		}
 
@@ -361,11 +337,7 @@ class GF_Field extends stdClass implements ArrayAccess {
 				}
 
 				return false;
-<<<<<<< HEAD
 			} elseif ( $this->enablePrice ) {
-=======
-			} else if ( $this->enablePrice ) {
->>>>>>> origin/master
 				list( $label, $price ) = explode( '|', $value );
 				$is_empty = ( strlen( trim( $price ) ) <= 0 );
 
@@ -409,11 +381,7 @@ class GF_Field extends stdClass implements ArrayAccess {
 
 	public function has_calculation() {
 
-<<<<<<< HEAD
 		$type = $this->get_input_type();
-=======
-		$type =  GFFormsModel::get_input_type( $this );
->>>>>>> origin/master
 
 		if ( $type == 'number' ) {
 			return $this->enableCalculation && $this->calculationFormula;
@@ -538,11 +506,7 @@ class GF_Field extends stdClass implements ArrayAccess {
 	}
 
 	public function is_entry_detail() {
-<<<<<<< HEAD
 		return isset( $this->_is_entry_detail ) ? (bool) $this->_is_entry_detail : GFCommon::is_entry_detail();
-=======
-		return GFCommon::is_entry_detail();
->>>>>>> origin/master
 	}
 
 	public function is_entry_detail_edit() {
@@ -574,11 +538,7 @@ class GF_Field extends stdClass implements ArrayAccess {
 		//allow HTML for certain field types
 		$allow_html = $this->allow_html();
 
-<<<<<<< HEAD
 		$allowable_tags = gf_apply_filters( 'gform_allowable_tags', $form_id, $allow_html, $this, $form_id );
-=======
-		$allowable_tags = apply_filters( "gform_allowable_tags_{$form_id}", apply_filters( 'gform_allowable_tags', $allow_html, $this, $form_id ), $this, $form_id );
->>>>>>> origin/master
 
 
 		if ( $allowable_tags !== true ) {
@@ -592,7 +552,6 @@ class GF_Field extends stdClass implements ArrayAccess {
 			return $value;
 		}
 	}
-<<<<<<< HEAD
 
 	/**
 	 * Forces settings into expected values while saving the form object.
@@ -755,6 +714,4 @@ class GF_Field extends stdClass implements ArrayAccess {
 
 		return rgar( $entry, $input_id );
 	}
-=======
->>>>>>> origin/master
 }

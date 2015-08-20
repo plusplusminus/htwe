@@ -21,19 +21,11 @@ class GF_Field_Total extends GF_Field {
 	}
 
 	public function get_form_editor_field_title() {
-<<<<<<< HEAD
 		return esc_attr__( 'Total', 'gravityforms' );
 	}
 
 	public function get_field_input( $form, $value = '', $entry = null ) {
 		$form_id         = absint( $form['id'] );
-=======
-		return __( 'Total', 'gravityforms' );
-	}
-
-	public function get_field_input( $form, $value = '', $entry = null ) {
-		$form_id         = $form['id'];
->>>>>>> origin/master
 		$is_entry_detail = $this->is_entry_detail();
 		$is_form_editor  = $this->is_form_editor();
 
@@ -68,11 +60,7 @@ class GF_Field_Total extends GF_Field {
 		return GFCommon::to_money( $value, $entry['currency'] );
 	}
 
-<<<<<<< HEAD
 	public function get_value_merge_tag( $value, $input_id, $entry, $form, $modifier, $raw_value, $url_encode, $esc_html, $format, $nl2br ) {
-=======
-	public function get_value_merge_tag( $value, $input_id, $entry, $form, $modifier, $raw_value, $url_encode, $esc_html, $format ) {
->>>>>>> origin/master
 		$format_numeric = $modifier == 'price';
 
 		$value = $format_numeric ? GFCommon::to_number( $value ) : GFCommon::to_money( $value );

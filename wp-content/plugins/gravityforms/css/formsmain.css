@@ -239,7 +239,6 @@ html>body .entry ul, .gform_wrapper ul { text-indent: 0 }
 .gform_wrapper .left_label li.hidden_label input, .gform_wrapper .right_label li.hidden_label input { margin-left: 3.7% }
 .gform_wrapper .left_label li.gfield .gfield_password_strength, .gform_wrapper .right_label li.gfield .gfield_password_strength { margin-left: 30% }
 body .gform_wrapper label.gfield_label + div.ginput_container { margin-top: .375em }
-<<<<<<< HEAD
 
 .gform_wrapper .hidden_label .gfield_label {
 	clip: rect(1px, 1px, 1px, 1px);
@@ -252,18 +251,11 @@ body .gform_wrapper label.gfield_label + div.ginput_container { margin-top: .375
 .gfield.right_label, .gfield.left_label { padding-top: 10px }
 .gform_wrapper li.hidden_label input { margin-top: .75em }
 
-=======
-.gform_wrapper .hidden_label .gfield_label { display: none !important }
-.gfield.right_label, .gfield.left_label { padding-top: 10px }
-.gform_wrapper li.hidden_label input { margin-top: .75em }
-.gform_wrapper label.hidden_sub_label { display: none }
->>>>>>> origin/master
 .gform_wrapper .field_sublabel_hidden_label .ginput_complex.ginput_container input[type=text], .gform_wrapper .field_sublabel_hidden_label .ginput_complex.ginput_container select { margin-bottom: .75em }
 .gform_wrapper .left_label ul.gfield_checkbox, .gform_wrapper .right_label ul.gfield_checkbox, .gform_wrapper .left_label ul.gfield_radio, .gform_wrapper .right_label ul.gfield_radio {
     margin-left: 30% !important;
     overflow: hidden;
 }
-<<<<<<< HEAD
 
 .gform_wrapper label.screen-reader-text, .gform_wrapper label.hidden_sub_label {
  	clip: rect(1px, 1px, 1px, 1px);
@@ -273,8 +265,6 @@ body .gform_wrapper label.gfield_label + div.ginput_container { margin-top: .375
  	overflow: hidden;
  }
 
-=======
->>>>>>> origin/master
 .gform_wrapper .top_label input.small, .gform_wrapper .top_label select.small { width: 25% }
 .gform_wrapper .top_label input.medium, .gform_wrapper .top_label select.medium { width: 47.5% }
 .gform_wrapper .top_label input.large, .gform_wrapper .top_label select.large, .gform_wrapper .hidden_label input.large, .gform_wrapper .hidden_label select.large { width: 97.5% }
@@ -520,12 +510,9 @@ div.gf_page_steps+div.validation_error { margin-top: 1em }
     max-height: 1px !important;
     overflow: hidden;
 }
-<<<<<<< HEAD
 .gform_wrapper .gf_invisible {
     visibility: hidden; position: absolute; left: -9999px;
 }
-=======
->>>>>>> origin/master
 .gform_wrapper .ginput_full br, .gform_wrapper .ginput_left br, .gform_wrapper .ginput_right br { display: none !important }
 .gform_wrapper ul.gfield_checkbox li, .gform_wrapper ul.gfield_radio li { padding: 0 !important }
 .gform_wrapper ul.gfield_radio li input+input { margin-left: .25em }
@@ -1201,11 +1188,7 @@ body .gform_wrapper div.gform_body ul.gform_fields li.gfield.gfield_html dl dd {
 .gform_wrapper .chosen-rtl.chosen-container-single .chosen-single div b { background-position: 6px 2px }
 .gform_wrapper .chosen-rtl.chosen-container-single.chosen-with-drop .chosen-single div b { background-position: -12px 2px }
 @media only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min-resolution: 144dpi) {
-<<<<<<< HEAD
     .gform_wrapper .chosen-rtl .chosen-search input[type="text"], .gform_wrapper .chosen-container-single .chosen-single abbr, .gform_wrapper .chosen-container-single .chosen-single div b, .gform_wrapper .chosen-container-multi .chosen-choices .search-choice .search-choice-close, .gform_wrapper .chosen-container .chosen-results-scroll-down span, .gform_wrapper .chosen-container .chosen-results-scroll-up span {
-=======
-    .gform_wrapper .chosen-rtl .chosen-search input[type="text"], .gform_wrapper .chosen-container-single .chosen-single abbr, .gform_wrapper .chosen-container-single .chosen-single div b, .gform_wrapper .chosen-container-single .chosen-search input[type="text"], .gform_wrapper .chosen-container-multi .chosen-choices .search-choice .search-choice-close, .gform_wrapper .chosen-container .chosen-results-scroll-down span, .gform_wrapper .chosen-container .chosen-results-scroll-up span {
->>>>>>> origin/master
         background-image: url('../images/chosen-sprite-2x.png') !important;
         background-position: 0 0;
         background-size: 52px 37px !important;
@@ -1321,11 +1304,7 @@ body .gform_wrapper div.gform_body ul.gform_fields li.gfield.gfield_html dl dd {
 }
 .gform_wrapper .copy_values_option_container .copy_values_enabled { width: auto }
 .gform_wrapper li.field_sublabel_above .ginput_complex input[type=text] { margin-bottom: 1px }
-<<<<<<< HEAD
 .gform_wrapper .form_saved_message{
-=======
-.form_saved_message {
->>>>>>> origin/master
     margin: 1em 0 1em 0;
     width: 100%;
     font-size: 1em;
@@ -1337,15 +1316,11 @@ body .gform_wrapper div.gform_body ul.gform_fields li.gfield.gfield_html dl dd {
     -moz-border-radius: 2px;
     border-radius: 2px;
 }
-<<<<<<< HEAD
 .gform_wrapper .form_saved_message form{
     text-align: center;
 }
 
 .gform_wrapper .form_saved_message span:first-child {
-=======
-.form_saved_message span:first-child {
->>>>>>> origin/master
     display: block;
     padding: 2.5em 1em 2.5em 1em;
 }
@@ -1397,11 +1372,7 @@ body .gform_wrapper img.add_list_item, body .gform_wrapper img.delete_list_item 
     zoom: 1;
 }
 .gform_wrapper ul li.gfield.field_sublabel_above.field_description_below + li.gfield { margin-top: 1em }
-<<<<<<< HEAD
 .gform_wrapper li.gfield ul.gfield_radio li input[type="radio"] + input[type="text"] { width: 45.25% }
 .gform_wrapper table.recaptchatable {
     table-layout: auto;
 }
-=======
-.gform_wrapper li.gfield ul.gfield_radio li input[type="radio"] + input[type="text"] { width: 45.25% }
->>>>>>> origin/master

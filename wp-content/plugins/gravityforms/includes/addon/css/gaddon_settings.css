@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 .settings-field-map-table { }
 .settings-field-map-table thead th { font-weight: bold; }
 table.settings-field-map-table tbody td { padding: 0px 0px 8px 0px;}
@@ -31,13 +30,6 @@ table.settings-field-map-table tbody td { padding: 0px 0px 8px 0px;}
 	left: 171px;
 	top: 10px;
 }
-=======
-
-.settings-field-map-table { }
-.settings-field-map-table thead th { font-weight: bold; border-bottom: 1px solid #ccc; }
-.settings-field-map-table tbody td { border-bottom: 1px dotted #eee; }
-.settings-field-map-table select { max-width: 90%; }
->>>>>>> origin/master
 .gaddon-section .required { color: #f00; }
 .gaddon-setting-inline{
     display:inline;
@@ -49,7 +41,6 @@ table.settings-field-map-table tbody td { padding: 0px 0px 8px 0px;}
     list-style: decimal;
 }
 
-<<<<<<< HEAD
 .repeater-buttons .add-item { margin-right: 6px; }
 
 .mt-gaddon-editor {
@@ -62,6 +53,3 @@ table.settings-field-map-table tbody td { padding: 0px 0px 8px 0px;}
 .mt-gaddon-editor ~ .wp-editor-wrap {
 	margin-right: 23px;
 }
-=======
-.repeater-buttons .add-item { margin-right: 6px; }
->>>>>>> origin/master

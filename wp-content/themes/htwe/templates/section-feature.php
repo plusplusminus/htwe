@@ -1,7 +1,6 @@
 
 
 <?php
-<<<<<<< HEAD
 	global $post;
 	$query_args = array(
 		'post_type' => 'post', 
@@ -9,18 +8,6 @@
 		'tag' => 'home-feature'
 	);
 	query_posts( $query_args );
-=======
-// Exclude categories on the homepage.
-
-$query_args = array(
-	'post_type' => 'post', 
-	'posts_per_page' => 1,
-	'tag' => 'home-feature'
-);
-
-query_posts( $query_args );
-
->>>>>>> origin/master
 ?>
 
 <?php if ( have_posts() ) : ?>
@@ -29,16 +16,21 @@ query_posts( $query_args );
 			<?php while ( have_posts() ) : the_post(); ?>
 				<div class="home_featured">
 					<div class="featured_gallery">
-<<<<<<< HEAD
 						<a href="<?php the_permalink();?>" title="<?php the_title(); ?>">
 							<?php $groups = get_post_meta($post->ID,'featured_group',true);?>
 							<?php if (!empty($groups)) { ?>
+								<?php $count = 0; ?>
+								<?php foreach ($groups as $key => $group) : $count++; ?>
+									<?php $img_size = 'feature-sq'; ?>
+									<?php if ($count == 1) $img_size = 'feature-lg'; ?>	
 
-								<?php foreach ($groups as $key => $group) : ?>	
 									<?php $class = $group['featured_img_class'];?>
-									<?php $img = $group['featured_img'];?>
+									
+									<?php $img_id = $group['featured_img_id'];?>
+									<?php $image = wp_get_attachment_image_src( $img_id, $img_size); ?>
+
 									<div class="item <?php echo $class; ?>">
-										<img src="<?php echo $img; ?>" class="img-responsive">
+										<img src="<?php echo $image[0]; ?>" class="img-responsive">
 									</div>
 								<?php endforeach;
 								
@@ -49,17 +41,6 @@ query_posts( $query_args );
 							} ?>
 
 						</a>
-=======
-						<div class="item q10">
-							<img width="992" height="506" src="http://localhost/htwe/wp-content/uploads/2015/06/homepage-11.jpg" class="img-responsive wp-post-image" alt="Screen Shot 2015-06-23 at 1.37.58 PM">
-						</div>
-						<div class="item q8">
-							<img width="992" height="506" src="http://localhost/htwe/wp-content/uploads/2015/06/homepage-11.jpg" class="img-responsive wp-post-image" alt="Screen Shot 2015-06-23 at 1.37.58 PM">
-						</div>
-						<div class="item q11">
-							<img width="992" height="506" src="http://localhost/htwe/wp-content/uploads/2015/06/homepage-11.jpg" class="img-responsive wp-post-image" alt="Screen Shot 2015-06-23 at 1.37.58 PM">
-						</div>
->>>>>>> origin/master
 					</div>
 					<div class="featured_content">
 						<div class="content_meta">

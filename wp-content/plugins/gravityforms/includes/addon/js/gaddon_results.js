@@ -25,7 +25,6 @@ var gresults = {
     },
 
     renderStateData: function (state) {
-<<<<<<< HEAD
         var results = jQuery("#gresults-results");
         results.data('searchcriteria', state.searchCriteria);
         jQuery("#gresults-results-filter").html(state.filterUI);
@@ -33,14 +32,6 @@ var gresults = {
         results.html(state.html);
         gresults.drawCharts();
         results.fadeTo("slow", 1);
-=======
-        jQuery("#gresults-results").data('searchcriteria', state.searchCriteria)
-        jQuery("#gresults-results-filter").html(state.filterUI);
-        jQuery("#gresults-results").css('opacity', 0);
-        jQuery("#gresults-results").html(state.html);
-        gresults.drawCharts();
-        jQuery("#gresults-results").fadeTo("slow", 1);
->>>>>>> origin/master
 
         var filterContainer = jQuery("#gresults-results-field-filters-container");
         filterContainer.resizable();
@@ -86,11 +77,7 @@ var gresults = {
                     filterButtons.removeAttr('disabled');
                     loading.hide();
                     results.html(response.html);
-<<<<<<< HEAD
                     jQuery("#gresults-results").data('searchcriteria', response.searchCriteria); //used in 'more' links
-=======
-                    jQuery("#gresults-results").data('searchcriteria', response.searchCriteria) //used in 'more' links
->>>>>>> origin/master
 
                     var filterUI = jQuery("#gresults-results-filter").html();
 
@@ -135,11 +122,7 @@ var gresults = {
         var results = jQuery("#gresults-results");
         var offset = jQuery(container).data('offset');
         var viewSlug = jQuery("#gresults-view-slug").val();
-<<<<<<< HEAD
         var searchCriteria = results.data('searchcriteria');
-=======
-        var searchCriteria = jQuery("#gresults-results").data('searchcriteria');
->>>>>>> origin/master
         jQuery.ajax({
             url     : ajaxurl,
             type    : 'POST',
@@ -229,40 +212,6 @@ jQuery(document).ready(function () {
 
         jQuery("#gresults-results-field-filters-container").gfFilterUI(gresultsFilterSettings, gresultsInitVars, true);
         var $window = jQuery(window);
-<<<<<<< HEAD
-=======
-        /*
-        // sticky filter box
-        var filter = jQuery('#gresults-results-filter'),
-            filterTop = filter.offset().top,
-            gresultsIsFilterSticky,
-            resultsDiv = jQuery('#gresults-results'),
-            gresultsFilterLeftMargin = 20,
-            gresultsFilterLeft,
-            gresultsFilterRelativeLeft;
-
-        function gresultsPostionFilterUI() {
-            gresultsFilterLeft = resultsDiv.width() + resultsDiv.offset().left + gresultsFilterLeftMargin;
-            filter.offset({left: gresultsFilterLeft});
-            gresultsFilterRelativeLeft = resultsDiv.width() + gresultsFilterLeftMargin;
-            jQuery("#gresults-results-filter").css('visibility', 'visible');
-        }
-
-        $window.scroll(function (e) {
-            var newIsFilterSticky = $window.scrollTop() > filterTop - 30;
-            if (gresultsIsFilterSticky != newIsFilterSticky) {
-                gresultsIsFilterSticky = newIsFilterSticky
-                if (gresultsIsFilterSticky) {
-                    filter.css("left", gresultsFilterLeft);
-                } else {
-                    filter.css("left", gresultsFilterRelativeLeft);
-                }
-            }
-            filter.toggleClass('sticky', gresultsIsFilterSticky);
-        });
-         gresultsPostionFilterUI();
-         */
->>>>>>> origin/master
 
          $window.resize(function (e) {
          if (e.target === window) {

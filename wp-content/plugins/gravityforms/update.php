@@ -7,11 +7,7 @@ if ( ! class_exists( 'GFForms' ) ) {
 class GFUpdate {
 	public static function update_page() {
 		if ( ! GFCommon::current_user_can_any( 'gravityforms_view_updates' ) ) {
-<<<<<<< HEAD
 			wp_die( esc_html__( "You don't have permissions to view this page", 'gravityforms' ) );
-=======
-			wp_die( __( "You don't have permissions to view this page", 'gravityforms' ) );
->>>>>>> origin/master
 		}
 
 		if ( ! GFCommon::ensure_wp_version() ) {
@@ -23,7 +19,6 @@ class GFUpdate {
 
 		wp_print_styles( array( 'thickbox' ) );
 
-<<<<<<< HEAD
 		$min = defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG || isset( $_GET['gform_debug'] ) ? '' : '.min';
 
 		?>
@@ -32,14 +27,6 @@ class GFUpdate {
 
 		<div class="wrap <?php echo GFCommon::get_browser_class() ?>">
 			<h2><?php esc_html( 'Gravity Forms Updates', 'gravityforms' ) ?></h2>
-=======
-		?>
-
-		<link rel="stylesheet" href="<?php echo GFCommon::get_base_url() . '/css/admin.css' ?>" />
-
-		<div class="wrap <?php echo GFCommon::get_browser_class() ?>">
-			<h2><?php _e( 'Gravity Forms Updates', 'gravityforms' ) ?></h2>
->>>>>>> origin/master
 			<?php
 
 			$version_info = GFCommon::get_version_info( false );
@@ -54,21 +41,13 @@ class GFUpdate {
 				if ( rgar( $version_info, 'is_valid_key' ) ) {
 					?>
 					<div class="gf_update_outdated alert_yellow">
-<<<<<<< HEAD
 						<?php echo esc_html( $message ) . ' <p>' . sprintf( esc_html__( 'You can update to the latest version automatically or download the update and install it manually. %sUpdate Automatically%s %sDownload Update%s', 'gravityforms' ), "</p><a class='button-primary' href='{$upgrade_url}'>", '</a>', "&nbsp;<a class='button' href='{$version_info["url"]}'>", '</a>' ); ?>
-=======
-						<?php echo $message . ' ' . sprintf( __( '<p>You can update to the latest version automatically or download the update and install it manually. %sUpdate Automatically%s %sDownload Update%s', 'gravityforms' ), "</p><a class='button-primary' href='{$upgrade_url}'>", '</a>', "&nbsp;<a class='button' href='{$version_info["url"]}'>", '</a>' ); ?>
->>>>>>> origin/master
 					</div>
 				<?php
 				} else {
 					?>
 					<div class="gf_update_expired alert_red">
-<<<<<<< HEAD
 						<?php echo esc_html( $message ) . ' ' . sprintf( esc_html( '%sRegister%s your copy of Gravity Forms to receive access to automatic updates and support. Need a license key? %sPurchase one now%s.', 'gravityforms' ), '<a href="admin.php?page=gf_settings">', '</a>', '<a href="http://www.gravityforms.com">', '</a>' ); ?>
-=======
-						<?php echo $message . ' ' . __( sprintf( '%sRegister%s your copy of Gravity Forms to receive access to automatic updates and support. Need a license key? %sPurchase one now%s.', '<a href="admin.php?page=gf_settings">', '</a>', '<a href="http://www.gravityforms.com">', '</a>' ), 'gravityforms' ); ?>
->>>>>>> origin/master
 					</div>
 				<?php
 				}
@@ -80,11 +59,7 @@ class GFUpdate {
 
 				?>
 				<div class="gf_update_current alert_green">
-<<<<<<< HEAD
 					<?php esc_html_e( 'Your version of Gravity Forms is up to date.', 'gravityforms' ); ?>
-=======
-					<?php _e( 'Your version of Gravity Forms is up to date.', 'gravityforms' ); ?>
->>>>>>> origin/master
 				</div>
 			<?php
 			}

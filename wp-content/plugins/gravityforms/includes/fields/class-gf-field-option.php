@@ -26,11 +26,7 @@ class GF_Field_Option extends GF_Field {
 	}
 
 	public function get_form_editor_field_title() {
-<<<<<<< HEAD
 		return esc_attr__( 'Option', 'gravityforms' );
-=======
-		return __( 'Option', 'gravityforms' );
->>>>>>> origin/master
 	}
 
 }
