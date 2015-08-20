@@ -122,8 +122,11 @@ $breadcrumbs_params = array(
 
 	<div class="step-two">
 
+<<<<<<< HEAD
 		<?php do_action( 'wpmdb_before_migration_options' ); ?>
 
+=======
+>>>>>>> origin/master
 		<div class="option-section">
 			<div class="header-wrapper clearfix">
 				<div class="option-heading find-heading"><?php _ex( 'Find', 'Source text to be replaced', 'wp-migrate-db' ); ?></div>
@@ -139,51 +142,87 @@ $breadcrumbs_params = array(
 					<td class="old-replace-col">
 						<input type="text" size="40" name="replace_old[]" class="code" placeholder="Old value" autocomplete="off" />
 					</td>
+<<<<<<< HEAD
 					<td class="arrow-col" title="Copy Find to Replace">
+=======
+					<td class="arrow-col">
+>>>>>>> origin/master
 						<span class="right-arrow">&rarr;</span>
 					</td>
 					<td class="replace-right-col">
 						<input type="text" size="40" name="replace_new[]" class="code" placeholder="New value" autocomplete="off" />
+<<<<<<< HEAD
 						<span class="replace-remove-row" data-profile-id="0"></span>
 					</td>
 				</tr>
 				<?php if ( $is_default_profile ) : ?>
 					<tr class="replace-row<?php echo ( $this->lock_url_find_replace_row ) ? ' pin' : ''; ?>">
+=======
+						<span style="display: none;" class="replace-remove-row" data-profile-id="0"></span>
+					</td>
+				</tr>
+				<?php if ( $is_default_profile ) : ?>
+					<tr class="replace-row ui-state-default<?php echo ( $this->lock_url_find_replace_row ) ? ' pin' : ''; ?>">
+>>>>>>> origin/master
 						<td class="sort-handle-col">
 							<span class="sort-handle"></span>
 						</td>
 						<td class="old-replace-col">
 							<input type="text" size="40" name="replace_old[]" class="code" id="old-url" placeholder="Old URL" value="<?php echo esc_url( preg_replace( '#^https?:#', '', home_url() ) ); ?>" autocomplete="off"<?php echo ( $this->lock_url_find_replace_row ) ? ' readonly' : ''; ?> />
 						</td>
+<<<<<<< HEAD
 						<td class="arrow-col" title="Copy Find to Replace">
+=======
+						<td class="arrow-col">
+>>>>>>> origin/master
 							<span class="right-arrow">&rarr;</span>
 						</td>
 						<td class="replace-right-col">
 							<input type="text" size="40" name="replace_new[]" class="code" id="new-url" placeholder="New URL" autocomplete="off" />
 							<?php if ( ! $this->lock_url_find_replace_row ) : ?>
+<<<<<<< HEAD
 							<span class="replace-remove-row" data-profile-id="0"></span>
 							<?php endif; ?>
 						</td>
 					</tr>
 					<tr class="replace-row">
+=======
+							<span style="display: none;" class="replace-remove-row" data-profile-id="0"></span>
+							<?php endif; ?>
+						</td>
+					</tr>
+					<tr class="replace-row ui-state-default">
+>>>>>>> origin/master
 						<td class="sort-handle-col">
 							<span class="sort-handle"></span>
 						</td>
 						<td class="old-replace-col">
 							<input type="text" size="40" name="replace_old[]" class="code" id="old-path" placeholder="Old file path" value="<?php echo esc_attr( $this->absolute_root_file_path ); ?>" autocomplete="off" />
 						</td>
+<<<<<<< HEAD
 						<td class="arrow-col" title="Copy Find to Replace">
+=======
+						<td class="arrow-col">
+>>>>>>> origin/master
 							<span class="right-arrow">&rarr;</span>
 						</td>
 						<td class="replace-right-col">
 							<input type="text" size="40" name="replace_new[]" class="code" id="new-path" placeholder="New file path" autocomplete="off" />
+<<<<<<< HEAD
 							<span class="replace-remove-row" data-profile-id="0"></span>
+=======
+							<span style="display: none;" class="replace-remove-row" data-profile-id="0"></span>
+>>>>>>> origin/master
 						</td>
 					</tr>
 				<?php else :
 					$i = 1;
 					foreach ( $loaded_profile['replace_old'] as $replace_old ) : ?>
+<<<<<<< HEAD
 						<tr class="replace-row<?php echo ( 1 == $i && $this->lock_url_find_replace_row ) ? ' pin' : ''; ?>">
+=======
+						<tr class="replace-row ui-state-default<?php echo ( 1 == $i && $this->lock_url_find_replace_row ) ? ' pin' : ''; ?>">
+>>>>>>> origin/master
 							<?php
 							$replace_new = ( ! empty( $loaded_profile['replace_new'][ $i ] ) ) ? $loaded_profile['replace_new'][ $i ] : '';
 							?>
@@ -193,13 +232,21 @@ $breadcrumbs_params = array(
 							<td class="old-replace-col">
 								<input type="text" size="40" name="replace_old[]" class="code" placeholder="Old value" value="<?php echo esc_attr( $replace_old ); ?>" autocomplete="off"<?php echo ( 1 == $i && $this->lock_url_find_replace_row ) ? ' readonly' : ''; ?> />
 							</td>
+<<<<<<< HEAD
 							<td class="arrow-col" title="Copy Find to Replace">
+=======
+							<td class="arrow-col">
+>>>>>>> origin/master
 								<span class="right-arrow">&rarr;</span>
 							</td>
 							<td class="replace-right-col">
 								<input type="text" size="40" name="replace_new[]" class="code" placeholder="New value" value="<?php echo esc_attr( $replace_new ); ?>" autocomplete="off" />
 								<?php if ( ! $this->lock_url_find_replace_row || ( $this->lock_url_find_replace_row && $i != 1 ) ) : ?>
+<<<<<<< HEAD
 								<span class="replace-remove-row" data-profile-id="0"></span>
+=======
+								<span style="display: none;" class="replace-remove-row" data-profile-id="0"></span>
+>>>>>>> origin/master
 								<?php endif; ?>
 							</td>
 						</tr>
@@ -244,7 +291,11 @@ $breadcrumbs_params = array(
 						<a href="#" class="general-helper replace-guid-helper js-action-link"></a>
 
 						<div class="replace-guids-info helper-message">
+<<<<<<< HEAD
 							<?php printf( __( 'Although the <a href="%s" target="_blank">WordPress Codex emphasizes</a> that GUIDs should not be changed, this is limited to sites that are already live. If the site has never been live, we recommend replacing the GUIDs. For example, you may be developing a new site locally at dev.somedomain.com and want to migrate the site live to somedomain.com.', 'wp-migrate-db' ), 'http://codex.wordpress.org/Changing_The_Site_URL#Important_GUID_Note' ); ?>
+=======
+							<?php printf( __( 'Although the <a href="%s" target="_blank">WordPress Codex emphasizes</a> that GUIDs should not be changed, this is limited to sites that are already live. If the site has never been live, I recommend replacing the GUIDs. For example, you may be developing a new site locally at dev.somedomain.com and want to migrate the site live to somedomain.com.', 'wp-migrate-db' ), 'http://codex.wordpress.org/Changing_The_Site_URL#Important_GUID_Note' ); ?>
+>>>>>>> origin/master
 						</div>
 					</li>
 					<li>

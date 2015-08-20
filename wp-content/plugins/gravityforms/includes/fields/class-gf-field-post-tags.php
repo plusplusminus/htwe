@@ -9,7 +9,11 @@ class GF_Field_Post_Tags extends GF_Field {
 	public $type = 'post_tags';
 
 	public function get_form_editor_field_title() {
+<<<<<<< HEAD
 		return esc_attr__( 'Tags', 'gravityforms' );
+=======
+		return __( 'Tags', 'gravityforms' );
+>>>>>>> origin/master
 	}
 
 	function get_form_editor_field_settings() {
@@ -27,16 +31,27 @@ class GF_Field_Post_Tags extends GF_Field {
 			'visibility_setting',
 			'description_setting',
 			'css_class_setting',
+<<<<<<< HEAD
 			'placeholder_setting',
 		);
 	}
 
 	public function is_conditional_logic_supported() {
+=======
+		);
+	}
+
+	public function is_conditional_logic_supported(){
+>>>>>>> origin/master
 		return true;
 	}
 
 	public function get_field_input( $form, $value = '', $entry = null ) {
+<<<<<<< HEAD
 		$form_id         = absint( $form['id'] );
+=======
+		$form_id         = $form['id'];
+>>>>>>> origin/master
 		$is_entry_detail = $this->is_entry_detail();
 		$is_form_editor  = $this->is_form_editor();
 
@@ -60,7 +75,11 @@ class GF_Field_Post_Tags extends GF_Field {
 				</div>";
 	}
 
+<<<<<<< HEAD
 	public function allow_html() {
+=======
+	public function allow_html(){
+>>>>>>> origin/master
 		return true;
 	}
 }

@@ -38,6 +38,10 @@ jQuery(document).ready(function() {
         start: function(event, ui){
             gforms_dragging = ui.item[0].id;
         },
+<<<<<<< HEAD
+=======
+        containment: 'document',
+>>>>>>> origin/master
         tolerance: "pointer",
         over: function( event, ui ) {
             jQuery('#no-fields').hide();
@@ -630,10 +634,17 @@ function LoadFieldSettings(){
         field = UpgradeAddressField(field);
     }
 
+<<<<<<< HEAD
     if(field.type == 'email' || field.inputType == 'email' ){
         field = UpgradeEmailField(field);
     }
 	if(field.type == 'password' || field.inputType == 'password' ){
+=======
+    if(field.type == 'email'){
+        field = UpgradeEmailField(field);
+    }
+	if(field.type == 'password'){
+>>>>>>> origin/master
 		field = UpgradePasswordField(field);
 	}
 
@@ -713,11 +724,19 @@ function LoadFieldSettings(){
         }
     }
 
+<<<<<<< HEAD
     if(inputType == 'date'){
         field = UpgradeDateField(field);
     }
 
     if(inputType == 'time'){
+=======
+    if(field.type == 'date'){
+        field = UpgradeDateField(field);
+    }
+
+    if(field.type == 'time'){
+>>>>>>> origin/master
         field = UpgradeTimeField(field);
     }
 
@@ -912,7 +931,11 @@ function LoadFieldSettings(){
     }
 
     // if a product or option field, hide "other choice" setting
+<<<<<<< HEAD
     if(jQuery.inArray(field['type'], ['product', 'option', 'shipping']) != -1) {
+=======
+    if(jQuery.inArray(field['type'], ['product', 'option']) != -1) {
+>>>>>>> origin/master
         jQuery(".other_choice_setting").hide();
     }
 
@@ -1150,6 +1173,7 @@ function UpdateAddressFields(){
     var hide_country = jQuery("#field_address_country_" + addressType).val() != "" || countryInput.isHidden;
 
     if(hide_country){
+<<<<<<< HEAD
         jQuery('.field_selected #input_' + field.id + '_6_container').hide();
         jQuery('.field_selected .field_custom_input_row_input_' + field.id + '_6').hide();
     } else {
@@ -1157,6 +1181,14 @@ function UpdateAddressFields(){
         jQuery(".field_selected #input_" + field.id + "_6").val(jQuery("#field_address_default_country_" + addressType).val());
         jQuery(".field_selected #input_" + field.id + "_6_container").show();
         jQuery('.field_selected .field_custom_input_row_input_' + field.id + '_6').show();
+=======
+        jQuery('.field_custom_input_row_' + field.id + '_6').hide();
+    } else {
+        //selects default country and displays drop down
+        jQuery(".field_selected #input_" + field["id"] + "_6").val(jQuery("#field_address_default_country_" + addressType).val());
+        jQuery(".field_selected #input_" + field["id"] + "_6_container").show();
+        jQuery('.field_selected .field_custom_input_row_' + field.id + '_6').show();
+>>>>>>> origin/master
     }
 
     var has_state_drop_down = jQuery("#field_address_has_states_" + addressType).val() != "";
@@ -1215,7 +1247,11 @@ function UpgradeNameField(field, prefixHiddex, middleHidden, suffixHidden){
 }
 
 function UpgradeDateField(field){
+<<<<<<< HEAD
     if(field.type != 'date' && field.inputType != 'date' ){
+=======
+    if(field.type != 'date'){
+>>>>>>> origin/master
         return field;
     }
 
@@ -1227,7 +1263,11 @@ function UpgradeDateField(field){
 }
 
 function UpgradeTimeField(field){
+<<<<<<< HEAD
     if(field.type != 'time' && field.inputType != 'time' ){
+=======
+    if(field.type != 'time'){
+>>>>>>> origin/master
         return field;
     }
 
@@ -1239,7 +1279,11 @@ function UpgradeTimeField(field){
 }
 
 function UpgradeEmailField(field){
+<<<<<<< HEAD
     if(field.type != 'email' && field.inputType != 'email'){
+=======
+    if(field.type != 'email'){
+>>>>>>> origin/master
         return field;
     }
 
@@ -1252,7 +1296,11 @@ function UpgradeEmailField(field){
 }
 
 function UpgradePasswordField(field){
+<<<<<<< HEAD
 	if(field.type != 'password' && field.inputType != 'password'){
+=======
+	if(field.type != 'password'){
+>>>>>>> origin/master
 		return field;
 	}
 
@@ -1823,7 +1871,11 @@ function ObjectHasConditionalLogicDependency(object, fieldId, value) {
             continue;
 
         // if value is provided and the rule value does not match provided value, continue
+<<<<<<< HEAD
 		if(value !== false && rule.value != value)
+=======
+        if(value !== false && rule.value != value)
+>>>>>>> origin/master
             continue;
 
         return true;
@@ -1863,6 +1915,7 @@ function CheckChoiceConditionalLogicDependency(input) {
     var field = GetSelectedField();
 
     var previousValue = jQuery(input).data('previousValue'); // Get the value before checking. Fixes an issue in Chrome on Windows.
+<<<<<<< HEAD
 	if (previousValue == undefined){
 		//set a value because undefined cannot be saved with jQuery data
 		previousValue = '';
@@ -1878,6 +1931,17 @@ function CheckChoiceConditionalLogicDependency(input) {
         // if user does not want to make modification, replace with original value
 		jQuery(input).val(previousValue).trigger('keyup');
 		jQuery(input).data('previousValue', previousValue);
+=======
+    // check for cond logic dependency
+    if(HasConditionalLogicDependency(field.id, previousValue)) {
+
+        // confirm that the user wants to make the modification
+        if(confirm(gf_vars.conditionalLogicDependencyChoiceEdit))
+            return;
+
+        // if user does not want to make modification, replace with original value
+        jQuery(input).val(jQuery(input).data('previousValue')).trigger('keyup');
+>>>>>>> origin/master
 
     }
 
@@ -2773,7 +2837,11 @@ function SetTimeFormat(format){
 
 function LoadTimeInputs(){
     var field = GetSelectedField();
+<<<<<<< HEAD
     if(field.type != 'time' && field.inputType != 'time'){
+=======
+    if(field.type != 'time'){
+>>>>>>> origin/master
         return;
     }
     var format = jQuery("#field_time_format").val();

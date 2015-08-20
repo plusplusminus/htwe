@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 // Set Up
 
+=======
+>>>>>>> origin/master
 .wrap {
   box-sizing: border-box;
   max-width: 1170px;
@@ -28,6 +31,7 @@
 	height: 41px;
 }
 
+<<<<<<< HEAD
 .lead {
   font-size: ceil((@font-size-base * 1.5));
 
@@ -59,6 +63,8 @@ header{
 		}
 	}
 }
+=======
+>>>>>>> origin/master
 .header_top {
 	background-color: @brand-bronze;
 	position: relative;
@@ -69,19 +75,32 @@ header{
 	padding-bottom: 10px;
 	width: 16.66667%;
 	float: left;
+<<<<<<< HEAD
+=======
+
+>>>>>>> origin/master
 	.svg-icon {
 		max-width: 100%;
 		height: 27px;
 		position: relative;
 	}
+<<<<<<< HEAD
 	border-right: 1px solid #a25532;
+=======
+
+	border-right: 1px solid darken(@brand-bronze, 10%);
+
+>>>>>>> origin/master
 	img {
 		margin: auto;
 	}
 }
 
+<<<<<<< HEAD
 
 // Divider
+=======
+>>>>>>> origin/master
 .divider {
 	background: #fff;
 	height: 30px;
@@ -112,6 +131,7 @@ header{
 }
 
 .triangle-divider {
+<<<<<<< HEAD
   	text-indent: -9999px;
   	width: 40px;
   	height: 20px;
@@ -126,6 +146,29 @@ header{
 }
 
 // Navigation
+=======
+	background: #fff;
+	margin-top: 20px;
+	text-align: center;
+	position: relative;
+	&:after {
+		content: "";
+		position: absolute;
+		height: 10px;
+		background-color: #fff;
+		/* border-radius: 200%; */
+		left: 50%;
+		width: 20px;
+		height: 20px;
+		-webkit-transform: translateX(-50%) rotate(45deg);
+		transform: translateX(-50%) rotate(45deg);
+		bottom: -20px;
+		z-index: 10;
+		background: inherit;
+	}
+}
+
+>>>>>>> origin/master
 
 .top_navbar {
 	width: 50%;
@@ -133,6 +176,7 @@ header{
 	.navbar_top {
 		.nav();
 		.nav-pills();
+<<<<<<< HEAD
 		margin: 9px 10px 10px 10px;
 		> li {
 			letter-spacing: 0.2em;
@@ -147,6 +191,22 @@ header{
 				&:focus {
 					background: transparent;
 					color: darken(#fff, 10%);
+=======
+
+		margin: 6px 10px;
+		
+
+		> li {
+			> a {
+
+				text-transform: uppercase;
+				font-size: @font-size-small;
+
+				color:#fff;
+
+				&:hover {
+					background: transparent;
+>>>>>>> origin/master
 				}
 			}
 		}
@@ -156,11 +216,29 @@ header{
 .navbar_bottom {
 	.nav();
 	.nav-pills();
+<<<<<<< HEAD
 	margin: 0;
 	> li {
 		padding: 0px 15px;
 		> a {
 			padding: 0;
+=======
+
+	margin: 0;
+	
+
+	> li {
+		> a {
+
+			text-transform: uppercase;
+			font-size: @font-size-small;
+
+			color:#fff;
+
+			padding-top: 0;
+  			padding-bottom: 0;
+
+>>>>>>> origin/master
 			&:hover {
 				background: transparent;
 			}
@@ -171,7 +249,12 @@ header{
 .top_social {
 	float:right;
 	padding-right: 50px;
+<<<<<<< HEAD
 	margin: 13px 10px;
+=======
+
+	margin: 14px 10px;
+>>>>>>> origin/master
 }
 
 .top_search {
@@ -180,24 +263,44 @@ header{
 	right: 0;
 	top:0;
 	bottom: 0;
+<<<<<<< HEAD
 	text-align: center;
 	border-left: 1px solid #a25532;
+=======
+
+	text-align: center;
+
+	border-left: 1px solid darken(@brand-bronze,10%);
+
+
+
+>>>>>>> origin/master
 	.btn-default {
 		background: transparent;
 		outline: none;
 		border: none;
+<<<<<<< HEAD
 		padding: 18px 10px 13px 10px;
+=======
+		padding: 15px 10px;
+
+>>>>>>> origin/master
 		color: #fff;
 	}
 }
 
 .social_menu {
 	.list-inline();
+<<<<<<< HEAD
+=======
+
+>>>>>>> origin/master
 	margin: 0;
 
 }
 
 .social_menu--title {
+<<<<<<< HEAD
 	color: darken(#fff, 10%);
 	letter-spacing: 0.2em;
 	text-transform: uppercase;
@@ -208,6 +311,14 @@ header{
 
 .social_menu--item {
 	vertical-align: middle;
+=======
+	color: #fff;
+	text-transform: uppercase;
+	font-size: @font-size-small;
+}
+
+.social_menu--item {
+>>>>>>> origin/master
 	> a {
 		color: #fff;
 		&:hover {
@@ -216,18 +327,31 @@ header{
 	}
 }
 
+<<<<<<< HEAD
 
 .header_main {
+=======
+.header_main {
+	margin-bottom: 35px;
+>>>>>>> origin/master
 	background: #fff;
 }
 
 .main_nav {
 	.nav();
+<<<<<<< HEAD
 	border-bottom: 1px solid @gray-lighter;
+=======
+
+
+	border-bottom: 1px solid @gray-lighter;
+
+>>>>>>> origin/master
 	> li {
 		position: relative;
 		width:16.666667%;
 		float: left;
+<<<<<<< HEAD
 		text-align: center;
 
 		&.css-home {
@@ -235,6 +359,14 @@ header{
 			}
 			.svg-icon {
 				height: 36px;
+=======
+
+		text-align: center;
+
+		&.css-home {
+			.svg-icon {
+				height: 43px;
+>>>>>>> origin/master
 			}	
 			.nav-subtitle {
 				display: none;
@@ -249,19 +381,34 @@ header{
 		}
 
 		.nav-subtitle {
+<<<<<<< HEAD
 			text-transform: uppercase;
 			display: block;
 			font-size: @font-size-xsmall;
 			font-weight: 600;
 			letter-spacing: 0.2em;
+=======
+
+			text-transform: uppercase;
+
+			font-size: @font-size-small;
+			font-weight: 700;
+
+			letter-spacing: 0.05em;
+
+
+>>>>>>> origin/master
 		}
 
 		.nav-title {
 		  font-size: 23px;
 		  display: block;
 		  font-family: @font-family-hand;
+<<<<<<< HEAD
 		  font-weight: 400;
 		  text-align: center;
+=======
+>>>>>>> origin/master
 		}
 
 		.dropdown-menu {
@@ -278,9 +425,19 @@ header{
 					padding-top: 15px;
 					padding-bottom: 15px;
 					text-align: center;
+<<<<<<< HEAD
 					font-family: @font-family-serif;
 					border-bottom: 1px solid  @gray-lighter;
 					cursor: pointer;
+=======
+
+					font-family: @font-family-serif;
+
+					border-bottom: 1px solid  @gray-lighter;
+
+					cursor: pointer;
+
+>>>>>>> origin/master
 					&:last-child {
 						border-bottom: none;
 					}
@@ -290,21 +447,39 @@ header{
 		}
 
 		> a {
+<<<<<<< HEAD
 			color: @gray-dark;
 			padding-top: 25px;
 			padding-bottom: 15px;
 			cursor: pointer;
+=======
+			color: #333;
+
+			padding-top: 15px;
+			padding-bottom: 15px;
+
+			cursor: pointer;
+
+>>>>>>> origin/master
 			.transition(.8s);
 			&:hover {
 				background: transparent;
 				color: @brand-primary;
+<<<<<<< HEAD
+=======
+
+>>>>>>> origin/master
 				.svg-icon {
 					fill: @brand-primary;
 				}
 			}
 		}
 
+<<<<<<< HEAD
 		&:after {
+=======
+		&:after,&:before {
+>>>>>>> origin/master
 			content: "";
 			content: '';
 			width: 1px;
@@ -323,9 +498,12 @@ header{
 	}
 }
 
+<<<<<<< HEAD
 
 // Welcome
 
+=======
+>>>>>>> origin/master
 .section_welcome {
 	max-width: 80%;
 	margin: auto;
@@ -334,6 +512,7 @@ header{
 		position: relative;
 	}
 
+<<<<<<< HEAD
 	.welcome_content--close{
 		position: absolute;
 		top: 10px;
@@ -347,6 +526,11 @@ header{
 	.welcome_content--action {
 		position: absolute;
 		bottom: 30px;
+=======
+	.welcome_content--action {
+		position: absolute;
+		bottom: 20px;
+>>>>>>> origin/master
 		color: #fff;
 		left:0;
 		right: 0;
@@ -355,14 +539,21 @@ header{
 		text-transform: uppercase;
 		font-size: @font-size-small;
 		font-family: @font-family-serif;
+<<<<<<< HEAD
 		letter-spacing: 0.2em;
+=======
+		letter-spacing: 0.02em;
+>>>>>>> origin/master
 	}
 
 	.welcome_content--image {
 		position: relative;
 		img {
 			margin:auto;
+<<<<<<< HEAD
 			width: 100%;
+=======
+>>>>>>> origin/master
 		}
 	}
 
@@ -372,6 +563,7 @@ header{
 		left: 0;
 		right: 0;
 		text-align: center;
+<<<<<<< HEAD
 		width: 65%;
 		margin: auto;
 		.shape-welcome{
@@ -405,10 +597,21 @@ header{
 			font-size: 13px;
 			font-weight: 700;
 			letter-spacing: 0.05em;
+=======
+		width: 60%;
+		margin: auto;
+
+		p {
+			font-size: 2em;
+			color: #fff;
+			font-family: @font-family-serif;
+			font-weight: 300;
+>>>>>>> origin/master
 		}
 	}
 }
 
+<<<<<<< HEAD
 .welcome_content--image,
 .shop_content--image,
 .section_newsletter,
@@ -428,6 +631,8 @@ header{
 	}
 }
 
+=======
+>>>>>>> origin/master
 .section_shop {
 	max-width: 80%;
 	margin: auto;
@@ -491,12 +696,20 @@ header{
 
 	.content_heading--title {
 		font-family: @font-family-hand;
+<<<<<<< HEAD
 		font-size: 80px;
 		color: @brand-bronze-light;
 	}
 }
 
 // Feature
+=======
+		font-size: 48px;
+		color: #fff;
+	}
+}
+
+>>>>>>> origin/master
 .section_feature {
 	padding: 0 0 50px;
 }
@@ -506,7 +719,10 @@ header{
 	margin: auto;
 }
 
+<<<<<<< HEAD
 // Ietms
+=======
+>>>>>>> origin/master
 .item {
 	width: 100%;
 	@media (min-width:@screen-md-min) {
@@ -532,12 +748,15 @@ header{
 
 .featured_gallery {
 	margin-bottom: 35px;
+<<<<<<< HEAD
 	a .item img{
 		.transition(0.8s);
 	}
 	a:hover .item img{
 		.opacity(0.5);
 	}
+=======
+>>>>>>> origin/master
 }
 
 .featured_content {
@@ -549,6 +768,7 @@ header{
 .featured_content--title {
 	font-weight: 400;
 	margin-bottom: 35px;
+<<<<<<< HEAD
 	a{
 		.transition(0.8s);
 	}
@@ -560,11 +780,21 @@ header{
 		color: @gray-light;
 		font-weight: 200;
 	}
+=======
+}
+
+.featured_content--excerpt {
+	.lead();
+
+	color: @gray-light;
+	font-weight: 200;
+>>>>>>> origin/master
 }
 
 /* Blog */
 
 .section_grid {
+<<<<<<< HEAD
 	padding: 65px 0;
 	background: #f5f4f0;
 }
@@ -584,6 +814,23 @@ header{
 
 .article_content {
 	padding: 25px 25px 35px;
+=======
+	padding: 50px 0;
+	background: #f5f4f0;
+}
+
+.blog_article {
+	background: #fff;
+	flex-grow: 1;
+	margin-bottom: 10px;
+}
+
+.article_content {
+	padding: 25px;
+	.meta_list {
+		text-align: left;
+	}
+>>>>>>> origin/master
 }
 
 .css-fullwidth {
@@ -594,22 +841,32 @@ header{
 	.article_image {
 		width: 66.667%;
 		float: left;
+<<<<<<< HEAD
 
 	}
 }
 
 .grid_article,
 .grid_product{
+=======
+	}
+}
+
+.grid_article {
+>>>>>>> origin/master
 	display: flex;
 }
 
 .article_content--title {
 	font-weight: 400;
 	margin-top: 0;
+<<<<<<< HEAD
 	font-size: @font-size-large;
 	a{
 		.transition(0.8s);
 	}
+=======
+>>>>>>> origin/master
 }
 
 .article_content--excerpt {
@@ -629,6 +886,7 @@ header{
 	-webkit-align-items: center;
 	-ms-flex-align: center;
 	align-items: center;
+<<<<<<< HEAD
 	.quote_content--excerpt{
 		border: none;
 		p{
@@ -640,6 +898,8 @@ header{
 		font-size: @font-size-small;
 		font-weight: 400;
 	}
+=======
+>>>>>>> origin/master
 }
 
 .quote_content--excerpt {
@@ -659,6 +919,7 @@ header{
 .meta_list {
 	.text-center();
 	.list-inline();
+<<<<<<< HEAD
 	margin: 0;
 	.article_content &{
 		// Home grid
@@ -679,11 +940,24 @@ header{
 				color: #fff;
 				text-transform: none;
 			}
+=======
+
+	margin: 0;
+
+	.meta_list--item {
+		font-weight: 700;
+		text-transform: uppercase;
+		font-size: @font-size-small;
+
+		> a {
+			color: @text-color;
+>>>>>>> origin/master
 		}
 
 		&.css-date {
 			color: @brand-bronze;
 		}
+<<<<<<< HEAD
 		&:first-child{
 			padding-left: 0px;
 		}
@@ -748,10 +1022,16 @@ header{
 }
 
 // Newsletter
+=======
+	}
+}
+
+>>>>>>> origin/master
 .section_newsletter {
 	background-size: cover;
 	background-position: bottom center;
 	background-repeat: no-repeat;
+<<<<<<< HEAD
 	position: relative;
 	padding: 20rem;
 	overflow: hidden;
@@ -827,10 +1107,27 @@ header{
 	height: 11px;
 	width: 13px;
 	fill: #fff;
+=======
+
+	padding: 20rem;
+}
+
+.newsletter_content--info {
+	.lead();
+
+	color: #fff;
+	font-weight: 200;
+}
+
+.footer {
+	background: @brand-primary;
+	padding: 15px 15px;
+>>>>>>> origin/master
 }
 
 .footer_attribution {
 	text-align: right;
+<<<<<<< HEAD
 }
 
 
@@ -844,6 +1141,15 @@ header{
 .widget_text {
 	img {
 		margin: auto;
+=======
+
+	color: #fff;
+	font-size: @font-size-small;
+	text-transform: uppercase;
+	font-weight: 200;
+	a {
+		color: darken(#fff,10%);
+>>>>>>> origin/master
 	}
 }
 
@@ -854,43 +1160,73 @@ header{
 	margin-top: 0;
 }
 
+<<<<<<< HEAD
+=======
+.widget_text {
+	img {
+		margin: auto;
+	}
+}
+>>>>>>> origin/master
 
 .header_post {
 	padding-top: 70px;
 	max-width: 70%;
 	margin: auto;
+<<<<<<< HEAD
 	.page &{
 		padding-top: 0px;
 	}
+=======
+>>>>>>> origin/master
 }
 
 .post_heading--title {
 	text-align: center;
 	margin-bottom: 35px;
+<<<<<<< HEAD
 	.single-products &{
 		text-align: left;
 	}
 	a{
 		.transition(0.8s);
 	}
+=======
+>>>>>>> origin/master
 }
 
 .post_content--excerpt {
 	.lead();
+<<<<<<< HEAD
+=======
+
+>>>>>>> origin/master
 	max-width: 70%;
 	margin-left:auto;
 	margin-right: auto;
 	text-align: center;
 	margin-bottom: 60px;
+<<<<<<< HEAD
+=======
+
+	
+
+>>>>>>> origin/master
 	color: @gray-light;
 	font-weight: 200;
 }
 
 .post_readmore {
+<<<<<<< HEAD
+=======
+	.triangle-divider();
+
+>>>>>>> origin/master
 	text-transform: uppercase;
 	font-size: @font-size-small;
 	font-family: @font-family-serif;
 	letter-spacing: 0.02em;
+<<<<<<< HEAD
 	color: @gray-light;
 	text-align: center; 
 	position: relative;
@@ -935,6 +1271,12 @@ header{
 
 .section_article {
 	margin:50px 0;
+=======
+}
+
+.section_article {
+	margin: 60px 0;
+>>>>>>> origin/master
 }
 
 .article_meta {
@@ -953,15 +1295,23 @@ header{
 
 .author_item {
 	text-transform: uppercase;
+<<<<<<< HEAD
 	font-size: @font-size-xsmall;
 	font-weight: 700;
 	letter-spacing: 0.2em;
+=======
+	font-size: @font-size-small;
+	font-weight: 700;
+	letter-spacing: 0.02em;
+
+>>>>>>> origin/master
 	
 	&+li:before {
 	  padding: 0px 10px 0 10px;
 	  color: @gray-dark;
 	  content: "|";
 	}
+<<<<<<< HEAD
 
 	&.meta_author--twitter a{
 		color: @brand-bronze;
@@ -970,6 +1320,8 @@ header{
 			border-bottom: 1px solid @brand-bronze;
 		}
 	}
+=======
+>>>>>>> origin/master
 }
 
 .meta_author {
@@ -988,6 +1340,7 @@ header{
 .post_social {
 	padding: 10px 0;
 	margin-bottom: 35px;
+<<<<<<< HEAD
 	border-top:1px solid @gray-lighter;
 	border-bottom:1px solid @gray-lighter;
 }
@@ -1017,6 +1370,26 @@ header{
 	    height: 25px;
 	    margin-right: 5px;
 	    vertical-align: bottom;
+=======
+
+	border-top:1px solid @gray-lighter;
+	border-bottom:1px solid @gray-lighter;
+
+
+}
+.social_buttons {
+	.list-inline();
+
+	margin-bottom: 0;
+	margin-left: 0;
+
+	.pull-left();
+
+	.social_button+li:before {
+	  padding: 0px 10px 0 0px;
+	  color: @gray-lighter;
+	  content: "|";
+>>>>>>> origin/master
 	}
 
 }
@@ -1025,6 +1398,7 @@ header{
 	.list-inline();
 	margin-bottom: 0;
 	margin-left: 0;
+<<<<<<< HEAD
 	padding: 6px 0;
 	font-size: @font-size-xsmall;
 	font-weight: 600;
@@ -1036,6 +1410,15 @@ header{
 		&:hover{
 			color: lighten(@brand-primary, 10%)
 		}
+=======
+	color: @brand-primary;
+	.pull-right();
+
+	padding: 10px 0;
+
+	a {
+		color: @brand-primary;
+>>>>>>> origin/master
 	}
 }
 
@@ -1043,10 +1426,15 @@ header{
 	.btn();
 
 	color: #fff;
+<<<<<<< HEAD
 	background: @gray-dark;
 	width: 25px;
 	height: 25px;
 	padding: 2px 4px;
+=======
+
+	background: @gray-dark;
+>>>>>>> origin/master
 
 	&.css-pinterest {
 		background: #cb2027;
@@ -1062,6 +1450,7 @@ header{
 
 }
 
+<<<<<<< HEAD
 .article_post{
 	padding-bottom: 60px;
 	margin-bottom: 60px;
@@ -1075,6 +1464,8 @@ header{
 }
 
 
+=======
+>>>>>>> origin/master
 .section_page {
 	padding: 35px 0;
 	border-bottom: 1px solid #eee;
@@ -1091,13 +1482,21 @@ header{
 /* products */
 
 .product_article {
+<<<<<<< HEAD
 	flex-grow: 1;
+=======
+	background: #fff;
+	flex-grow: 1;
+	margin-bottom: 10px;
+
+>>>>>>> origin/master
 	.meta_list {
 		>li {
 			padding-left:0;
 			padding-right: 0;
 		}
 	}
+<<<<<<< HEAD
 	.article_content--price{
 		display: block;
 	}
@@ -1139,6 +1538,24 @@ body .gform_wrapper{
 		input[type=submit] {
 			.btn();
 			.btn-primary();
+=======
+}
+
+.nav_shop-menu {
+	text-align: center;
+	padding: 35px 0;
+}
+
+.shop-menu_list {
+	.list-inline();
+
+	>li {
+		a {
+			text-transform: uppercase;
+			font-size: 13px;
+			font-weight: 700;
+			letter-spacing: 0.05em;
+>>>>>>> origin/master
 		}
 	}
 }

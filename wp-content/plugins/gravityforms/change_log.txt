@@ -1,4 +1,5 @@
 -------------------------------------------------------------------------------------------------------------------
+<<<<<<< HEAD
 Version 1.9.13
 
     - Added security enhancements. Credits to Jonathan Desrosiers & Aaron Ware of Linchpin and Thomas Kräftner (http://kraftner.com).
@@ -407,6 +408,8 @@ Version 1.9.5
     - API: Fixed a potential security vulnerability in the object locking API for add-ons and custom code.
 
 -------------------------------------------------------------------------------------------------------------------
+=======
+>>>>>>> origin/master
 Version 1.9.4
     - Added 2 new helper styles to the readyclass.css file
     	1. "gf_simple_horizontal" - when applied to main form will create a very simple horizontal form layout (think simple email address field and inline form button)
@@ -942,7 +945,11 @@ Version 1.8.20
 	- Updated notification's From Name so that it is sanitized before being used.
 	- Fixed conflict with WP-reCAPTCHA plugin.
 	- Fixed an issue with the multi-file upload field where the paths to the uploaded files can get removed from the entry if a third party add-on processes the entry before Gravity Forms. This fixes a compatibility issue with the Gravity Perks Conditional Logic Perk.
+<<<<<<< HEAD
 	- Fixed a security issue with the file upload field. Credit: Charlie Clark.
+=======
+	- Fixed a security issue with the file upload field.
+>>>>>>> origin/master
 	- Fixed issue with outdated cached version of total field not getting refreshed.
 	- Fixed notice message.
 	- Fixed issue with {ip} merge tag replacing "wrong" IP when resending notifications.

@@ -25,6 +25,7 @@ class WPMDB_Utils {
 
 		return true;
 	}
+<<<<<<< HEAD
 
 	/**
 	 * Checks if another version of WPMDB(Pro) is active and deactivates it.
@@ -63,3 +64,6 @@ class WPMDB_Utils {
 	}
 
 }
+=======
+}
+>>>>>>> origin/master

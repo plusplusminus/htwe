@@ -138,12 +138,20 @@ function CreateConditionalLogic(objectType, obj){
 }
 
 function GetRuleOperators( objectType, i, fieldId, selectedOperator ) {
+<<<<<<< HEAD
     var str, supportedOperators, operators, selected;
+=======
+    var str, supportedOperators, operators, str, selected;
+>>>>>>> origin/master
     supportedOperators = {"is":"is","isnot":"isNot", ">":"greaterThan", "<":"lessThan", "contains":"contains", "starts_with":"startsWith", "ends_with":"endsWith"};
     str = "<select id='" + objectType + "_rule_operator_" + i + "' class='gfield_rule_select' onchange='SetRuleProperty(\"" + objectType + "\", " + i + ", \"operator\", jQuery(this).val());var valueSelector=\"#" + objectType + "_rule_value_" + i + "\"; jQuery(valueSelector).replaceWith(GetRuleValues(\"" + objectType + "\", " + i + ",\"" + fieldId + "\", \"\"));jQuery(valueSelector).change();'>";
     operators = IsEntryMeta(fieldId) ? GetOperatorsForMeta(supportedOperators, fieldId) : supportedOperators;
 
+<<<<<<< HEAD
     operators = gform.applyFilters( 'gform_conditional_logic_operators', operators, objectType, fieldId );
+=======
+    operators = gform.applyFilters( 'gform_conditional_logic_operators', operators, objectType, fieldId )
+>>>>>>> origin/master
 
     jQuery.each(operators,function(operator, stringKey){
         selected = selectedOperator == operator ? "selected='selected'" : "";

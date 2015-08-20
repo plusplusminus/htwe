@@ -76,6 +76,7 @@ function child_sections($sections){
         )
     );
 
+<<<<<<< HEAD
     $sections[] = array(
         'icon'          => 'envelope',
         'icon_class'    => 'fa fa-envelope',
@@ -105,6 +106,8 @@ function child_sections($sections){
         )
     );
 
+=======
+>>>>>>> origin/master
 
      $sections[] = array(
         'icon'          => 'ok',
@@ -276,6 +279,7 @@ function ppm_register_metabox() {
     // Start with an underscore to hide fields from custom fields list
     $prefix = '_ppm_';
 
+<<<<<<< HEAD
     $internals_meta = new_cmb2_box( array(
         'id'            => $prefix . 'internals_metabox',
         'title'         => __( 'Internals Meta', 'cmb2' ),
@@ -338,6 +342,11 @@ function ppm_register_metabox() {
         // 'repeatable' => true, // Repeatable fields are supported w/in repeatable groups (for most types)
     ) );
 
+=======
+    /**
+     * Sample metabox to demonstrate each field type included
+     */
+>>>>>>> origin/master
     $products_meta = new_cmb2_box( array(
         'id'            => $prefix . 'products_metabox',
         'title'         => __( 'Products Meta', 'cmb2' ),
@@ -370,6 +379,7 @@ function ppm_register_metabox() {
         'desc' => __( 'Vendor Artist Name', 'woothemes' ) 
     ));
 
+<<<<<<< HEAD
     $group_field_id = $products_meta->add_field( array(
         'id'          => 'features_group',
         'type'        => 'group',
@@ -409,11 +419,15 @@ function ppm_register_metabox() {
         'type' => 'text',
         'desc' => __( 'Text to appear on Button', 'woothemes' ),
     ));
+=======
+
+>>>>>>> origin/master
 
 }
 
 add_action( 'cmb2_init', 'ppm_register_metabox' );
 
+<<<<<<< HEAD
 // Breadcrumbs
 function custom_breadcrumb() {
   if(!is_front_page() && !is_home() ) {
@@ -467,4 +481,6 @@ function custom_breadcrumb() {
   }
 }
 
+=======
+>>>>>>> origin/master
 ?>

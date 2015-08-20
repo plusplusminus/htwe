@@ -36,9 +36,13 @@ class GFFormLocking extends GFLocking {
 	}
 
 	protected function get_object_id() {
+<<<<<<< HEAD
 		$id = rgget( 'id' );
 		$id = absint( $id );
 		return $id;
+=======
+		return rgget( 'id' );
+>>>>>>> origin/master
 	}
 
 }
@@ -80,9 +84,13 @@ class GFEntryLocking extends GFLocking {
 	}
 
 	protected function get_object_id() {
+<<<<<<< HEAD
 		$id = rgget( 'lid' );
 		$id = absint( $id );
 		return $id;
+=======
+		return rgget( 'lid' );
+>>>>>>> origin/master
 	}
 
 }
@@ -121,14 +129,21 @@ class GFFormSettingsLocking extends GFLocking {
 
 	protected function get_object_id() {
 		$subview = rgget( 'subview' );
+<<<<<<< HEAD
 		if ( empty( $subview ) || ! ctype_alnum( $subview ) ) {
+=======
+		if ( empty( $subview ) ) {
+>>>>>>> origin/master
 			$subview = 'settings';
 		}
 
 		$form_id = rgget( 'id' );
 
+<<<<<<< HEAD
 		$form_id = absint( $form_id );
 
+=======
+>>>>>>> origin/master
 		return $subview . '-' . $form_id;
 	}
 
@@ -161,7 +176,11 @@ class GFPluginSettingsLocking extends GFLocking {
 
 	protected function get_object_id() {
 		$view = rgget( 'subview' );
+<<<<<<< HEAD
 		if ( empty( $view ) || ! ctype_alnum( $view ) ) {
+=======
+		if ( empty( $view ) ) {
+>>>>>>> origin/master
 			$view = 'settings';
 		}
 

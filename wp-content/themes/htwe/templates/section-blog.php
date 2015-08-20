@@ -1,5 +1,11 @@
+<<<<<<< HEAD
 <?php
 
+=======
+
+
+<?php
+>>>>>>> origin/master
 // Exclude categories on the homepage.
 
 $query_args = array(
@@ -7,7 +13,11 @@ $query_args = array(
 	'posts_per_page' => 6
 );
 
+<<<<<<< HEAD
 
+=======
+query_posts( $query_args );
+>>>>>>> origin/master
 
 ?>
 
@@ -15,6 +25,7 @@ $query_args = array(
 	<div class="wrap container-fluid">
 		<div class="row">
 			<div class="col-md-8">
+<<<<<<< HEAD
 				<div class="row">
 					<?php  if ( is_single() ) { ?>
 						<div class="related_posts--heading">	
@@ -23,6 +34,8 @@ $query_args = array(
 					<?php  };?>
 				</div>
 				<?php query_posts( $query_args ); ?>
+=======
+>>>>>>> origin/master
 				<?php if ( have_posts() ) : $count = 0; ?>
 					<div class="row">
 						<?php while ( have_posts() ) : the_post(); $count++;?>
@@ -32,11 +45,14 @@ $query_args = array(
 							</article>
 						<?php endwhile; ?>
 					</div>
+<<<<<<< HEAD
 					<div class="row">
 						<div class="load-more col-md-12">
 							<a class="load-more--btn">Show me more</a>
 						</div>
 					</div>
+=======
+>>>>>>> origin/master
 				<?php endif; ?>
 				<?php wp_reset_query(); ?>
 			</div>

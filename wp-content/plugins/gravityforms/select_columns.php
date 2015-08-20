@@ -174,15 +174,26 @@ class GFSelectColumns {
 		$form = self::get_selectable_entry_meta( $form );
 		$form = GFFormsModel::convert_field_objects( $form );
 		?>
+<<<<<<< HEAD
 		<div class="panel-instructions"><?php esc_html_e( 'Drag & drop to order and select which columns are displayed in the entries table.', 'gravityforms' ) ?></div>
 		<div class="gcolumn_wrapper">
 			<div class="gcolumn_container_left">
 				<div class="gform_select_column_heading"><?php esc_html_e( 'Active Columns', 'gravityforms' ); ?></div>
+=======
+		<div class="panel-instructions"><?php _e( 'Drag & drop to order and select which columns are displayed in the entries table.', 'gravityforms' ) ?></div>
+		<div class="gcolumn_wrapper">
+			<div class="gcolumn_container_left">
+				<div class="gform_select_column_heading"><?php _e( 'Active Columns', 'gravityforms' ); ?></div>
+>>>>>>> origin/master
 				<ul id="sortable_selected" class="sortable_connected">
 				<?php
 				foreach ( $columns as $field_id => $field_info ) {
 					?>
+<<<<<<< HEAD
 					<li id="<?php echo esc_attr( $field_id ) ?>"><?php echo esc_html( $field_info['label'] ) ?></li>
+=======
+					<li id="<?php echo $field_id ?>"><?php echo esc_html( $field_info['label'] ) ?></li>
+>>>>>>> origin/master
 				<?php
 				}
 				?>
@@ -192,14 +203,22 @@ class GFSelectColumns {
 			<div class="column-arrow-mid"></div>
 
 			<div class="gcolumn_container_right" id="available_column">
+<<<<<<< HEAD
 				<div class="gform_select_column_heading"> <?php esc_html_e( 'Inactive Columns', 'gravityforms' ); ?></div>
+=======
+				<div class="gform_select_column_heading"> <?php _e( 'Inactive Columns', 'gravityforms' ); ?></div>
+>>>>>>> origin/master
 				<ul id="sortable_available" class="sortable_connected">
 				<?php
 				foreach ( $form['fields'] as $field ) {
 					/* @var GF_Field $field */
 					if ( RGFormsModel::get_input_type( $field ) == 'checkbox' && ! in_array( $field->id, $field_ids ) ) {
 						?>
+<<<<<<< HEAD
 						<li id="<?php echo esc_attr( $field->id ); ?>"><?php echo esc_html( GFCommon::get_label( $field ) ) ?></li>
+=======
+						<li id="<?php echo $field->id ?>"><?php echo esc_html( GFCommon::get_label( $field ) ) ?></li>
+>>>>>>> origin/master
 					<?php
 					}
 
@@ -209,13 +228,21 @@ class GFSelectColumns {
 						foreach ( $inputs as $input ) {
 							if ( ! in_array( $input['id'], $field_ids ) && ! ( $field->type == 'creditcard' && in_array( $input['id'], array( floatval( "{$field->id}.2" ), floatval( "{$field->id}.3" ), floatval( "{$field->id}.5" ) ) ) ) ) {
 								?>
+<<<<<<< HEAD
 								<li id="<?php echo esc_attr( $input['id'] ); ?>"><?php echo esc_html( GFCommon::get_label( $field, $input['id'] ) ); ?></li>
+=======
+								<li id="<?php echo $input['id'] ?>"><?php echo esc_html( GFCommon::get_label( $field, $input['id'] ) ) ?></li>
+>>>>>>> origin/master
 							<?php
 							}
 						}
 					} else if ( ! $field->displayOnly && ! in_array( $field->id, $field_ids ) && RGFormsModel::get_input_type( $field ) != 'list' ) {
 						?>
+<<<<<<< HEAD
 						<li id="<?php echo $field->id ?>"><?php echo esc_html( GFCommon::get_label( $field ) ); ?></li>
+=======
+						<li id="<?php echo $field->id ?>"><?php echo esc_html( GFCommon::get_label( $field ) ) ?></li>
+>>>>>>> origin/master
 					<?php
 					}
 				}
@@ -225,8 +252,13 @@ class GFSelectColumns {
 		</div>
 
 		<div class="panel-buttons">
+<<<<<<< HEAD
 			<input type="button" value="  <?php esc_attr_e( 'Save', 'gravityforms' ); ?>  " class="button-primary" onclick="SelectColumns();" />&nbsp;
 			<input type="button" value="<?php esc_attr_e( 'Cancel', 'gravityforms' ); ?>" class="button" onclick="self.parent.tb_remove();" />
+=======
+			<input type="button" value="  <?php _e( 'Save', 'gravityforms' ); ?>  " class="button-primary" onclick="SelectColumns();" />&nbsp;
+			<input type="button" value="<?php _e( 'Cancel', 'gravityforms' ); ?>" class="button" onclick="self.parent.tb_remove();" />
+>>>>>>> origin/master
 		</div>
 
 		</body>

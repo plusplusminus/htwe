@@ -26,7 +26,11 @@ class GF_Field_Quantity extends GF_Field {
 	}
 
 	public function get_form_editor_field_title() {
+<<<<<<< HEAD
 		return esc_attr__( 'Quantity', 'gravityforms' );
+=======
+		return __( 'Quantity', 'gravityforms' );
+>>>>>>> origin/master
 	}
 
 }

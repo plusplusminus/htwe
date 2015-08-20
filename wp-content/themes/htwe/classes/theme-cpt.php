@@ -4,9 +4,12 @@ class htweCustomPostTypes {
 	public function __construct() {
 		add_action('init',array($this,'htwe_products'));
 		add_action('init',array($this,'htwe_productscat'));
+<<<<<<< HEAD
 		add_action('init',array($this,'htwe_productstag'));
 
 		add_action('init',array($this,'htwe_internals'));
+=======
+>>>>>>> origin/master
 	}
 
     public function htwe_productscat() {
@@ -33,6 +36,7 @@ class htweCustomPostTypes {
 		);
 	}
 
+<<<<<<< HEAD
     public function htwe_productstag() {
 
 		register_taxonomy(	"product-tag", 
@@ -58,6 +62,8 @@ class htweCustomPostTypes {
 	}
 
 
+=======
+>>>>>>> origin/master
 
     function htwe_products()
 	{
@@ -98,6 +104,7 @@ class htweCustomPostTypes {
 			);			
 	}
 
+<<<<<<< HEAD
     function htwe_internals()
 	{
 		// Register custom post types
@@ -137,6 +144,8 @@ class htweCustomPostTypes {
 			);			
 	}
 
+=======
+>>>>>>> origin/master
 }
 global $cpt; 
 $cpt = new htweCustomPostTypes(); 

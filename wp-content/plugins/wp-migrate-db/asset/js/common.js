@@ -1,4 +1,5 @@
 // global vars
+<<<<<<< HEAD
 var wpmdb = wpmdb || {};
 wpmdb.common = {
 	hooks: [],
@@ -41,10 +42,28 @@ function wpmdb_call_next_hook() {
 	var func = wpmdb.common.call_stack[ 0 ];
 	wpmdb.common.call_stack.shift();
 	func.call( this );
+=======
+var hooks = [];
+var call_stack = [];
+var non_fatal_errors = '';
+var migration_error = false;
+var connection_data;
+var next_step_in_migration;
+
+function wpmdb_call_next_hook() {
+	if( ! call_stack.length ) {
+		call_stack = hooks;
+	}
+
+	var func = call_stack[0];
+	call_stack.shift();
+	window[func](); // Uses the string from the array to call the function of the same name
+>>>>>>> origin/master
 }
 
 function wpmdb_add_commas( number_string ) {
 	number_string += '';
+<<<<<<< HEAD
 	var number_parts = number_string.split( '.' );
 	var integer = number_parts[ 0 ];
 	var decimal = 1 < number_parts.length ? '.' + number_parts[ 1 ] : '';
@@ -63,6 +82,24 @@ function wpmdb_parse_json( maybe_json ) {
 	catch ( e ) {
 
 		// We simply return false here because the json data itself will never just contain a value of "false"
+=======
+	x = number_string.split('.');
+	x1 = x[0];
+	x2 = x.length > 1 ? '.' + x[1] : '';
+	var rgx = /(\d+)(\d{3})/;
+	while (rgx.test(x1)) {
+		x1 = x1.replace(rgx, '$1' + ',' + '$2');
+	}
+	return x1 + x2;
+}
+
+function wpmdb_parse_json( maybe_json ) {
+	try {
+		var json_object = jQuery.parseJSON( maybe_json );
+	}
+	catch(e){
+		// we simply return false here because the json data itself will never just contain a value of "false"
+>>>>>>> origin/master
 		return false;
 	}
 	return json_object;
@@ -94,18 +131,30 @@ function wpmdbGetAjaxErrors( title, code, text, jqXHR ) {
 	}
 
 	// Only add local connection issue if php errors (#144) or jqXHR has been provided
+<<<<<<< HEAD
 	if ( jsonErrors || 'undefined' !== jqXHR ) {
+=======
+	if ( jsonErrors || jqXHR !== undefined ) {
+>>>>>>> origin/master
 		html += '<strong>' + title + '</strong>' + ' &mdash; ';
 	}
 
 	// Only add extra error details if not php errors (#144) and jqXHR has been provided
+<<<<<<< HEAD
 	if ( !jsonErrors && 'undefined' !== jqXHR  ) {
+=======
+	if ( ! jsonErrors && jqXHR !== undefined ) {
+>>>>>>> origin/master
 		html += wpmdb_strings.status + ': ' + jqXHR.status + ' ' + jqXHR.statusText;
 		html += '<br /><br />' + wpmdb_strings.response + ':<br />';
 	}
 
 	// Add code to the end of the error text if not json errors
+<<<<<<< HEAD
 	if ( !jsonErrors ) {
+=======
+	if ( ! jsonErrors ) {
+>>>>>>> origin/master
 		text += ' ' + code;
 	}
 
@@ -115,8 +164,14 @@ function wpmdbGetAjaxErrors( title, code, text, jqXHR ) {
 	return html;
 }
 
+<<<<<<< HEAD
 (function( $ ) {
 
 	// jQuery code here
 
 })( jQuery );
+=======
+(function($) {
+	// jQuery code here
+})(jQuery);
+>>>>>>> origin/master

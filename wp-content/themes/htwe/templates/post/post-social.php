@@ -31,7 +31,11 @@
 		</ul>
 		<ul class="social_comments">
 			<li>
+<<<<<<< HEAD
 				<a href="#comments" class="js-coments"><span class="fa fa-comment-o"></span>	<span class="disqus-comment-count" data-disqus-identifier="<?php the_permalink();?>">0</span></a>
+=======
+				<a href="#comments" class="js-coments"><span class="fa fa-comments"></span>	<span class="disqus-comment-count" data-disqus-identifier="<?php the_permalink();?>">0</span></a>
+>>>>>>> origin/master
 			</li>
 		</ul>
 	</div>

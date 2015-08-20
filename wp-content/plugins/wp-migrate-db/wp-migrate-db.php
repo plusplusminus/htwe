@@ -4,7 +4,11 @@ Plugin Name: WP Migrate DB
 Plugin URI: http://wordpress.org/plugins/wp-migrate-db/
 Description: Exports your database as a MySQL data dump (much like phpMyAdmin), does a find and replace on URLs and file paths, then allows you to save it to your computer.
 Author: Delicious Brains
+<<<<<<< HEAD
 Version: 0.7.1
+=======
+Version: 0.6.1
+>>>>>>> origin/master
 Author URI: http://deliciousbrains.com
 Network: True
 Text Domain: wp-migrate-db
@@ -22,7 +26,11 @@ Domain Path: /languages/
 // MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
 // **********************************************************************
 
+<<<<<<< HEAD
 $GLOBALS['wpmdb_meta']['wp-migrate-db']['version'] = '0.7.1';
+=======
+$GLOBALS['wpmdb_meta']['wp-migrate-db']['version'] = '0.6.1';
+>>>>>>> origin/master
 
 if ( ! class_exists( 'WPMDB_Utils' ) ) {
 	require dirname( __FILE__ ) . '/class/wpmdb-utils.php';
@@ -55,12 +63,16 @@ function wp_migrate_db() {
 	require_once $abspath . '/class/wpmdb-base.php';
 	require_once $abspath . '/class/wpmdb.php';
 	require_once $abspath . '/class/wpmdb-replace.php';
+<<<<<<< HEAD
 	require_once $abspath . '/class/wpmdb-migration-state.php';
 	require_once $abspath . '/class/wpmdb-sanitize.php';
+=======
+>>>>>>> origin/master
 
 	$wpmdb = new WPMDB( __FILE__ );
 
 	return $wpmdb;
+<<<<<<< HEAD
 }
 
 function wpmdb_cli_loaded() {
@@ -95,3 +107,6 @@ function wpmdb_cli() {
 }
 
 add_action( 'activated_plugin', array( 'WPMDB_Utils', 'deactivate_other_instances' ) );
+=======
+}
+>>>>>>> origin/master

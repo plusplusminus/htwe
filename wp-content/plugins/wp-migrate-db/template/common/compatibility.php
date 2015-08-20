@@ -12,7 +12,11 @@
 	<div class="indent-wrap expandable-content plugin-compatibility-wrap select-wrap">
 		<select autocomplete="off" class="multiselect" id="selected-plugins" name="selected_plugins[]" multiple="multiple">
 			<?php
+<<<<<<< HEAD
 			$blacklist = array_flip( (array) $this->settings['blacklist_plugins'] );
+=======
+			$blacklist = array_flip( $this->settings['blacklist_plugins'] );
+>>>>>>> origin/master
 			foreach ( get_plugins() as $key => $plugin ) {
 				if ( 0 === strpos( $key, 'wp-migrate-db' ) ) {
 					continue;
@@ -34,4 +38,8 @@
 			<span class="plugin-compatibility-success-msg"><?php _ex( 'Saved', 'The settings were saved successfully', 'wp-migrate-db' ); ?></span>
 		</p>
 	</div>
+<<<<<<< HEAD
 </div>
+=======
+</div>
+>>>>>>> origin/master

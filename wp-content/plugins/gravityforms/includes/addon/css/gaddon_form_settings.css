@@ -2,6 +2,7 @@
 .settings-field-map-table thead th { font-weight: bold; border-bottom: 1px solid #ccc; }
 .settings-field-map-table tbody td { border-bottom: 1px dotted #eee; }
 .settings-field-map-table select { max-width: 90%; }
+<<<<<<< HEAD
 .settings-field-map-table .custom-key-reset, .gaddon-setting-select-custom-container .select-custom-reset {
 	background: url( ../../../images/xit.gif ) no-repeat scroll 0 0 transparent;
 	cursor:pointer;
@@ -30,10 +31,13 @@
 	top: 10px;
 }
 
+=======
+>>>>>>> origin/master
 .gaddon-section .required { color: #f00; }
 .gaddon-setting-inline{
     display:inline;
     margin-right:6px;
+<<<<<<< HEAD
 }
 
 .mt-gaddon-editor {
@@ -45,4 +49,6 @@
 
 .mt-gaddon-editor ~ .wp-editor-wrap {
 	margin-right: 23px;
+=======
+>>>>>>> origin/master
 }

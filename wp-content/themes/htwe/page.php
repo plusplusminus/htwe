@@ -6,6 +6,10 @@
 
 	  	<?php get_template_part('templates/page/page','content'); ?>
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> origin/master
 	</div>
 
 	<?php get_template_part('templates/section','newsletter'); ?>

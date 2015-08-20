@@ -18,7 +18,11 @@ query_posts( $query_args );
 				<?php if ( have_posts() ) : $count = 0; ?>
 					<div class="row">
 						<?php while ( have_posts() ) : the_post(); $count++;?>
+<<<<<<< HEAD
 						  	<article id="post-<?php the_ID(); ?>" <?php post_class('col-md-4 grid_product'); ?> role="article" itemscope itemtype="http://schema.org/BlogPosting">
+=======
+						  	<article id="post-<?php the_ID(); ?>" <?php post_class('col-md-4'); ?> role="article" itemscope itemtype="http://schema.org/BlogPosting">
+>>>>>>> origin/master
 						    	<?php get_template_part('templates/shop/product','grid'); ?>
 							</article>
 						<?php endwhile; ?>

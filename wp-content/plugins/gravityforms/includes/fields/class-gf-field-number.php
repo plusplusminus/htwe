@@ -10,7 +10,11 @@ class GF_Field_Number extends GF_Field {
 	public $type = 'number';
 
 	public function get_form_editor_field_title() {
+<<<<<<< HEAD
 		return esc_attr__( 'Number', 'gravityforms' );
+=======
+		return __( 'Number', 'gravityforms' );
+>>>>>>> origin/master
 	}
 
 	function get_form_editor_field_settings() {
@@ -35,7 +39,11 @@ class GF_Field_Number extends GF_Field {
 		);
 	}
 
+<<<<<<< HEAD
 	public function is_conditional_logic_supported() {
+=======
+	public function is_conditional_logic_supported(){
+>>>>>>> origin/master
 		return true;
 	}
 
@@ -47,9 +55,15 @@ class GF_Field_Number extends GF_Field {
 			require_once( GFCommon::get_base_path() . '/currency.php' );
 			$currency = new RGCurrency( GFCommon::get_currency() );
 			$value    = $currency->to_number( $value );
+<<<<<<< HEAD
 		} elseif ( $this->numberFormat == 'decimal_comma' ) {
 			$value = GFCommon::clean_number( $value, 'decimal_comma' );
 		} elseif ( $this->numberFormat == 'decimal_dot' ) {
+=======
+		} else if ( $this->numberFormat == 'decimal_comma' ) {
+			$value = GFCommon::clean_number( $value, 'decimal_comma' );
+		} else if ( $this->numberFormat == 'decimal_dot' ) {
+>>>>>>> origin/master
 			$value = GFCommon::clean_number( $value, 'decimal_dot' );
 		}
 
@@ -69,6 +83,7 @@ class GF_Field_Number extends GF_Field {
 		if ( $requires_valid_number && ! $is_valid_number ) {
 			$this->failed_validation  = true;
 			$this->validation_message = empty( $this->errorMessage ) ? $this->get_range_message() : $this->errorMessage;
+<<<<<<< HEAD
 		} elseif ( $this->type == 'quantity' ) {
 			if ( intval( $value ) != $value ) {
 				$this->failed_validation  = true;
@@ -76,6 +91,15 @@ class GF_Field_Number extends GF_Field {
 			} elseif ( ! empty( $value ) && ( ! is_numeric( $value ) || intval( $value ) != floatval( $value ) || intval( $value ) < 0 ) ) {
 				$this->failed_validation  = true;
 				$this->validation_message = empty( $field['errorMessage'] ) ? esc_html__( 'Please enter a valid quantity', 'gravityforms' ) : $field['errorMessage'];
+=======
+		} else if ( $this->type == 'quantity' ) {
+			if ( intval( $value ) != $value ) {
+				$this->failed_validation  = true;
+				$this->validation_message = empty( $field['errorMessage'] ) ? __( 'Please enter a valid quantity. Quantity cannot contain decimals.', 'gravityforms' ) : $field['errorMessage'];
+			} else if ( ! empty( $value ) && ( ! is_numeric( $value ) || intval( $value ) != floatval( $value ) || intval( $value ) < 0 ) ) {
+				$this->failed_validation  = true;
+				$this->validation_message = empty( $field['errorMessage'] ) ? __( 'Please enter a valid quantity', 'gravityforms' ) : $field['errorMessage'];
+>>>>>>> origin/master
 			}
 		}
 
@@ -95,7 +119,11 @@ class GF_Field_Number extends GF_Field {
 		}
 
 		if ( ( is_numeric( $this->rangeMin ) && $value < $this->rangeMin ) ||
+<<<<<<< HEAD
 		     ( is_numeric( $this->rangeMax ) && $value > $this->rangeMax )
+=======
+			( is_numeric( $this->rangeMax ) && $value > $this->rangeMax )
+>>>>>>> origin/master
 		) {
 			return false;
 		} else {
@@ -109,6 +137,7 @@ class GF_Field_Number extends GF_Field {
 		$message = '';
 
 		if ( is_numeric( $min ) && is_numeric( $max ) ) {
+<<<<<<< HEAD
 			$message = sprintf( esc_html__( 'Please enter a value between %s and %s.', 'gravityforms' ), "<strong>$min</strong>", "<strong>$max</strong>" );
 		} elseif ( is_numeric( $min ) ) {
 			$message = sprintf( esc_html__( 'Please enter a value greater than or equal to %s.', 'gravityforms' ), "<strong>$min</strong>" );
@@ -116,6 +145,15 @@ class GF_Field_Number extends GF_Field {
 			$message = sprintf( esc_html__( 'Please enter a value less than or equal to %s.', 'gravityforms' ), "<strong>$max</strong>" );
 		} elseif ( $this->failed_validation ) {
 			$message = esc_html__( 'Please enter a valid number', 'gravityforms' );
+=======
+			$message = sprintf( __( 'Please enter a value between %s and %s.', 'gravityforms' ), "<strong>$min</strong>", "<strong>$max</strong>" );
+		} else if ( is_numeric( $min ) ) {
+			$message = sprintf( __( 'Please enter a value greater than or equal to %s.', 'gravityforms' ), "<strong>$min</strong>" );
+		} else if ( is_numeric( $max ) ) {
+			$message = sprintf( __( 'Please enter a value less than or equal to %s.', 'gravityforms' ), "<strong>$max</strong>" );
+		} else if ( $this->failed_validation ) {
+			$message = __( 'Please enter a valid number', 'gravityforms' );
+>>>>>>> origin/master
 		}
 
 		return $message;
@@ -153,7 +191,11 @@ class GF_Field_Number extends GF_Field {
 					$instruction = "<div class='instruction $validation_class'>" . $message . '</div>';
 				}
 			}
+<<<<<<< HEAD
 		} elseif ( RG_CURRENT_VIEW == 'entry' ) {
+=======
+		} else if ( RG_CURRENT_VIEW == 'entry' ) {
+>>>>>>> origin/master
 			$value = GFCommon::format_number( $value, $this->numberFormat, rgar( $entry, 'currency' ) );
 		}
 
@@ -169,13 +211,18 @@ class GF_Field_Number extends GF_Field {
 
 		$logic_event = $this->get_conditional_logic_event( 'keyup' );
 
+<<<<<<< HEAD
 		$include_thousands_sep = apply_filters( 'gform_include_thousands_sep_pre_format_number', $html_input_type == 'text', $this );
+=======
+		$include_thousands_sep = $html_input_type == 'text';
+>>>>>>> origin/master
 		$value                 = GFCommon::format_number( $value, $this->numberFormat, rgar( $entry, 'currency' ), $include_thousands_sep );
 
 		$placeholder_attribute = $this->get_field_placeholder_attribute();
 
 		$tabindex = $this->get_tabindex();
 
+<<<<<<< HEAD
 		$input = sprintf( "<div class='ginput_container'><input name='input_%d' id='%s' type='{$html_input_type}' {$step_attr} {$min_attr} {$max_attr} value='%s' class='%s' {$tabindex} {$logic_event} {$read_only} %s %s/>%s</div>", $id, $field_id, esc_attr( $value ), esc_attr( $class ), $disabled_text, $placeholder_attribute, $instruction );
 		return $input;
 	}
@@ -184,10 +231,20 @@ class GF_Field_Number extends GF_Field {
 		$include_thousands_sep = apply_filters( 'gform_include_thousands_sep_pre_format_number', true, $this );
 
 		return GFCommon::format_number( $value, $this->numberFormat, rgar( $entry, 'currency' ), $include_thousands_sep );
+=======
+		return sprintf( "<div class='ginput_container'><input name='input_%d' id='%s' type='{$html_input_type}' {$step_attr} {$min_attr} {$max_attr} value='%s' class='%s' {$tabindex} {$logic_event} {$read_only} {$placeholder_attribute} %s/>%s</div>", $id, $field_id, esc_attr( $value ), esc_attr( $class ), $disabled_text, $instruction );
+
+	}
+
+	public function get_value_entry_list( $value, $entry, $field_id, $columns, $form ) {
+
+		return GFCommon::format_number( $value, $this->numberFormat, rgar( $entry, 'currency' ), true );
+>>>>>>> origin/master
 	}
 
 
 	public function get_value_entry_detail( $value, $currency = '', $use_text = false, $format = 'html', $media = 'screen' ) {
+<<<<<<< HEAD
 		$include_thousands_sep = apply_filters( 'gform_include_thousands_sep_pre_format_number', $use_text, $this );
 
 		return GFCommon::format_number( $value, $this->numberFormat, $currency, $include_thousands_sep );
@@ -195,6 +252,14 @@ class GF_Field_Number extends GF_Field {
 
 	public function get_value_merge_tag( $value, $input_id, $entry, $form, $modifier, $raw_value, $url_encode, $esc_html, $format, $nl2br ) {
 		$include_thousands_sep = apply_filters( 'gform_include_thousands_sep_pre_format_number', $modifier != 'value', $this );
+=======
+
+		return GFCommon::format_number( $value, $this->numberFormat, $currency, true );
+	}
+
+	public function get_value_merge_tag( $value, $input_id, $entry, $form, $modifier, $raw_value, $url_encode, $esc_html, $format ) {
+		$include_thousands_sep = $modifier == 'value' ? false : true;
+>>>>>>> origin/master
 
 		return GFCommon::format_number( $value, $this->numberFormat, rgar( $entry, 'currency' ), $include_thousands_sep );
 	}
@@ -204,7 +269,11 @@ class GF_Field_Number extends GF_Field {
 		$value = GFCommon::maybe_add_leading_zero( $value );
 
 		$lead  = empty( $lead ) ? RGFormsModel::get_lead( $lead_id ) : $lead;
+<<<<<<< HEAD
 		$value = $this->has_calculation() ? GFCommon::round_number( GFCommon::calculate( $this, $form, $lead ), $this->calculationRounding ) : $this->clean_number( $value );
+=======
+		$value = $this->has_calculation() ? GFCommon::round_number( GFCommon::calculate( $this, $form, $lead ), $this->calculationRounding ) : GFCommon::clean_number( $value, $this->numberFormat );
+>>>>>>> origin/master
 		//return the value as a string when it is zero and a calc so that the "==" comparison done when checking if the field has changed isn't treated as false
 		if ( $this->has_calculation() && $value == 0 ) {
 			$value = '0';
@@ -213,6 +282,7 @@ class GF_Field_Number extends GF_Field {
 		return $value;
 	}
 
+<<<<<<< HEAD
 	public function sanitize_settings() {
 		parent::sanitize_settings();
 		$this->enableCalculation = (bool) $this->enableCalculation;
@@ -239,6 +309,11 @@ class GF_Field_Number extends GF_Field {
 			return GFCommon::clean_number( $value, $this->numberFormat );
 		}
 	}
+=======
+
+
+
+>>>>>>> origin/master
 }
 
 GF_Fields::register( new GF_Field_Number() );

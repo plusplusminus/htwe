@@ -13,9 +13,13 @@
 		
 		<div class="post_readmore">
 			<p>Continue Reading</p>
+<<<<<<< HEAD
 			<div class="triangle-divider"></div>
 		</div>
 
+=======
+		</div> 
+>>>>>>> origin/master
 		<?php the_post_thumbnail('full',array('class'=>'img-responsive')); ?>
 		<figcaption class="post_image--caption"></figcaption>
 
