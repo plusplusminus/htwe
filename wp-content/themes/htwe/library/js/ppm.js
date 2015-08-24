@@ -11,6 +11,11 @@ jQuery(window).load(function() {
 });
 
 jQuery(document).ready(function(){
+
+
+	jQuery(".header_main").sticky({topSpacing:0});
+
+
 	 var ias = jQuery.ias({
 	    container:  '.js-infinite-cont',
 	    item:       '.js-infinite',
@@ -33,46 +38,48 @@ jQuery(document).ready(function(){
           jQuery(this).fadeOut();
     });
 
+	jQuery('#subForm').submit(function (e) {
+	    e.preventDefault();
+	    jQuery.getJSON(
+	        this.action + "?callback=?",
+	        jQuery(this).serialize(),
+	        function (data) {
+	            if (data.Status === 400) {
+	                alert("Error: " + data.Message);
+	            } else { // 200
+	                // #subForm picks the element which has
+	                // an id of subForm (ie our form), and
+	                // then we slide it up, over 400 milliseconds.
+	                jQuery('#subForm').slideUp(400, function() {
+	                    // #successMessage picks out the div that
+	                    // contains the success message so that we
+	                    // can animate it 
+	                    jQuery('#successMessage').slideDown();
+	                });
+	        }
+	    });
+	});
 
-})
+	jQuery('.search_btn').on('click',function(e) {
 
-var expandSearch = {
-	init: function(){
+		var open = jQuery( "body" ).hasClass( "showSearch" );
 
-		var _this = this,
-		_searchContainers = document.querySelectorAll('.expandSearch');
 
-		for( var _index in _searchContainers ){
-			if( typeof _searchContainers[ _index ] === 'object' ){
-				_this.searchFunctions( _searchContainers[ _index ] );
-			}
+		if (open) {
+			console.log(jQuery( "#searchInput" ).val());
+			if ( jQuery( "#searchInput" ).val() === "" ) {
+			  
+		      jQuery('body').toggleClass('showSearch');
+		      event.preventDefault();
+		    } else {
+		    	jQuery('body').toggleClass('showSearch');
+		    }
+		} else {
+			jQuery('body').toggleClass('showSearch');
+			event.preventDefault();
 		}
 
-	},
-
-	searchFunctions: function( _thisSearch ){
-			
-		var _nodes = _thisSearch.childNodes;
-
-		//a click
-		_nodes[3].addEventListener('click',function(e){
-
-			if( _thisSearch.attributes.class.value.indexOf("openSearch") > -1 ){
-				_thisSearch.attributes.class.value = 'expandSearch';
-				jQuery('body').removeClass('showSearch');
-			}
-			else{
-				_thisSearch.attributes.class.value = 'expandSearch openSearch';
-				jQuery('body').addClass('showSearch');
-			}
-
-			if( !e.preventDefault() ){ e.returnValue = false; }
-		});
-
-	}
-
-};
+	})
 
 
-//execute
-expandSearch.init();
+})

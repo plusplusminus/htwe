@@ -11,3 +11,5 @@
 		</li>
 	</ul>
 </nav>
+
+<?php get_sidebar('shop'); ?>

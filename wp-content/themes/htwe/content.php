@@ -1,7 +1,7 @@
-<div class="blog_article">
+     <div class="blog_article">
 	<a href="<?php the_permalink();?>" title="<?php the_title(); ?>">
 		<figure class="article_image">
-			<?php the_post_thumbnail('grid',array('class'=>'img-responsive')); ?>
+			<?php the_post_thumbnail('feature-lg',array('class'=>'img-responsive')); ?>
 		</figure>
 	</a>
 	<div class="article_content">

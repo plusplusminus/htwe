@@ -116,34 +116,46 @@ function child_sections($sections){
         'desc'          => __('<p class="description">Social Network URLS</p>', 'ppm'),
         'fields' => array(
             array(
-                        'id'=>'weddingwire_url',
-                        'type' => 'text',
-                        'title' => __('Wedding Wire', 'redux-framework-demo'),
-                        'desc' => __('Enter your wedding wire url', 'redux-framework-demo'),
-                        ),  
-            array(
                         'id'=>'twitter_url',
                         'type' => 'text',
                         'title' => __('Twitter', 'redux-framework-demo'),
-                        'desc' => __('Enter your twitter url', 'redux-framework-demo'),
+                        'desc' => __('Enter your twitter url', 'ppm'),
                         ),  
             array(
                         'id'=>'facebook_url',
                         'type' => 'text',
                         'title' => __('Facebook', 'redux-framework-demo'),
-                        'desc' => __('Enter your Facebook URL', 'redux-framework-demo'),
+                        'desc' => __('Enter your Facebook URL', 'ppm'),
                         ),  
             array(
                         'id'=>'pinterest_url',
                         'type' => 'text',
                         'title' => __('pinterest', 'redux-framework-demo'),
-                        'desc' => __('Enter your pinterest URL', 'redux-framework-demo'),
+                        'desc' => __('Enter your pinterest URL', 'ppm'),
                         ),  
             array(
                         'id'=>'instagram_url',
                         'type' => 'text',
                         'title' => __('Instagram', 'redux-framework-demo'),
-                        'desc' => __('Enter your Instagram URL', 'redux-framework-demo'),
+                        'desc' => __('Enter your Instagram URL', 'ppm'),
+                        ), 
+            array(
+                        'id'=>'contact_url',
+                        'type' => 'text',
+                        'title' => __('Contact Page URL', 'ppm'),
+                        'desc' => __('Enter your Contact Page URL', 'ppm'),
+                        ),  
+            array(
+                        'id'=>'contact_email',
+                        'type' => 'text',
+                        'title' => __('Contact Email', 'ppm'),
+                        'desc' => __('Enter your Contact Email', 'ppm'),
+                        ),  
+            array(
+                        'id'=>'contact_number',
+                        'type' => 'text',
+                        'title' => __('Contact Number', 'ppm'),
+                        'desc' => __('Enter your Contact Number', 'ppm'),
                         ),  
         )
     );
@@ -431,6 +443,41 @@ function ppm_register_metabox() {
         'desc' => __( 'Text to appear on Button', 'woothemes' ),
     ));
 
+    $post_meta = new_cmb2_box( array(
+        'id'           => 'cmb2_attached_posts_field',
+        'title'        => __( 'Posts Options', 'cmb2' ),
+        'object_types' => array( 'post' ), // Post type
+        'context'      => 'normal',
+        'priority'     => 'high',
+        'show_names'   => true, // Show field names on the left
+    ) );
+
+    $post_meta->add_field( array(
+        'name'    => 'Landscape Header Image',
+        'desc'    => 'Upload an image or enter an URL.',
+        'id'      => $prefix.'header_image',
+        'type'    => 'file',
+        // Optional:
+        'options' => array(
+            'url' => false, // Hide the text input for the url
+            'add_upload_file_text' => 'Add Image' // Change upload button text. Default: "Add or Upload File"
+        ),
+    ) );
+
+    $post_meta->add_field( array(
+        'name'    => __( 'Attached Posts', 'cmb2' ),
+        'desc'    => __( 'Drag posts from the left column to the right column to attach them to this page.<br />You may rearrange the order of the posts in the right column by dragging and dropping.', 'cmb2' ),
+        'id'      => 'attached_cmb2_attached_posts',
+        'type'    => 'custom_attached_posts',
+        'options' => array(
+            'show_thumbnails' => true, // Show thumbnails on the left
+            'filter_boxes'    => true, // Show a text box for filtering the results
+            'query_args'      => array( 'post_type'=>'internals','posts_per_page' => 10 ), // override the get_posts args
+        )
+    ));
+
+
+
 }
 
 add_action( 'cmb2_init', 'ppm_register_metabox' );
@@ -494,5 +541,45 @@ function custom_breadcrumb() {
     echo '</ol>';
   }
 }
+
+add_action( 'show_user_profile', 'add_extra_social_links' );
+add_action( 'edit_user_profile', 'add_extra_social_links' );
+
+function add_extra_social_links( $user )
+{
+    ?>
+        <h3>New User Profile Links</h3>
+
+        <table class="form-table">
+            <tr>
+                <th><label for="facebook_profile">Facebook Profile URL</label></th>
+                <td><input type="text" name="facebook_profile" value="<?php echo esc_attr(get_the_author_meta( 'facebook_profile', $user->ID )); ?>" class="regular-text" /></td>
+            </tr>
+
+            <tr>
+                <th><label for="twitter_profile">Twitter Handle</label></th>
+                <td><input type="text" name="twitter_profile" value="<?php echo esc_attr(get_the_author_meta( 'twitter_profile', $user->ID )); ?>" class="regular-text" /></td>
+            </tr>
+
+            <tr>
+                <th><label for="google_profile">Instagram Profile URL</label></th>
+                <td><input type="text" name="instagram_profile" value="<?php echo esc_attr(get_the_author_meta( 'instagram_profile', $user->ID )); ?>" class="regular-text" /></td>
+            </tr>
+        </table>
+    <?php
+}
+
+add_action( 'personal_options_update', 'save_extra_social_links' );
+add_action( 'edit_user_profile_update', 'save_extra_social_links' );
+
+function save_extra_social_links( $user_id )
+{
+    update_user_meta( $user_id,'facebook_profile', sanitize_text_field( $_POST['facebook_profile'] ) );
+    update_user_meta( $user_id,'twitter_profile', sanitize_text_field( $_POST['twitter_profile'] ) );
+    update_user_meta( $user_id,'instagram_profile', sanitize_text_field( $_POST['instagram_profile'] ) );
+}
+
+
+
 
 ?>

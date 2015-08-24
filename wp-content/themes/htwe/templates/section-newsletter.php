@@ -15,14 +15,20 @@
 						</div>
 						<div class="newsletter_form">
 							<div class="row center-xs">
-							  <div class="col-lg-8">
-							    <div class="input-group">
-							      <input type="text" class="form-control input-lg" placeholder="Email address">
-							      <span class="input-group-btn">
-							        <button class="btn btn-primary btn-lg" type="button"><small>Subscribe</small></button>
-							      </span>
-							    </div><!-- /input-group -->
-							  </div><!-- /.col-lg-6 -->
+							  	<div class="col-lg-8">
+								  	<form action="http://newsletter.plusplusminus.co.za/t/r/s/dydkeu/" method="post" id="subForm">
+								        <label for="aljhk-aljhk" class="sr-only">Email:</label>
+								        <div class="input-group">
+								        	<input type="text" name="cm-dydkeu-dydkeu" id="dydkeu-dydkeu"  class="form-control input-lg" placeholder="Email address"/><br />
+								       		<span class="input-group-btn">
+										        <button type="submit" class="btn btn-primary btn-lg" type="button"><small>Subscribe</small></button>
+										    </span>
+										</div>
+									</form>
+									<div class="alert alert-success" id="successMessage" style="display:none;">
+									    Thanks for signing up!
+									</div>
+							  	</div><!-- /.col-lg-6 -->
 							</div><!-- /.row -->
 						</div>
 					</figure>

@@ -14,9 +14,10 @@
 								<ul class="meta_author">
 									<li class="author_item meta_author--author"><span class"">by</span> <a href="<?php echo get_author_posts_url( get_the_author_meta( 'ID' ) ); ?>"><?php the_author_meta( 'display_name' ); ?></a>
 									</li>
-									<li class="author_item meta_author--twitter">
-										<a href="#">@twitter</a>
-									</li>
+									<?php $twitter = get_the_author_meta( 'twitter_profile', $post->post_author ); ?>
+									<?php if (!empty($twitter)) : ?>
+											<li class="author_item meta_author--twitter"><a href="https://twitter.com/<?php echo $twitter;?>">@<?php echo $twitter;?></a></li>
+									<?php endif; ?>
 								</ul>
 							</div>
 							<div class="clearfix"></div>

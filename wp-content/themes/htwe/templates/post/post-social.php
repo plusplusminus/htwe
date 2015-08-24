@@ -31,7 +31,7 @@
 		</ul>
 		<ul class="social_comments">
 			<li>
-				<a href="#comments" class="js-coments"><span class="fa fa-comment-o"></span>	<span class="disqus-comment-count" data-disqus-identifier="<?php the_permalink();?>">0</span></a>
+				<a href="#disqus_thread" class="js-coments"><span class="fa fa-comment-o"></span>	<span class="disqus-comment-count" data-disqus-identifier="<?php the_permalink();?>">0</span></a>
 			</li>
 		</ul>
 	</div>

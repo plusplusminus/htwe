@@ -9,7 +9,7 @@
 	</div>
 
 	<!-- Related Posts -->
-	<?php get_template_part('templates/section','blog'); ?>
+	<?php get_template_part('templates/post/section','related'); ?>
 
 	<?php get_template_part('templates/section','newsletter'); ?>
 

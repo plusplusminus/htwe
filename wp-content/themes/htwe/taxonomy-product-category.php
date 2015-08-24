@@ -7,7 +7,7 @@
 		<div class="wrap container-fluid">
 			<div class="row">
 				<div class="col-md-12">
-					<?php get_template_part('templates/shop/product','menu'); ?>
+					<?php get_sidebar('shop'); ?>
 					<?php if ( have_posts() ) : $count = 0; ?>
 						<div class="row">
 							<?php while ( have_posts() ) : the_post(); $count++;?>

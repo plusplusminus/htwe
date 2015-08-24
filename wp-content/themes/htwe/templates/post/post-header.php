@@ -9,16 +9,30 @@
 		<?php the_excerpt(); ?>
 	</div>
 
-	<figure class="post_image">
+	
+
+		<?php $featured_header = get_post_meta($post->ID,'_ppm_header_image_id',true); ?>
+		<?php if ($featured_header) : ?>
+			<figure class="post_image">
 		
-		<div class="post_readmore">
-			<p>Continue Reading</p>
-			<div class="triangle-divider"></div>
-		</div>
+				<div class="post_readmore">
+					<p>Continue Reading</p>
+					<div class="triangle-divider"></div>
+				</div>
+				<?php $image = wp_get_attachment_image_src( $featured_header, 'full'); ?>
+				<img src="<?php echo $image[0]; ?>" class="img-responsive">
 
-		<?php the_post_thumbnail('full',array('class'=>'img-responsive')); ?>
-		<figcaption class="post_image--caption"></figcaption>
+			</figure>
+		<?php elseif (has_post_thumbnail()) : ?>
+			<figure class="post_image">
+		
+				<div class="post_readmore">
+					<p>Continue Reading</p>
+					<div class="triangle-divider"></div>
+				</div>
+				<?php the_post_thumbnail('full',array('class'=>'img-responsive')); ?>
 
-	</figure>
+			</figure>
+		<?php endif; ?>
 
 </aside>
