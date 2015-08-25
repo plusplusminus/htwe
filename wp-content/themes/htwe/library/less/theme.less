@@ -283,6 +283,7 @@ header{
 	background: #fff;
 	border-bottom: 1px solid @gray-lighter;
 	position: relative;
+	z-index: 999;
 	> li {
 		position: relative;
 		width:100%;
@@ -466,7 +467,7 @@ header{
 
 	.welcome_content--info {
 		position: absolute;
-		top: 15%;
+		top:0;
 		left: 0;
 		right: 0;
 		text-align: center;
@@ -479,11 +480,18 @@ header{
 		}
 		p {
 			display: none;
-			font-size: 2.1em;
+			font-size: 1.5em;
 			color: #fff;
 			font-family: @font-family-serif;
 			font-weight: 300;
 			line-height: 1.2em;
+		}
+
+		@media all and (min-width:@screen-md-min) {
+			top:15%;
+			p {
+				font-size: 2.1em;
+			}
 		}
 
 		@media all and (min-width:@screen-sm-min) {
@@ -1308,6 +1316,10 @@ header{
 		font-weight: 400;
 		text-align: center;
 	}
+}
+
+.desk {
+	display: block;
 }
 
 
