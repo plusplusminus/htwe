@@ -1410,10 +1410,11 @@ body .gform_wrapper{
 
 
 .expandSearch input{
-	background-color: #ffffff;
-	border: none;
 	font-size: 16px;
 	padding: 10px 0px 10px 0px;
+	background-color: #ffffff;
+    margin: 6px 0 0;
+    border: none;
 }
 
 
@@ -1443,6 +1444,12 @@ body .gform_wrapper{
     padding: 13px 17px;
     background: transparent;
     border: none;
+
+
+    &:focus {
+    	outline: none!important;
+    }
+
     svg {
     	vertical-align: middle;
     }
@@ -1454,6 +1461,11 @@ body .gform_wrapper{
     margin-right: 10px;
     width: 230px;
     opacity: 1;
+    padding: 10px 10px 10px 10px;
+    border: 3px solid #a25532;
+    &:focus {
+    	outline: none!important;
+    }
 }
 
 
