@@ -43,7 +43,7 @@ if ( $related->post_count == 0) {
     <section class="section_grid">  
         <div class="wrap container-fluid">
             <div class="row">
-                <div class="col-md-8">
+                <div class="col-md-offset-2 col-md-8">
                     <div class="row">
                         <div class="related_posts--heading">    
                             <span class="related_posts--title">

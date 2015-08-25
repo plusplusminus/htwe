@@ -63,7 +63,7 @@ header{
 				content: "\003E";
 			}
 		}
-		@media all and (min-width:@screen-sm-min) {
+		@media all and (min-width:@screen-md-min) {
 			display: block;
 		}
 	}
@@ -203,12 +203,16 @@ header{
 	padding-right: 50px;
 	margin: 13px 10px;
 	.transition(padding .8s);
-	.showSearch & {
-		padding-right:305px;
-	}
+	
 
 	@media all and (min-width:@screen-sm-min) {
 		display: block;
+
+	}
+	@media all and (min-width:@screen-md-min) {
+		.showSearch & {
+			padding-right:305px;
+		}
 	}
 }
 
@@ -265,6 +269,10 @@ header{
 }
 
 
+.enumenu_ul {
+	display: none;
+}
+
 .header_main {
 	background: #fff;
 	z-index: 9999;
@@ -272,7 +280,9 @@ header{
 
 .main_nav {
 	.nav();
+	background: #fff;
 	border-bottom: 1px solid @gray-lighter;
+	position: relative;
 	> li {
 		position: relative;
 		width:100%;
@@ -956,10 +966,10 @@ header{
 	position: relative;
 	padding: 2rem;
 	@media all and (min-width:@screen-sm-min) {
-		padding: 20rem;
+		padding: 5rem;
 	}
 	@media all and (min-width:@screen-md-min) {
-		padding: 5rem;
+		padding: 15rem;
 	}
 	
 	overflow: hidden;
@@ -1067,7 +1077,7 @@ header{
 
 .header_post {
 
-	@media all and (min-width:@screen-sm-min) {
+	@media all and (min-width:@screen-md-min) {
 		padding-top: 70px;
 		max-width: 70%;
 		margin: auto;
@@ -1290,6 +1300,14 @@ header{
 	text-align: center;
 	margin: auto;
 	height: 120px;
+	.related_posts--title {
+		color: @brand-bronze;
+		font-size: 2em;
+		display: block;
+		font-family: @font-family-hand;
+		font-weight: 400;
+		text-align: center;
+	}
 }
 
 
