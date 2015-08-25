@@ -1,5 +1,4 @@
 <!doctype html>
-
 <!--[if lt IE 7]><html <?php language_attributes(); ?> class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
 <!--[if (IE 7)&!(IEMobile)]><html <?php language_attributes(); ?> class="no-js lt-ie9 lt-ie8"><![endif]-->
 <!--[if (IE 8)&!(IEMobile)]><html <?php language_attributes(); ?> class="no-js lt-ie9"><![endif]-->
@@ -18,22 +17,14 @@
 		<meta name="MobileOptimized" content="320">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 		
-		<?php // icons & favicons (for more: http://www.jonathantneal.com/blog/understand-the-favicon/) ?>
-		<link rel="apple-touch-icon" href="<?php echo get_template_directory_uri(); ?>/library/images/apple-icon-touch.png">
-		<link rel="icon" href="<?php echo get_template_directory_uri(); ?>/favicon.png?v=2">
-		<!--[if IE]>
-			<link rel="shortcut icon" href="<?php echo get_template_directory_uri(); ?>/favicon.ico">
-		<![endif]-->
-		<?php // or, set /favicon.ico for IE10 win ?>
-		<meta name="msapplication-TileColor" content="#f01d4f">
-		<meta name="msapplication-TileImage" content="<?php echo get_template_directory_uri(); ?>/library/images/win8-tile-icon.png">
+	
 		<link href='http://fonts.googleapis.com/css?family=Halant:300,400,500,600,700' rel='stylesheet' type='text/css'>
 		<link href='http://fonts.googleapis.com/css?family=Nothing+You+Could+Do' rel='stylesheet' type='text/css'>
 		<link rel="pingback" href="<?php bloginfo('pingback_url'); ?>">
 
 		<script src="//use.typekit.net/ncr8xos.js"></script>
 		<script>try{Typekit.load({ async: true });}catch(e){}</script>
-		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/3.9.3/lodash.min.js"></script>
+	
 
 		<?php // wordpress head functions ?>
 		<?php wp_head(); ?>
@@ -91,6 +82,10 @@
 	    		</div>
 	    		<div class="clearfix"></div>
 	    	</nav>
+
+	    	<div class="mobile_logo">
+	    		<?php echo '<a href="' . esc_url( $site_url ) . '" title="' . esc_attr( $site_description ) . '"><svg class="svg-icon shape-logo-wordmark-incolour"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#shape-logo-wordmark-incolour"></use></svg></a>' . "\n"; ?>
+	    	</div>
 
 	      	<nav class="header_main">
 	        	<?php bones_main_nav(); ?> 

@@ -273,7 +273,7 @@ function get_grid_class($class=1){
             return 'grid_article col-md-6 col-sm-6';
             break;
         case 3:
-            return 'grid_article css-fullwidth col-md-12 col-sm-6';
+            return 'grid_article css-fullwidth col-xs-12';
             break;
         case 4:
         case 5:

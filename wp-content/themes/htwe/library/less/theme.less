@@ -49,6 +49,7 @@ header{
 
 .breadcrumbs{
 	.breadcrumb{
+		display: none;
 		background: none;
 		li{
 			font-size: @font-size-xsmall;
@@ -62,6 +63,9 @@ header{
 				content: "\003E";
 			}
 		}
+		@media all and (min-width:@screen-sm-min) {
+			display: block;
+		}
 	}
 }
 .header_top {
@@ -72,16 +76,24 @@ header{
 .top_logo {
 	padding-top: 10px;
 	padding-bottom: 10px;
-	width: 16.66667%;
+	width: 100%;
 	float: left;
 	.svg-icon {
 		max-width: 100%;
 		height: 27px;
 		position: relative;
+		display: inline-block;
 	}
 	border-right: 1px solid #a25532;
+	a {
+		display: block;
+		text-align: center;
+	}
 	img {
 		margin: auto;
+	}
+	@media all and (min-width:@screen-sm-min) {
+		width: 16.66667%;
 	}
 }
 
@@ -133,6 +145,7 @@ header{
 // Navigation
 
 .top_navbar {
+	display: none;
 	width: 40%;
 	float: left;
 	.navbar_top {
@@ -158,6 +171,10 @@ header{
 			}
 		}
 	}
+
+	@media all and (min-width:@screen-sm-min) {
+		display: block;
+	}
 }
 
 .navbar_bottom {
@@ -176,12 +193,17 @@ header{
 }
 
 .top_social {
+	display: none;
 	float:right;
 	padding-right: 50px;
 	margin: 13px 10px;
 	.transition(padding .8s);
 	.showSearch & {
 		padding-right:305px;
+	}
+
+	@media all and (min-width:@screen-sm-min) {
+		display: block;
 	}
 }
 
@@ -248,11 +270,11 @@ header{
 	border-bottom: 1px solid @gray-lighter;
 	> li {
 		position: relative;
-		width:16.666667%;
-		float: left;
+		width:100%;
 		text-align: center;
 
 		&.css-home {
+			display: none;
 			a{
 			}
 			.svg-icon {
@@ -262,6 +284,21 @@ header{
 				display: none;
 			}
 		}
+
+		@media all and (min-width:@screen-sm-min) {
+			width:16.666667%;
+			float: left;
+
+			&.css-home {
+				display: block;
+			}
+
+			&.headerLi {
+				display: none;
+			}
+		}
+
+		
 
 		.svg-icon {
 			max-width: 100%;
@@ -273,9 +310,12 @@ header{
 		.nav-subtitle {
 			text-transform: uppercase;
 			display: block;
-			font-size: @font-size-xsmall;
+			font-size: 8px;
 			font-weight: 600;
 			letter-spacing: 0.2em;
+			@media all and (min-width:@screen-md-min) {
+				font-size: @font-size-xsmall;
+			}
 		}
 
 		.nav-title {
@@ -313,8 +353,7 @@ header{
 
 		> a {
 			color: @gray-dark;
-			padding-top: 25px;
-			padding-bottom: 15px;
+			
 			cursor: pointer;
 			.transition(.8s);
 			&:hover {
@@ -324,6 +363,20 @@ header{
 					fill: @brand-primary;
 				}
 			}
+
+			@media all and (min-width:@screen-sm-min) {
+				padding-top: 25px;
+				padding-bottom: 15px;
+			}
+
+		}
+
+		&.headerLi a {
+		  font-size: 23px;
+		  display: block;
+		  font-family: @font-family-hand;
+		  font-weight: 400;
+		  text-align: center;
 		}
 
 		&:after {
@@ -394,7 +447,7 @@ header{
 		left: 0;
 		right: 0;
 		text-align: center;
-		width: 65%;
+		width: 100%;
 		margin: auto;
 		.shape-welcome{
 			fill: #dcc092;
@@ -402,11 +455,19 @@ header{
 			margin-bottom: 20px;
 		}
 		p {
+			display: none;
 			font-size: 2.1em;
 			color: #fff;
 			font-family: @font-family-serif;
 			font-weight: 300;
 			line-height: 1.2em;
+		}
+
+		@media all and (min-width:@screen-sm-min) {
+			width:65%;
+			p {
+				display: block;
+			}
 		}
 	}
 }
@@ -451,8 +512,11 @@ header{
 }
 
 .section_shop {
-	max-width: 80%;
-	margin: auto;
+
+	@media all and (min-width:@screen-sm-min) {
+		max-width: 80%;
+		margin: auto;
+	}
 
 	.shop_content {
 		position: relative;
@@ -481,7 +545,7 @@ header{
 
 	.shop_content--info {
 		position: absolute;
-		top: 15%;
+		top:0;
 		left: 0;
 		right: 0;
 		text-align: center;
@@ -489,7 +553,7 @@ header{
 		margin: auto;
 
 		p {
-			font-size: 2em;
+			font-size: 1em;
 			color: #fff;
 			font-family: @font-family-serif;
 			font-weight: 300;
@@ -509,14 +573,25 @@ header{
 				}
 			}
 		}
+
+
+		@media all and (min-width:@screen-sm-min) {
+			top: 15%;
+			p {
+				font-size: 2em;
+			}
+		}
 	}
 
 }
 
 .content_heading--title {
 	font-family: @font-family-hand;
-	font-size: 80px;
+	font-size: 32px;
 	color: @brand-bronze-light;
+	@media all and (min-width:@screen-sm-min) {
+		font-size: 80px;
+	}
 }
 
 .section_header-image {
@@ -561,17 +636,24 @@ header{
 
 	.header-image_content--info {
 		position: absolute;
-		top: 15%;
+		top: 0%;
 		left: 0;
 		right: 0;
 		text-align: center;
 		width: 60%;
 		margin: auto;
 		p {
-			font-size: 2em;
+			font-size: 1em;
 			color: #fff;
 			font-family: @font-family-serif;
 			font-weight: 300;
+		}
+
+		@media all and (min-width:@screen-sm-min) {
+			top: 15%;
+			p {
+				font-size: 2em;
+			}
 		}
 	}
 }
@@ -582,15 +664,25 @@ header{
 }
 
 .home_featured {
-	width: 1130px;
+	max-width: 1130px;
 	margin: auto;
 }
 
 // Ietms
 .item {
 	width: 100%;
+	&.q8,&.q11 {
+		width: 48.5%;
+	}
 	@media (min-width:@screen-md-min) {
-		width:49%;
+		&.q8,&.q11 {
+			width: 320px;
+		}
+		
+		&.q10 {
+			width: 654px; 
+		}
+		
 	}
 	@media (min-width:@screen-lg-min) {
 		width: 368px;
@@ -635,10 +727,12 @@ header{
 }
 
 .featured_content--excerpt {
-	p{
-		.lead();
-		color: @gray-light;
-		font-weight: 200;
+	color: @gray-light;
+	font-weight: 200;
+	@media all and (min-width:@screen-sm-min) {
+		p{
+			.lead();
+		}
 	}
 }
 
@@ -671,15 +765,17 @@ header{
 	.article_content {
 		width:100%;
 	}
-	&.has-post-thumbnail {
-		.article_content {
-			width:33.333%;
-			float: left;
-		}
-		.article_image {
-			width: 66.667%;
-			float: left;
+	@media all and (min-width:@screen-sm-min) {
+		&.has-post-thumbnail {
+			.article_content {
+				width:33.333%;
+				float: left;
+			}
+			.article_image {
+				width: 66.667%;
+				float: left;
 
+			}
 		}
 	}
 }
@@ -687,6 +783,7 @@ header{
 .grid_article,
 .grid_product{
 	display: flex;
+	width: 100%;
 }
 
 .article_content--title {
@@ -811,6 +908,7 @@ header{
 	.post_cta--header{
 		.svg-icon{
 			height: 30px;
+			width: 100%;
 		}
 	}
 	.post_cta--title{
@@ -839,7 +937,14 @@ header{
 	background-position: bottom center;
 	background-repeat: no-repeat;
 	position: relative;
-	padding: 20rem;
+	padding: 2rem;
+	@media all and (min-width:@screen-sm-min) {
+		padding: 20rem;
+	}
+	@media all and (min-width:@screen-md-min) {
+		padding: 5rem;
+	}
+	
 	overflow: hidden;
 	.shape-logo-stamp{
 		position: absolute;
@@ -924,8 +1029,10 @@ header{
 
 .widget{
 	margin-bottom: 25px;
-	padding-left: 35px;
-	padding-right: 35px;
+	@media all and (min-width:@screen-sm-min) {
+		padding-left: 35px;
+		padding-right: 35px;
+	}
 }
 .widget_text {
 	img {
@@ -942,9 +1049,12 @@ header{
 
 
 .header_post {
-	padding-top: 70px;
-	max-width: 70%;
-	margin: auto;
+
+	@media all and (min-width:@screen-sm-min) {
+		padding-top: 70px;
+		max-width: 70%;
+		margin: auto;
+	}
 	.page &{
 		padding-top: 0px;
 	}
@@ -962,14 +1072,17 @@ header{
 }
 
 .post_content--excerpt {
-	.lead();
-	max-width: 70%;
-	margin-left:auto;
-	margin-right: auto;
 	text-align: center;
-	margin-bottom: 60px;
 	color: @gray-light;
 	font-weight: 200;
+	@media all and (min-width:@screen-sm-min) {
+		.lead();
+		max-width: 70%;
+		margin-left:auto;
+		margin-right: auto;
+		
+		margin-bottom: 60px;
+	}
 }
 
 .post_readmore {
@@ -1046,7 +1159,9 @@ header{
 	&+li:before {
 	  padding: 0px 10px 0 10px;
 	  color: @gray-dark;
-	  content: "|";
+	  @media all and (min-width:@screen-sm-min) {
+	  	content: "|";
+	  }
 	}
 
 	&.meta_author--twitter a{
@@ -1293,5 +1408,35 @@ body .gform_wrapper{
     width: 230px;
     opacity: 1;
 }
+
+
+
+.menu-icon { 
+	display: block; 
+	font-size: 23px;
+    display: block;
+    font-family: 'Nothing You Could Do',cursive;
+    font-weight: 400;
+    text-align: center;
+	@media all and (min-width:@screen-sm-min) {
+		display: none;
+	}
+
+
+}
+
+.mobile_logo {
+	display: block;
+	@media all and (min-width:@screen-sm-min) {
+		display: none;
+	}
+	svg {
+		overflow: hidden;
+		display: block;
+		width: 200px;
+		margin: auto;
+	}
+}
+
 
 

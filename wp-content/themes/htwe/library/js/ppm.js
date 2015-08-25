@@ -12,8 +12,18 @@ jQuery(window).load(function() {
 
 jQuery(document).ready(function(){
 
+	jQuery("#menu-top-menu").children().each(function() {
+        jQuery(this).clone().addClass("headerLi").appendTo(jQuery(".enumenu_ul"))
+    });
 
-	jQuery(".header_main").sticky({topSpacing:0});
+    jQuery('.enumenu_ul').responsiveMenu({
+        'mobileResulution': '480',
+        'menuIcon_text': 'MENU <i class="fa fa-navicon"></i>',
+        onMenuopen: function() {}
+    });
+
+
+//	jQuery(".header_main").sticky({topSpacing:0});
 
 
 	 var ias = jQuery.ias({
@@ -25,7 +35,7 @@ jQuery(document).ready(function(){
 
 	ias.extension(new IASPagingExtension());
   	ias.extension(new IASHistoryExtension({ prev: '.prev a' }));
-  	ias.extension(new IASTriggerExtension({ html: '<div class="clearfix"></div><div class="ias-trigger ias-trigger-next" style="text-align: center; cursor: pointer;"><div class="row"><div class="load-more col-md-12"><button class="load-more--btn">Show me more</button></div></div></div>'}));
+  	ias.extension(new IASTriggerExtension({ html: '<div class="clearfix"></div><div class="ias-trigger ias-trigger-next" style="text-align: center; cursor: pointer;"><div class="row"><div class="load-more col-xs-12"><button class="load-more--btn">Show me more</button></div></div></div>'}));
 
   	jQuery('.js-comments').on('click', function(){
           var disqus_shortname = 'highteawithelephants';

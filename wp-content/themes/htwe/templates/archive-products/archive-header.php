@@ -18,9 +18,8 @@
 						<?php _e( $term->name, '' ); ?>
 					</h1>
 					<?php } ?>
-
 				</div>
-				<?php echo category_description( $category_id ); ?>
+				<?php echo wpautop($term->description); ?>
 			</div>
 			<div class="shop_content--action">
 				<small>Start Shopping</small>

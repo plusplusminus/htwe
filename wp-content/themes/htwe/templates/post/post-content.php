@@ -1,6 +1,6 @@
 <main class="section_article">
 	<div class="row">
-		<div class="col-md-8">
+		<div class="col-xs-12 col-md-8">
 			<article id="post-<?php the_ID(); ?>" <?php post_class('article_post clearfix'); ?> role="article" itemscope itemtype="http://schema.org/BlogPosting"> 
 			
 				<?php if ( have_posts() ) : ?>
@@ -29,7 +29,7 @@
 							</div>
 						</div>
 						<div class="row">
-							<div class="load-more col-md-12">
+							<div class="load-more col-xs-12">
 								<button class="load-more--btn js-comments">Show Comments</button>
 								<div id="disqus_thread"></div>
 							</div>

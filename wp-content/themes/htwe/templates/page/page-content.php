@@ -1,6 +1,6 @@
 <main class="section_article">
 	<div class="row">
-		<div class="col-md-8 col-md-offset-2">
+		<div class="col-xs-12 col-md-8 col-md-offset-2">
 
 			<article id="post-<?php the_ID(); ?>" <?php post_class('article_post clearfix'); ?> role="article" itemscope itemtype="http://schema.org/BlogPosting"> 
 			

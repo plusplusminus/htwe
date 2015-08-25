@@ -65,7 +65,7 @@
 							
 							<?php the_content(); ?>
 							
-							<?php if (!empty($groups)) : $features; ?>
+							<?php if (!empty($groups)) : $count = 0; ?>
 								<br>
 								<h4>Features:</h4>
 
