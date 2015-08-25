@@ -23,7 +23,7 @@ jQuery(document).ready(function(){
     });
 
 
-//	jQuery(".header_main").sticky({topSpacing:0});
+	jQuery(".header_main").sticky({topSpacing:0});
 
 
 	 var ias = jQuery.ias({

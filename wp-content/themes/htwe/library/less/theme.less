@@ -78,6 +78,7 @@ header{
 	padding-bottom: 10px;
 	width: 100%;
 	float: left;
+	min-height: 50px;
 	.svg-icon {
 		max-width: 100%;
 		height: 27px;
@@ -92,8 +93,12 @@ header{
 	img {
 		margin: auto;
 	}
+
 	@media all and (min-width:@screen-sm-min) {
 		width: 16.66667%;
+		.svg-icon {
+			height: 27px;
+		}
 	}
 }
 
@@ -286,16 +291,21 @@ header{
 		}
 
 		@media all and (min-width:@screen-sm-min) {
-			width:16.666667%;
+			width:20%;
 			float: left;
+
+
+			&.headerLi {
+				display: none;
+			}
+		}
+
+		@media all and (min-width:@screen-md-min) {
 
 			&.css-home {
 				display: block;
 			}
 
-			&.headerLi {
-				display: none;
-			}
 		}
 
 		
@@ -319,11 +329,14 @@ header{
 		}
 
 		.nav-title {
-		  font-size: 23px;
+		  font-size: 18px;
 		  display: block;
 		  font-family: @font-family-hand;
 		  font-weight: 400;
 		  text-align: center;
+		  @media all and (min-width:@screen-md-min) {
+		  	font-size: 23px;
+		  }
 		}
 
 		.dropdown-menu {
@@ -1418,7 +1431,7 @@ body .gform_wrapper{
     font-family: 'Nothing You Could Do',cursive;
     font-weight: 400;
     text-align: center;
-	@media all and (min-width:@screen-sm-min) {
+	@media all and (min-width:@screen-md-min) {
 		display: none;
 	}
 
@@ -1427,7 +1440,7 @@ body .gform_wrapper{
 
 .mobile_logo {
 	display: block;
-	@media all and (min-width:@screen-sm-min) {
+	@media all and (min-width:@screen-md-min) {
 		display: none;
 	}
 	svg {
