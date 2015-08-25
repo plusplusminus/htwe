@@ -20,7 +20,6 @@
 		$query_args = array(
 			'post_type' => 'post',
 			'paged' => $paged,
-			'posts_per_page'=>3
 		);
 
 
