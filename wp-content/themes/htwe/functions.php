@@ -277,8 +277,10 @@ function get_grid_class($class=1){
             break;
         case 4:
         case 5:
-        case 6:
             return 'grid_article col-md-4 col-sm-6';
+            break;
+        case 6:
+            return 'grid_article col-md-4 col-sm-12';
             break;
         default:
             # code...
