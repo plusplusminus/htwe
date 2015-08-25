@@ -9,7 +9,7 @@
 	$format = '<small class="article_content--price">%s %d</small>';
 	
 ?>
-<div class="col-md-6">
+<div class="col-sm-6">
 	<main class="section_product">
 		<header class="header_product">  
 			<h1 class="post_heading--title"><?php the_title(); echo sprintf($format, $currency, $price); ?></h1>
