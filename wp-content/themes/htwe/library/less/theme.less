@@ -301,7 +301,7 @@ header{
 		}
 
 		@media all and (min-width:@screen-md-min) {
-
+			width:16.6667%;
 			&.css-home {
 				display: block;
 			}
@@ -795,7 +795,11 @@ header{
 
 .grid_article,
 .grid_product{
-	display: flex;
+	display: -webkit-box;      /* OLD - iOS 6-, Safari 3.1-6 */
+	display: -moz-box;         /* OLD - Firefox 19- (buggy but mostly works) */
+	display: -ms-flexbox;      /* TWEENER - IE 10 */
+	display: -webkit-flex;     /* NEW - Chrome */
+	display: flex; 
 	width: 100%;
 }
 

@@ -28,9 +28,6 @@
 				<li class="meta_list--item css-date">
 					<a class="btn btn-primary btn-sm" href="<?php the_permalink();?>" title="<?php the_title();?>">More</a>
 				</li>
-<!-- 				<li class="meta_list--item css-category">
-					<button class="btn btn-link btn-sm">+ Add to List</button>
-				</li> -->
 			</ul>
 		</aside>
 
