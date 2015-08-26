@@ -36,7 +36,7 @@
       <div id="sub-floor">
         <div class="container">
           <div class="row">
-            <div class="col-md-4 copyright">
+            <div class="col-xs-12 col-md-4 copyright">
               &copy; <?php echo date('Y'); ?> <?php bloginfo( 'name' ); ?>.
             </div>
             <div class="col-md-4 col-md-offset-4 attribution">
