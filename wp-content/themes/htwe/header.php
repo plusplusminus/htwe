@@ -57,10 +57,10 @@
 	    		<div class="top_social">
 					<ul class="social_menu">
 						<li class="social_menu--title"><a href="<?php echo $tpb_options['contact_url'];?>">Get in Touch</a></li>
-						<li class="social_menu--item"><a href="<?php echo $tpb_options['twitter_url'];?>"><span class="fa fa-twitter"></span></a></li>
-						<li class="social_menu--item"><a href="<?php echo $tpb_options['facebook_url'];?>"><span class="fa fa-facebook"></span></a></li>
-						<li class="social_menu--item"><a href="<?php echo $tpb_options['instagram_url'];?>"><span class="fa fa-instagram"></span></a></li>
-						<li class="social_menu--item"><a href="<?php echo $tpb_options['pinterest_url'];?>"><span class="fa fa-pinterest"></span></a></li>
+						<li class="social_menu--item"><a target="_blank" href="<?php echo $tpb_options['twitter_url'];?>"><span class="fa fa-twitter"></span></a></li>
+						<li class="social_menu--item"><a target="_blank" href="<?php echo $tpb_options['facebook_url'];?>"><span class="fa fa-facebook"></span></a></li>
+						<li class="social_menu--item"><a target="_blank" href="<?php echo $tpb_options['instagram_url'];?>"><span class="fa fa-instagram"></span></a></li>
+						<li class="social_menu--item"><a target="_blank" href="<?php echo $tpb_options['pinterest_url'];?>"><span class="fa fa-pinterest"></span></a></li>
 					</ul>
 	    		</div>
 	    		<div class="top_search">

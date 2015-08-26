@@ -582,13 +582,13 @@ function save_extra_social_links( $user_id )
     update_user_meta( $user_id,'instagram_profile', sanitize_text_field( $_POST['instagram_profile'] ) );
 }
 
-function new_excerpt_more( $excerpt ) {
-    return str_replace( '[...]', '...', $excerpt );
+function new_excerpt_more( $more ) {
+    return '...';
 }
-add_filter( 'wp_trim_excerpt', 'new_excerpt_more' );
+add_filter('excerpt_more', 'new_excerpt_more');
 
 function custom_excerpt_length( $length ) {
-    return 20;
+    return 15;
 }
 add_filter( 'excerpt_length', 'custom_excerpt_length', 999 );
 

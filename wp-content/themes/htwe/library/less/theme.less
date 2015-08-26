@@ -51,6 +51,9 @@ input,textarea {
 
 header{
 	margin-bottom: 50px;
+	.single-products &{
+		margin-bottom: 0px;
+	}
 }
 
 .breadcrumbs{
@@ -170,15 +173,17 @@ header{
 			font-weight: 400;
 			> a {
 				color: #fff;
-				border-bottom: 1px solid transparent;
 				.transition(0.8s);
 				&:hover,
 				&:active,
 				&:focus {
 					background: transparent;
-					color: darken(#fff, 10%);
-					border-bottom: 1px solid #fff;
+					color: darken(#fff, 20%);
 				}
+			}
+			&.current-menu-item > a{
+				background: transparent;
+				color: darken(#fff, 20%);
 			}
 		}
 	}
@@ -191,7 +196,8 @@ header{
 .navbar_bottom {
 	.nav();
 	.nav-pills();
-	margin: 0;
+	margin: 0 0 3px 0;
+	display: inline-block;
 	> li {
 		padding: 0px 15px;
 		> a {
@@ -219,6 +225,19 @@ header{
 		.showSearch & {
 			padding-right:305px;
 		}
+	}
+}
+
+.footer_social {
+	display: inline-block;
+	font-size: @font-size-small;
+	.transition(padding .8s);
+	@media all and (min-width:@screen-sm-min) {
+	}
+	@media all and (min-width:@screen-md-min) {
+	}
+	li{
+		float: left;
 	}
 }
 
@@ -253,11 +272,12 @@ header{
 	font-weight: 400;
 	vertical-align: middle;
 	a {
+		.transition(0.8s);
 		color: #fff;
-		border-bottom: 1px solid transparent;
-		&:hover {
-			color: darken(#fff, 10%);
-			border-bottom: 1px solid #fff;
+		&:hover,
+		&:active,
+		&:focus  {
+			color: darken(#fff, 20%);
 		}
 	}
 }
@@ -265,11 +285,12 @@ header{
 .social_menu--item {
 	vertical-align: middle;
 	> a {
+		.transition(0.8s);
 		color: #fff;
-
-		&:hover {
-			color: darken(#fff, 10%);
-			text-decoration: none;
+		&:hover,
+		&:active,
+		&:focus  {
+			color: darken(#fff, 20%);
 		}
 	}
 }
@@ -294,12 +315,15 @@ header{
 		position: relative;
 		width:100%;
 		text-align: center;
-
+		&.css-home.open a{
+			background: #fff !important;
+		}
 		&.css-home {
 			display: none;
 			a{
 				padding: 0;
 				padding-top: 25px;
+				padding-bottom: 5px;
 			}
 			.svg-icon {
 				height: 48px;
@@ -1043,7 +1067,7 @@ header{
 
 .footer {
 	background: @brand-primary;
-	padding: 20px 15px;
+	padding: 25px 15px 20px;
 	color: darken(#fff, 10%);
 	font-size: @font-size-xsmall;
 	text-transform: uppercase;
@@ -1053,9 +1077,11 @@ header{
 		color: darken(#fff, 10%);
 		border-bottom: 1px solid transparent;
 		.transition(0.8s);
-		&:hover{
-			color: #fff;
-			border-bottom: 1px solid #fff;
+		&:hover,
+		&:active,
+		&:focus {
+			background: transparent;
+			color: darken(#fff, 20%);
 		}
 	}
 }
@@ -1109,9 +1135,8 @@ header{
 
 
 .header_post {
-
 	@media all and (min-width:@screen-md-min) {
-		padding-top: 70px;
+		padding-top: 0px;
 		max-width: 70%;
 		margin: auto;
 	}
@@ -1125,6 +1150,7 @@ header{
 	margin-bottom: 35px;
 	.single-products &{
 		text-align: left;
+		margin-bottom: 10px;
 	}
 	a{
 		.transition(0.8s);
@@ -1403,10 +1429,12 @@ header{
 
 // Gravity
 
-body .gform_wrapper{
-	border-top: 1px solid @gray-lighter;
-	padding-top: 40px;
-	margin-top: 40px;
+.gform_wrapper{
+	.single-products &{
+		border-top: 1px solid @gray-lighter;
+		padding-top: 20px;
+		margin-top: 20px;
+	}
 	.gform_heading{
 		.gform_title{
 			font-weight: 500;
@@ -1421,6 +1449,11 @@ body .gform_wrapper{
 					font-family: @font-family-serif;
 					font-weight: 400;
 					margin-bottom: 0px;
+				}
+				input[type=text],
+				textarea{
+					border: 1px solid @gray-lighter;
+					padding: 10px 10px;
 				}
 			}
 		}
@@ -1507,8 +1540,6 @@ body .gform_wrapper{
 	@media all and (min-width:@screen-md-min) {
 		display: none;
 	}
-
-
 }
 
 .mobile_logo {
@@ -1523,6 +1554,3 @@ body .gform_wrapper{
 		margin: auto;
 	}
 }
-
-
-

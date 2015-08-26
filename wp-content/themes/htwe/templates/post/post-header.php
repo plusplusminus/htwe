@@ -9,14 +9,12 @@
 		<?php the_excerpt(); ?>
 	</div>
 
-	
-
 		<?php $featured_header = get_post_meta($post->ID,'_ppm_header_image_id',true); ?>
 		<?php if ($featured_header) : ?>
 			<figure class="post_image">
 		
 				<div class="post_readmore">
-					<p>Continue Reading</p>
+					<!-- <p>Continue Reading</p> -->
 					<div class="triangle-divider"></div>
 				</div>
 				<?php $image = wp_get_attachment_image_src( $featured_header, 'full'); ?>
@@ -27,7 +25,7 @@
 			<figure class="post_image">
 		
 				<div class="post_readmore">
-					<p>Continue Reading</p>
+					<!-- <p>Continue Reading</p> -->
 					<div class="triangle-divider"></div>
 				</div>
 				<?php the_post_thumbnail('full',array('class'=>'img-responsive')); ?>
