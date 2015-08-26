@@ -1133,6 +1133,35 @@ header{
 	margin-top: 0;
 }
 
+.null-instagram-feed{
+	margin-top: 40px;
+	.section_widget--title{
+		color: @gray-dark;
+	}
+	.instagram-pics{
+		margin: 10px 0px 20px 0px;
+		padding: 0px;
+		.clearfix();
+		li{
+			width: 33.33333%;
+			display: inline-block;
+			float: left;
+			a{
+				img{
+					.img-responsive();
+					&:hover{
+						.opacity(0.8);
+					}
+				}
+			}
+		}
+	}
+	p.clear a{
+		.btn();
+		.btn-primary();
+		.btn-block();
+	}
+}
 
 .header_post {
 	@media all and (min-width:@screen-md-min) {
