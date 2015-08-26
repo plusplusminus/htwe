@@ -13,7 +13,7 @@ if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
         <script type="text/javascript">
             jQuery(function(jQuery){
                 jQuery.supersized({
-                    slides  :      [ {image : 'http://clients.plusplusminus.co.za/launchlab/wp-content/plugins/see-you-later/templates/launchlab/images/bg.jpg'} ]
+                    slides  :      [ {image : 'http://www.campuskey.co.za/wp-content/plugins/see-you-later/templates/launchlab/images/bg.jpg'} ]
                 });
             });
         </script>
