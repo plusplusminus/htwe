@@ -8,8 +8,10 @@
 				<figure class="welcome_content--image">
 					<?php the_post_thumbnail('full',array('class'=>'img-responsive')); ?>
 					<div class="welcome_content--info">
-						<svg class="svg-icon shape-welcome"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#shape-welcome"></use></svg>
-						<?php the_content(); ?>
+						<div class="content_heading">
+							<h1 class="content_heading--title">Welcome</h1>
+							<?php the_content(); ?>
+						</div>
 					</div>
 					<div class="welcome_content--action">
 						<small>Start Exploring</small>
