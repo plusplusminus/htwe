@@ -24,7 +24,7 @@
 									<?php $img_size = 'feature-sq'; ?>
 									<?php if ($count == 1) $img_size = 'feature-lg'; ?>	
 
-									<?php $class = $group['featured_img_class'];?>
+									<?php $class = "q".$count;?>
 									
 									<?php $img_id = $group['featured_img_id'];?>
 									<?php $image = wp_get_attachment_image_src( $img_id, $img_size); ?>
