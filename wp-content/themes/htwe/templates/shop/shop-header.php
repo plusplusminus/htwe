@@ -9,6 +9,27 @@
 							<h1 class="content_heading--title"><?php the_title(); ?></h1>
 						</div>
 						<?php the_content(); ?>
+						<?php
+						$args = array( 'hide_empty' => 0,'parent' => 0 );
+
+						$terms = get_terms( 'product-category', $args );
+						if ( ! empty( $terms ) && ! is_wp_error( $terms ) ) {
+						    $count = count( $terms );
+						    $i = 0;
+						    $term_list = '<ul class="list-inline">';
+						    foreach ( $terms as $term ) {
+						        $i++;
+						    	$term_list .= '<li><a class="btn btn-primary" href="' . get_term_link( $term ) . '" title="' . sprintf( __( 'View all post filed under %s', 'my_localization_domain' ), $term->name ) . '">' . $term->name . '</a></li>';
+						    	if ( $count != $i ) {
+						            
+						        }
+						        else {
+						            $term_list .= '</ul>';
+						        }
+						    }
+						    echo $term_list;
+						}
+						?>
 					</div>
 					<div class="shop_content--action">
 						<small>Start Shopping</small>

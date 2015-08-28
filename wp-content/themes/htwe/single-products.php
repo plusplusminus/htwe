@@ -10,7 +10,11 @@
 
 	  	</div>
 
+
+
 	</div>
+
+	<?php get_template_part('templates/products/products','related'); ?>
 
 	<?php // get_template_part('templates/section','newsletter'); ?>
 
