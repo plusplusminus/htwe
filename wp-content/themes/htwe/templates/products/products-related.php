@@ -1,24 +1,22 @@
 <?php
 global $post;
 
-$term_list = wp_get_post_terms($post->ID, 'product-category', array("fields" => "ids"));
-
+$custom_taxterms = wp_get_object_terms( $post->ID, 'product-category', array('fields' => 'ids') );
+// arguments
 $args = array(
 'post_type' => 'products',
-'posts_per_page' => '3',
-'orderby'     => 'rand',
-'post__not_in' => array($post->ID),
+'post_status' => 'publish',
+'posts_per_page' => 3, // you may edit this number
+'orderby' => 'rand',
 'tax_query' => array(
-    'relation' => 'AND',
-        array(
-            'taxonomy' => 'product-category',
-            'field' => 'id',
-            'terms' => $term_list,
-            'operator' => 'IN'
-        )
+    array(
+        'taxonomy' => 'product-category',
+        'field' => 'id',
+        'terms' => $custom_taxterms
     )
+),
+'post__not_in' => array ($post->ID),
 );
-
 
 $related = new WP_Query($args);
 

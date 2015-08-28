@@ -160,7 +160,7 @@ header{
 
 .top_navbar {
 	display: none;
-	width: 27%;
+	width: 28%;
 	float: left;
 	.navbar_top {
 		.nav();
@@ -317,6 +317,9 @@ header{
 		text-align: center;
 		&.css-home.open a{
 			background: #fff !important;
+			&:focus {
+				background: #fff !important;
+			}
 		}
 		&.css-home {
 			display: none;
@@ -326,7 +329,7 @@ header{
 				padding-bottom: 5px;
 			}
 			.svg-icon {
-				height: 48px;
+				height: 46px;
 			}	
 			.nav-subtitle {
 				display: none;
@@ -1581,5 +1584,13 @@ header{
 		display: block;
 		width: 200px;
 		margin: auto;
+	}
+}
+
+/* Current Exhibition */
+
+.term-current-exhibition {
+	.content_heading--title {
+		font-size: 70px;
 	}
 }

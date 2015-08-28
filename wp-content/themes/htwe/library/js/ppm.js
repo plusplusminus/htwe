@@ -1,16 +1,16 @@
 jQuery(window).load(function() {
+	
+
+});
+
+jQuery(document).ready(function(){
+
 	var $container = jQuery('.featured_gallery');
     // init
     $container.packery({
       itemSelector: '.item',
       gutter: 10
     });
-
-
-
-});
-
-jQuery(document).ready(function(){
 
 	jQuery("#menu-top-menu").children().each(function() {
         jQuery(this).clone().addClass("headerLi").appendTo(jQuery(".enumenu_ul"))
@@ -24,8 +24,6 @@ jQuery(document).ready(function(){
 
 
 	jQuery(".header_main").sticky({topSpacing:0});
-
-
 	 var ias = jQuery.ias({
 	    container:  '.js-infinite-cont',
 	    item:       '.js-infinite',
@@ -71,12 +69,8 @@ jQuery(document).ready(function(){
 	});
 
 	jQuery('.search_btn').on('click',function(e) {
-
 		var open = jQuery( "body" ).hasClass( "showSearch" );
-
-
 		if (open) {
-			console.log(jQuery( "#searchInput" ).val());
 			if ( jQuery( "#searchInput" ).val() === "" ) {
 			  
 		      jQuery('body').toggleClass('showSearch');
@@ -88,8 +82,5 @@ jQuery(document).ready(function(){
 			jQuery('body').toggleClass('showSearch');
 			event.preventDefault();
 		}
-
 	})
-
-
 })
