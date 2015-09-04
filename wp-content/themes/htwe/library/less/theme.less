@@ -350,7 +350,13 @@ header{
 			}
 
 		}
-
+		@media (min-width: 979px) {
+			&.dropdown{
+				&:hover > ul.dropdown-menu {
+	    			display: block;
+				}
+			}
+		}
 		
 
 		.svg-icon {
@@ -1497,6 +1503,13 @@ header{
 						font-family: @font-family-serif;
 						font-weight: 400;
 						margin-bottom: 0px;
+					}
+				}
+				.name_first,
+				.name_last{
+					label{
+						font-size: @font-size-small;
+						font-weight: 300;
 					}
 				}
 			}

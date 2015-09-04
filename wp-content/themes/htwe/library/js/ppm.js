@@ -5,6 +5,10 @@ jQuery(window).load(function() {
 
 jQuery(document).ready(function(){
 
+	jQuery('.menu-item-has-children').hover(function(){ 
+	  jQuery('.menubelow', this).trigger('click'); 
+	});
+
 	var $container = jQuery('.featured_gallery');
     // init
     $container.packery({
