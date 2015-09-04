@@ -10,7 +10,7 @@
 						</div>
 						<?php the_content(); ?>
 						<?php
-						$args = array( 'hide_empty' => 0,'parent' => 0 );
+						$args = array( 'hide_empty' => 0,'parent' => 0, 'order' => 'desc' );
 
 						$terms = get_terms( 'product-category', $args );
 						if ( ! empty( $terms ) && ! is_wp_error( $terms ) ) {

@@ -1,10 +1,10 @@
-<?php /* Template Name: Contact */ ?>
+<?php /* Template Name: Get in touch */ ?>
 
 <?php get_header(); ?>
 	
 	<div class="container-fluid wrap">
       
-	   	<?php get_template_part('templates/page/page','header-image'); ?>
+	   	<?php get_template_part('templates/contact/page','header'); ?>
 
 	  	<?php get_template_part('templates/contact/page','content'); ?>
 

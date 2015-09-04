@@ -1,11 +1,5 @@
 // Set Up
 
-
-input,textarea {
-    -webkit-appearance: none;
-    border-radius: 0;
-}
-
 .wrap {
   box-sizing: border-box;
   max-width: 1170px;
@@ -287,6 +281,9 @@ header{
 	> a {
 		.transition(0.8s);
 		color: #fff;
+		.contact_list &{
+			color: @brand-primary;
+		}
 		&:hover,
 		&:active,
 		&:focus  {
@@ -652,7 +649,7 @@ header{
 }
 
 .content_heading--title {
-	font-family: @font-family-hand;
+	font-family: @font-family-hand-heading;
 	font-size: 32px;
 	color: @brand-bronze-light;
 	@media all and (min-width:@screen-sm-min) {
@@ -1053,9 +1050,8 @@ header{
 		margin-bottom: 40px;
 	}
 	.newsletter_text{
-		.lead();
 		font-family: @font-family-serif;
-		font-size: 32px;
+		font-size: 25px;
 		margin-bottom: 40px;
 	}
 }
@@ -1110,8 +1106,8 @@ header{
 	margin-top: 35px;
 
 	@media all and (min-width:@screen-sm-min) {
-		padding-left: 35px;
-		padding-right: 35px;
+		padding-left: 70px;
+		padding-right: 0px;
 		width: 50%;
 		float: left;
 		
@@ -1395,7 +1391,7 @@ header{
 		color: @brand-bronze;
 		font-size: 2em;
 		display: block;
-		font-family: @font-family-hand;
+		font-family: @font-family-hand-heading;
 		font-weight: 400;
 		text-align: center;
 	}
@@ -1407,7 +1403,7 @@ header{
 
 
 .section_page {
-	padding: 35px 0;
+	padding: 0 0 35px 0;
 	border-bottom: 1px solid #eee;
 }
 
@@ -1416,7 +1412,7 @@ header{
 }
 
 .page_heading--title {
-	font-family: @font-family-hand;
+	font-family: @font-family-hand-heading;
 }
 
 .page_heading--bio {
@@ -1472,6 +1468,10 @@ header{
 			font-weight: 500;
 			font-size: @font-size-h4;
 		}
+		.gform_description{
+			font-weight: 300;
+			font-size: @font-size-small;
+		}
 	}
 	.gform_body{
 		.gform_fields{
@@ -1483,9 +1483,21 @@ header{
 					margin-bottom: 0px;
 				}
 				input[type=text],
+				input[type=email],
+				input[type=name],
+				input[type=password],
 				textarea{
 					border: 1px solid @gray-lighter;
 					padding: 10px 10px;
+					-webkit-appearance: none;
+					border-radius: 0;
+				}
+				.gfield_checkbox{
+					label{
+						font-family: @font-family-serif;
+						font-weight: 400;
+						margin-bottom: 0px;
+					}
 				}
 			}
 		}

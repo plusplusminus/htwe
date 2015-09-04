@@ -16,8 +16,9 @@
 									</li>
 									<?php $twitter = get_the_author_meta( 'twitter_profile', $post->post_author ); ?>
 									<?php if (!empty($twitter)) : ?>
-											<li class="author_item meta_author--twitter"><a href="https://twitter.com/<?php echo $twitter;?>">@<?php echo $twitter;?></a></li>
+											<li class="author_item meta_author--twitter"><a target="_blank" href="https://twitter.com/<?php echo $twitter;?>">@<?php echo $twitter;?></a></li>
 									<?php endif; ?>
+									<li class="author_item meta_author--date"><?php the_date(); ?></li>
 								</ul>
 							</div>
 							<div class="clearfix"></div>

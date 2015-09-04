@@ -89,7 +89,7 @@
 			<?php wp_reset_query(); ?>
 
 			<?php if (empty($link)) { ?>
-				<?php gravity_form( 1, true, false, false, '', true );?>
+				<?php gravity_form( 1, true, true, false, '', true );?>
 			<?php } else { ?>
 				<br><a class="btn btn-primary" target="_blank" href="<?php echo $link; ?>"><?php echo $linktext; ?></a>
 			<?php } ?>
