@@ -9,7 +9,7 @@ $paged = intval( $paged );
 
 $query_args = array(
 	'post_type' => 'products', 
-	'posts_per_page' => 12
+	'posts_per_page' => 12,
 	'paged' => $paged,
 );
 
