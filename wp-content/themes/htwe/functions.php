@@ -593,7 +593,7 @@ function hwl_home_pagesize( $query ) {
         return;
 
 
-    if ( is_tax( 'products-category' ) || is_tax( 'products-tag' ) || is_post_type_archive( 'products' )  ) {
+    if ( is_tax( 'product-category' ) || is_tax( 'product-tag' ) || is_post_type_archive( 'products' )  ) {
         // Display 50 posts for a custom post type called 'movie'
         $query->set( 'posts_per_page', 12 );
         return;
