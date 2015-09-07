@@ -1,4 +1,5 @@
 <?php global $post; ?>
+
 <header class="header_post">  
 	<?php get_template_part('templates/meta'); ?>
 	<h1 class="post_heading--title"><a href="<?php the_permalink();?>" title="<?php the_title(); ?>"><?php the_title(); ?></a></h1>
@@ -6,7 +7,9 @@
 
 <aside class="post_content">
 	<div class="post_content--excerpt">
-		<?php the_excerpt(); ?>
+
+		<?php $intro_text = get_post_meta($post->ID,'_ppm_single_intro_text',true); ?>
+		<?php if (!empty($intro_text)) echo $intro_text; ?>
 	</div>
 
 		<?php $featured_header = get_post_meta($post->ID,'_ppm_header_image_id',true); ?>

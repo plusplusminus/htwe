@@ -154,8 +154,11 @@ header{
 
 .top_navbar {
 	display: none;
-	width: 28%;
+	width: 55%;
 	float: left;
+	@media (min-width:@screen-md-min) {
+		width: 45%;
+	}
 	.navbar_top {
 		.nav();
 		.nav-pills();
@@ -215,7 +218,7 @@ header{
 		display: block;
 
 	}
-	@media all and (min-width:@screen-md-min) {
+	@media all and (min-width:@screen-lg-min) {
 		.showSearch & {
 			padding-right:305px;
 		}
@@ -879,7 +882,7 @@ header{
 
 .blog_quote {
 	min-height: 235px;
-
+	width: 100%;
 	background-color: #F1C2B0;
   	padding: 25px;
   	margin-bottom: 10px;
@@ -888,6 +891,9 @@ header{
 	-webkit-align-items: center;
 	-ms-flex-align: center;
 	align-items: center;
+	.quote_content{
+		margin: auto;
+	}
 	.quote_content--excerpt{
 		border: none;
 		p{

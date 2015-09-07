@@ -29,7 +29,7 @@
 				</a>
 			</li>
 			<li class="social_button">
-				<a target="_blank" href="mailto:?subject=<?php the_title();?>&body=Have a look at this great story - <?php the_permalink();?></a>" title="Share by Email" class="social_button--btn css-envelope">
+				<a target="_blank" href="mailto:?subject=<?php the_title();?>&body=Have a look at this great story - <?php the_permalink();?>" title="Share by Email" class="social_button--btn css-envelope">
 					<span class="fa fa-envelope"></span>
 				</a>
 			</li>
