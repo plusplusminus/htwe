@@ -593,7 +593,18 @@ function custom_excerpt_length( $length ) {
 add_filter( 'excerpt_length', 'custom_excerpt_length', 999 );
 
 
+function hwl_home_pagesize( $query ) {
+    if ( is_admin() || ! $query->is_main_query() )
+        return;
 
+
+    if ( is_tax( 'products-category' ) || is_tax( 'products-tag' ) || is_post_type_archive( 'products' )  ) {
+        // Display 50 posts for a custom post type called 'movie'
+        $query->set( 'posts_per_page', 12 );
+        return;
+    }
+}
+add_action( 'pre_get_posts', 'hwl_home_pagesize', 1 );
 
 
 
