@@ -70,6 +70,13 @@
 							    	<?php get_template_part('content',get_post_format()); ?>
 								</article>
 							<?php endwhile; ?>
+
+							<nav class="wp-prev-next hide">
+								<ul class="clearfix">
+									<li class="prev-link"><?php next_posts_link( __( '&laquo; Older Entries', 'bonestheme' )) ?></li>
+									<li class="next-link"><?php previous_posts_link( __( '&laquo; New Entries', 'bonestheme' )) ?></li>
+								</ul>
+							</nav>
 						</div>
 					<?php endif; ?>
 					<?php wp_reset_query(); ?>
