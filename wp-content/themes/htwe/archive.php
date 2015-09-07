@@ -78,6 +78,17 @@
 								</ul>
 							</nav>
 						</div>
+					<?php else: ?>
+						<div <?php post_class('article_post clearfix'); ?>> 
+					
+							<div class="post_content text-center">
+								<div class="post_entry clearfix">
+									<p>No posts currently published. Check back soon. </p>
+								</div>
+							</div>
+				
+						
+						</div><?php // end #wrapper ?>
 					<?php endif; ?>
 					<?php wp_reset_query(); ?>
 				</div>
