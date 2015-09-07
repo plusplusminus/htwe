@@ -23,7 +23,7 @@ query_posts($query_args);
 			<div class="col-md-12">
 				<?php get_sidebar('shop'); ?>
 				<?php if ( have_posts() ) : $count = 0; ?>
-					<div class="row js-infinite">
+					<div class="row js-infinite-cont">
 						<?php while ( have_posts() ) : the_post(); $count++;?>
 						  	<article id="post-<?php the_ID(); ?>" <?php post_class('col-xs-6 col-md-4 grid_product js-infinite'); ?> role="article" itemscope itemtype="http://schema.org/BlogPosting">
 						    	<?php get_template_part('templates/shop/product','grid'); ?>
