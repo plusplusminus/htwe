@@ -64,9 +64,9 @@
 				<div class="col-md-12">
 
 					<?php if ( have_posts() ) : $count = 0; ?>
-						<div class="row">
+						<div class="row js-infinite">
 							<?php while ( have_posts() ) : the_post(); $count++;?>
-							  	<article id="post-<?php the_ID(); ?>" <?php post_class('col-md-4 grid_product'); ?> role="article" itemscope itemtype="http://schema.org/BlogPosting">
+							  	<article id="post-<?php the_ID(); ?>" <?php post_class('col-md-4 grid_product js-infinite'); ?> role="article" itemscope itemtype="http://schema.org/BlogPosting">
 							    	<?php get_template_part('templates/shop/product','grid'); ?>
 								</article>
 							<?php endwhile; ?>
