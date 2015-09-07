@@ -67,7 +67,7 @@
 							
 							<?php if (!empty($groups)) : $count = 0; ?>
 								<br>
-								<h4>Features:</h4>
+								<h4>Features</h4>
 
 								<ul class="list-unstyled small">
 								<?php foreach ($groups as $key => $group) : $count++; ?>

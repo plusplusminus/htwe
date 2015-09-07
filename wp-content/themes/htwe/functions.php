@@ -65,16 +65,6 @@ function child_sections($sections){
                         'desc'=> __('Select main logo from media gallery', 'ppm'),
                         'default'=>array('url'=>'http://s.wordpress.org/style/images/codeispoetry.png'),
                         ),
-                array(
-                        'id'=>'work_image',
-                        'type' => 'media', 
-                        'url'=> true,
-                        'title' => __('Work Section Image', 'ppm'),
-                        'compiler' => 'true',
-                        //'mode' => false, // Can be set to false to allow any media type, or can also be set to any mime type.
-                        'desc'=> __('Select work section image from media gallery', 'ppm'),
-                        'default'=>array('url'=>'http://s.wordpress.org/style/images/codeispoetry.png'),
-                        ),
  
         )
     );
@@ -139,12 +129,6 @@ function child_sections($sections){
                         'title' => __('Instagram', 'redux-framework-demo'),
                         'desc' => __('Enter your Instagram URL', 'ppm'),
                         ), 
-            array(
-                        'id'=>'contact_url',
-                        'type' => 'text',
-                        'title' => __('Contact Page URL', 'ppm'),
-                        'desc' => __('Enter your Contact Page URL', 'ppm'),
-                        ),  
             array(
                         'id'=>'contact_email',
                         'type' => 'text',
@@ -282,6 +266,10 @@ function get_grid_class($class=1){
         case 6:
             return 'grid_article col-lg-4 col-md-12';
             break;
+        case 7:
+        case 8:
+            return 'grid_article col-lg-6 col-md-12';
+            break;
         default:
             # code...
             break;
@@ -386,7 +374,7 @@ function ppm_register_metabox() {
 
     $products_meta->add_field( array(  
         'id' => 'product_currency',
-        'name' => __( 'Current', 'woothemes' ),
+        'name' => __( 'Currency', 'woothemes' ),
         'type' => 'text_small',
         'desc' => __( 'Enter the product currency', 'woothemes' ) 
     ));
@@ -466,8 +454,15 @@ function ppm_register_metabox() {
         ),
     ) );
 
+    $post_meta->add_field(array(  
+        'id' => $prefix.'single_intro_text',
+        'name' => __( 'Story introduction Text', 'woothemes' ),
+        'type' => 'textarea',
+        'desc' => __( 'Single post introduction text', 'woothemes' ),
+    ));
+
     $post_meta->add_field( array(
-        'name'    => __( 'Attached Posts', 'cmb2' ),
+        'name'    => __( 'Attached Internals', 'cmb2' ),
         'desc'    => __( 'Drag posts from the left column to the right column to attach them to this page.<br />You may rearrange the order of the posts in the right column by dragging and dropping.', 'cmb2' ),
         'id'      => 'attached_cmb2_attached_posts',
         'type'    => 'custom_attached_posts',
