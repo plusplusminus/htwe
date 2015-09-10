@@ -609,7 +609,7 @@ function newgravatar ($avatar_defaults) {
     return $avatar_defaults;
 }
 
-<<<<<<< HEAD
+
 // Color Picket Palette
 add_filter( 'cmb2_localized_data', 'cmb2_update_color_picker_palette' );
 function cmb2_update_color_picker_palette( $l10n ) {
@@ -618,12 +618,10 @@ function cmb2_update_color_picker_palette( $l10n ) {
     );
     return $l10n;
 }
-=======
+
 function hwl_home_pagesize( $query ) {
     if ( is_admin() || ! $query->is_main_query() )
         return;
-
->>>>>>> origin/master
 
     if ( is_tax( 'product-category' ) || is_tax( 'product-tag' ) || is_post_type_archive( 'products' )  ) {
         // Display 50 posts for a custom post type called 'movie'
