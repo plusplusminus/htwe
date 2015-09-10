@@ -45,13 +45,19 @@
 			<div class="row">
 				<div class="col-md-8">
 					<?php if ( have_posts() ) : $count = 0; ?>
-						<div class="row">
+						<div class="row js-infinite-cont">
 							<?php while ( have_posts() ) : the_post(); $count++;?>
 								<?php $class = get_grid_class($count); ?>
-							  	<article id="post-<?php the_ID(); ?>" <?php post_class($class); ?> role="article" itemscope itemtype="http://schema.org/BlogPosting">
+							  	<article id="post-<?php the_ID(); ?>" <?php post_class($class.' js-infinite'); ?> role="article" itemscope itemtype="http://schema.org/BlogPosting">
 							    	<?php get_template_part('content',get_post_format()); ?>
 								</article>
 							<?php endwhile; ?>
+							<nav class="wp-prev-next hide">
+								<ul class="clearfix">
+									<li class="prev-link"><?php next_posts_link( __( '&laquo; Older Entries', 'bonestheme' )) ?></li>
+									<li class="next-link"><?php previous_posts_link( __( '&laquo; New Entries', 'bonestheme' )) ?></li>
+								</ul>
+							</nav>
 						</div>
 					<?php endif; ?>
 					<?php wp_reset_query(); ?>
