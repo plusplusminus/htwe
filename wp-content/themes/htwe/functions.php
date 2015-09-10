@@ -473,7 +473,21 @@ function ppm_register_metabox() {
         )
     ));
 
+    $quote_meta = new_cmb2_box( array(
+        'id'            => $prefix . 'quote_metabox',
+        'title'        => __( 'Quote Options', 'cmb2' ),
+        'object_types' => array( 'post' ), // Post type
+        'context'      => 'normal',
+        'priority'     => 'high',
+        'show_names'   => true, // Show field names on the left
+    ) );
 
+    $quote_meta->add_field( array(
+        'name'    => 'Quote Background Color',
+        'id'      => 'bg_colorpicker',
+        'type'    => 'colorpicker',
+        'default' => '#F1C2B0',
+    ) );
 
 }
 
@@ -587,8 +601,22 @@ function custom_excerpt_length( $length ) {
 }
 add_filter( 'excerpt_length', 'custom_excerpt_length', 999 );
 
+// Default gravatar
+add_filter( 'avatar_defaults', 'newgravatar' );
+function newgravatar ($avatar_defaults) {
+    $myavatar = get_stylesheet_directory_uri() . '/library/images/gravatar.png';
+    $avatar_defaults[$myavatar] = "HTWE";
+    return $avatar_defaults;
+}
 
-
+// Color Picket Palette
+add_filter( 'cmb2_localized_data', 'cmb2_update_color_picker_palette' );
+function cmb2_update_color_picker_palette( $l10n ) {
+    $l10n['defaults']['color_picker'] = array(
+        'palettes' => array( '#F1C2B0', '#b45f38', '#dcc092', '#4d6625' ),
+    );
+    return $l10n;
+}
 
 
 
