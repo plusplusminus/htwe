@@ -614,7 +614,7 @@ function newgravatar ($avatar_defaults) {
 add_filter( 'cmb2_localized_data', 'cmb2_update_color_picker_palette' );
 function cmb2_update_color_picker_palette( $l10n ) {
     $l10n['defaults']['color_picker'] = array(
-        'palettes' => array( '#F1C2B0', '#b45f38', '#dcc092', '#4d6625' ),
+        'palettes' => array( '#F1C2B0', '#b45f38', '#dcc092', '#4d6625', '#404040' ),
     );
     return $l10n;
 }
