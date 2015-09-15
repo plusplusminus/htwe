@@ -19,7 +19,7 @@
 				</a>
 			</li>
 			<li class="social_button">
-				<a target="_blank" href="https://twitter.com/share/?counturl=<?php the_permalink();?>&amp;url=<?php the_permalink();?>&amp;text=<?php the_title();?>" class="social_button--btn css-twitter">
+				<a target="_blank" href="https://twitter.com/share/?counturl=<?php the_permalink();?>&amp;url=<?php the_permalink();?>&amp;text=Check out what I found on High Tea with Elephants - <?php the_title();?>" class="social_button--btn css-twitter">
 					<span class="fa fa-twitter"></span>
 				</a>
 			</li>

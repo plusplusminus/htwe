@@ -10,10 +10,10 @@
 						<strong>General enquiries:</strong><br>
 						info@highteawithelephants.com<br>
 						<ul class="contact_list list-inline">
-							<li class="social_menu--item"><a href="<?php echo $tpb_options['twitter_url'];?>"><i class="fa fa-twitter"></i></a></li>
-							<li class="social_menu--item"><a href="<?php echo $tpb_options['facebook_url'];?>"><i class="fa fa-facebook"></i></a></li>
-							<li class="social_menu--item"><a href="<?php echo $tpb_options['instagram_url'];?>"><i class="fa fa-instagram"></i></a></li>
-							<li class="social_menu--item"><a href="<?php echo $tpb_options['pinterest_url'];?>"><i class="fa fa-pinterest"></i></a></li>
+							<li class="social_menu--item"><a target="_blank" href="<?php echo $tpb_options['twitter_url'];?>"><i class="fa fa-twitter"></i></a></li>
+							<li class="social_menu--item"><a target="_blank" href="<?php echo $tpb_options['facebook_url'];?>"><i class="fa fa-facebook"></i></a></li>
+							<li class="social_menu--item"><a target="_blank" href="<?php echo $tpb_options['instagram_url'];?>"><i class="fa fa-instagram"></i></a></li>
+							<li class="social_menu--item"><a target="_blank" href="<?php echo $tpb_options['pinterest_url'];?>"><i class="fa fa-pinterest"></i></a></li>
 						</ul>
 						<strong>Postal address:</strong><br>
 						P.O. Box 1921<br>
