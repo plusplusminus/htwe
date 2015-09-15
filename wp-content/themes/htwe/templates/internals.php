@@ -9,13 +9,12 @@ if ($internal) :
 	shuffle($internal);
 
 	$query_args = array(
-		'id'=>$internal[0],
+		'p'=>$internal[0],
 		'post_type' => 'internals', 
 		'posts_per_page' => 1
 	);
 
 	query_posts( $query_args );
-
 
 	?>
 
