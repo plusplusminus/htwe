@@ -4,7 +4,7 @@
 	$url = get_permalink();
     $title = get_the_title();
     $summary = get_the_excerpt();   
-    $twitter_text = "Check out what I found on High Tea with Elephants - "
+    $twitter_text = "Check out what I found on High Tea with Elephants - ".$title;
 
     global $post;
 
@@ -20,7 +20,7 @@
 				</a>
 			</li>
 			<li class="social_button">
-				<a target="_blank" href="https://twitter.com/share/?counturl=<?php the_permalink();?>&amp;url=<?php the_permalink();?>&amp;text=<?php echo urlencode($twitter_text); ?><?php the_title();?>" class="social_button--btn css-twitter">
+				<a target="_blank" href="https://twitter.com/share/?counturl=<?php the_permalink();?>&amp;url=<?php the_permalink();?>&amp;text=<?php echo urlencode($twitter_text); ?>" class="social_button--btn css-twitter">
 					<span class="fa fa-twitter"></span>
 				</a>
 			</li>
