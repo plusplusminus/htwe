@@ -523,6 +523,14 @@ function custom_breadcrumb() {
         the_title();
         echo '</li>';
       }
+    } elseif (is_tax('product-category')) {
+      echo '<li>Shop</li> <li> ';
+      single_cat_title();
+      echo '</li>';
+    } elseif (is_tax('product-tag')) {
+      echo '<li>Shop</li> <li> ';
+      single_cat_title();
+      echo '</li>';
     } elseif (is_category()) {
       echo '<li>';
       single_cat_title();

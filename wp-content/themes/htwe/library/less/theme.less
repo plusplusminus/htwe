@@ -626,6 +626,7 @@ header{
 		position: relative;
 		img {
 			margin:auto;
+			width: 100%;
 		}
 	}
 
@@ -1126,9 +1127,7 @@ header{
 
 .widget{
 	margin-bottom: 25px;
-
 	width: 100%;
-
 	margin-top: 35px;
 
 	@media all and (min-width:@screen-sm-min) {
@@ -1136,7 +1135,9 @@ header{
 		padding-right: 0px;
 		width: 50%;
 		float: left;
-		
+		&.widget_nav_menu{
+			padding-left: 0px;
+		}
 	}
 
 	@media all and (min-width:@screen-md-min) {
