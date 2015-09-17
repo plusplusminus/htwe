@@ -509,7 +509,8 @@ function custom_breadcrumb() {
     echo '<li><a href="'.get_option('home').'">Home</a></li>';
     if (is_single()) {
         if (is_singular('products')) {
-            echo '<li>';
+            $page = get_page_by_title('Shop');
+            echo '<li><a href="'.get_permalink($page->ID).'">Shop</a></li> <li> ';
             echo get_the_term_list( $post->ID, 'product-category', '', ', ' );
             echo '</li>';
         } else {
@@ -524,11 +525,13 @@ function custom_breadcrumb() {
         echo '</li>';
       }
     } elseif (is_tax('product-category')) {
-      echo '<li>Shop</li> <li> ';
+        $page = get_page_by_title('Shop');
+      echo '<li><a href="'.get_permalink($page->ID).'">Shop</a></li> <li> ';
       single_cat_title();
       echo '</li>';
     } elseif (is_tax('product-tag')) {
-      echo '<li>Shop</li> <li> ';
+        $page = get_page_by_title('Shop');
+      echo '<li><a href="'.get_permalink($page->ID).'">Shop</a></li> <li> ';
       single_cat_title();
       echo '</li>';
     } elseif (is_category()) {
