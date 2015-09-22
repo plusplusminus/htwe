@@ -394,6 +394,13 @@ function ppm_register_metabox() {
     ));
 
     $products_meta->add_field(array(  
+        'id' => 'product_suppllier_name',
+        'name' => __( 'Supplier Name', 'woothemes' ),
+        'type' => 'text',
+        'desc' => __( 'Name of supplier', 'woothemes' ) 
+    ));
+
+    $products_meta->add_field(array(  
         'id' => 'product_suppllier_email',
         'name' => __( 'Supplier Email', 'woothemes' ),
         'type' => 'text',
@@ -650,6 +657,13 @@ function hwl_home_pagesize( $query ) {
 add_action( 'pre_get_posts', 'hwl_home_pagesize', 1 );
 
 // Gravity Product Inquiry Email of supplier
+add_filter( 'gform_field_value_supplier_name', 'supplier_name_population_function' );
+function supplier_name_population_function( $value ) {
+    global $post;
+    $supplier_name = get_post_meta($post->ID,'product_suppllier_name',true);
+    return $supplier_name;
+}
+
 add_filter( 'gform_field_value_supplier_email', 'supplier_email_population_function' );
 function supplier_email_population_function( $value ) {
     global $post;

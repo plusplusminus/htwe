@@ -526,6 +526,33 @@
 				"buffer_size": 1378,
 				"line_ending": "Unix"
 			}
+		},
+		{
+			"file": "wp-content/themes/htwe/library/less/theme.less",
+			"settings":
+			{
+				"buffer_size": 24669,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "wp-content/themes/htwe/templates/meta.php",
+			"settings":
+			{
+				"buffer_size": 539,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"contents": "<?php\nclass htweCustomPostTypes {\n\n	public function __construct() {\n		add_action('init',array($this,'htwe_products'));\n		add_action('init',array($this,'htwe_productscat'));\n		add_action('init',array($this,'htwe_productstag'));\n		add_action('init',array($this,'htwe_internals'));\n\n	}\n\n    public function htwe_productscat() {\n\n		register_taxonomy(	\"product-category\", \n			array(	\"products\"	), \n			array (	\"hierarchical\" 		=> true, \n					\"label\" 			=> \"Types\", \n					'labels' 			=> array(	'name' 				=> __('Product Categories'),\n													'singular_name' 	=> __('Product Category'),\n													'search_items' 		=> __('Search Product Category'),\n													'popular_items' 	=> __('Popular Product Categorie'),\n													'all_items' 		=> __('All Product Categories'),\n													'parent_item' 		=> __('Parent Product Category'),\n													'parent_item_colon' => __('Parent Product Category:'),\n													'edit_item' 		=> __('Edit Product Category'),\n													'update_item'		=> __('Update Product Category'),\n													'add_new_item' 		=> __('Add New Product Category'),\n													'new_item_name' 	=> __('New Product Category Name')	), \n					'public' 			=> true,\n					'show_ui' 			=> true,\n					\"rewrite\" 			=> array('slug' => 'product-category', 'hierarchical' => true)	\n				)\n		);\n	}\n\n\n    public function htwe_productstag() {\n\n		register_taxonomy(	\"product-tag\", \n			array(	\"products\"	), \n			array (	\"hierarchical\" 		=> false, \n					\"label\" 			=> \"Types\", \n					'labels' 			=> array(	'name' 				=> __('Product Tags'),\n													'singular_name' 	=> __('Product Tag'),\n													'search_items' 		=> __('Search Product Tags'),\n													'popular_items' 	=> __('Popular Product Tags'),\n													'all_items' 		=> __('All Product Tags'),\n													'parent_item' 		=> __('Parent Product Tag'),\n													'parent_item_colon' => __('Parent Product Tag:'),\n													'edit_item' 		=> __('Edit Product Tag'),\n													'update_item'		=> __('Update Product Tag'),\n													'add_new_item' 		=> __('Add New Product Tag'),\n													'new_item_name' 	=> __('New Product Tag Name')	), \n					'public' 			=> true,\n					'show_ui' 			=> true,\n					\"rewrite\" 			=> array('slug' => 'product-tag', 'hierarchical' => false)	\n				)\n		);\n	}\n\n\n\n\n    function htwe_products()\n	{\n		// Register custom post types\n		register_post_type(	'products', \n			array(	'label' 			=> __('Products'),\n					'labels' 			=> array(	'name' 					=> __('Products'),\n													'singular_name' 		=> __('Product'),\n													'add_new' 				=> __('Add New'),\n													'add_new_item' 			=> __('Add New Product'),\n													'edit' 					=> __('Edit'),\n													'edit_item' 			=> __('Edit Product'),\n													'new_item' 				=> __('New Product'),\n													'view_item'				=> __('View Product'),\n													'search_items' 			=> __('Search Product'),\n													'not_found' 			=> __('No Product found'),\n													'not_found_in_trash' 	=> __('No Product found in trash')	),\n					'public' 			=> true,\n					'can_export'		=> true,\n					'show_ui' 			=> true, // UI in admin panel\n					'_builtin' 			=> false, // It's a custom post type, not built in\n					'_edit_link' 		=> 'post.php?post=%d',\n					'capability_type' 	=> 'post',\n					'menu_icon' 		=> 'dashicons-awards',\n					'hierarchical' 		=> false,\n					'has_archive' 		=> true,\n					'rewrite' 			=> array(	\"slug\" => \"product\"	), // Permalinks\n					'query_var' 		=> \"product\", // This goes to the WP_Query schema\n					'supports' 			=> array(	'title',																\n													'editor',\n													'thumbnail'\n													),\n					'show_in_nav_menus'	=> false ,\n					'taxonomies'		=> array(	\n\n													)\n				)\n			);			\n	}\n\n\n    function htwe_internals()\n	{\n		// Register custom post types\n		register_post_type(	'internals', \n			array(	'label' 			=> __('Internals'),\n					'labels' 			=> array(	'name' 					=> __('Internals'),\n													'singular_name' 		=> __('Internal'),\n													'add_new' 				=> __('Add New'),\n													'add_new_item' 			=> __('Add New Internal'),\n													'edit' 					=> __('Edit'),\n													'edit_item' 			=> __('Edit Internal'),\n													'new_item' 				=> __('New Internal'),\n													'view_item'				=> __('View Internal'),\n													'search_items' 			=> __('Search Internals'),\n													'not_found' 			=> __('No Internal found'),\n													'not_found_in_trash' 	=> __('No Internal found in trash')	),\n					'public' 			=> true,\n					'can_export'		=> true,\n					'show_ui' 			=> true, // UI in admin panel\n					'_builtin' 			=> false, // It's a custom post type, not built in\n					'_edit_link' 		=> 'post.php?post=%d',\n					'capability_type' 	=> 'post',\n					'menu_icon' 		=> 'dashicons-pressthis',\n					'hierarchical' 		=> false,\n					'has_archive' 		=> false,\n					'rewrite' 			=> array(	\"slug\" => \"internal\"	), // Permalinks\n					'query_var' 		=> \"internal\", // This goes to the WP_Query schema\n					'supports' 			=> array(	'title',																\n													'editor',\n													'thumbnail'\n													),\n					'show_in_nav_menus'	=> false ,\n					'taxonomies'		=> array(	\n\n													)\n				)\n			);			\n	}\n\n\n}\nglobal $cpt; \n$cpt = new htweCustomPostTypes(); \n",
+			"file": "wp-content/themes/htwe/classes/theme-cpt.php",
+			"file_size": 5212,
+			"file_write_time": 130850449150000000,
+			"settings":
+			{
+				"buffer_size": 5210,
+				"line_ending": "Unix"
+			}
 		}
 	],
 	"build_system": "",
@@ -577,8 +604,6 @@
 	"expanded_folders":
 	[
 		"/Users/iaanvn/Sites/htwe",
-		"/Users/iaanvn/Sites/htwe/wp-admin",
-		"/Users/iaanvn/Sites/htwe/wp-admin/includes",
 		"/Users/iaanvn/Sites/htwe/wp-content",
 		"/Users/iaanvn/Sites/htwe/wp-content/themes",
 		"/Users/iaanvn/Sites/htwe/wp-content/themes/htwe",
@@ -586,7 +611,6 @@
 		"/Users/iaanvn/Sites/htwe/wp-content/themes/htwe/library",
 		"/Users/iaanvn/Sites/htwe/wp-content/themes/htwe/library/js",
 		"/Users/iaanvn/Sites/htwe/wp-content/themes/htwe/library/less",
-		"/Users/iaanvn/Sites/htwe/wp-content/themes/htwe/library/less/global",
 		"/Users/iaanvn/Sites/htwe/wp-content/themes/htwe/templates",
 		"/Users/iaanvn/Sites/htwe/wp-content/themes/htwe/templates/contact",
 		"/Users/iaanvn/Sites/htwe/wp-content/themes/htwe/templates/post"
@@ -1116,24 +1140,117 @@
 						"translation.y": 81.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 0,
+					"stack_index": 3,
 					"type": "text"
 				}
 			]
 		},
 		{
+			"selected": 0,
 			"sheets":
 			[
+				{
+					"buffer": 1,
+					"file": "wp-content/themes/htwe/library/less/theme.less",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 24669,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								14395,
+								14395
+							]
+						],
+						"settings":
+						{
+							"color_scheme": "Packages/User/Color Highlighter/themes/Monokai.tmTheme",
+							"syntax": "Packages/LESS/LESS.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 16252.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				}
 			]
 		},
 		{
+			"selected": 0,
 			"sheets":
 			[
+				{
+					"buffer": 2,
+					"file": "wp-content/themes/htwe/templates/meta.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 539,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								138,
+								146
+							]
+						],
+						"settings":
+						{
+							"color_scheme": "Packages/User/Color Highlighter/themes/Monokai.tmTheme",
+							"syntax": "Packages/PHP/PHP.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
+					"type": "text"
+				}
 			]
 		},
 		{
+			"selected": 0,
 			"sheets":
 			[
+				{
+					"buffer": 3,
+					"file": "wp-content/themes/htwe/classes/theme-cpt.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 5210,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								172,
+								172
+							]
+						],
+						"settings":
+						{
+							"color_scheme": "Packages/User/Color Highlighter/themes/Monokai.tmTheme",
+							"syntax": "Packages/PHP/PHP.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 411.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				}
 			]
 		}
 	],
@@ -1177,13 +1294,13 @@
 		"cols":
 		[
 			0.0,
-			0.94635193133,
+			0.352383725057,
 			1.0
 		],
 		"rows":
 		[
 			0.0,
-			0.265024782912,
+			0.353317296018,
 			1.0
 		]
 	},
@@ -1270,7 +1387,7 @@
 		],
 		"width": 0.0
 	},
-	"selected_group": 2,
+	"selected_group": 3,
 	"settings":
 	{
 	},

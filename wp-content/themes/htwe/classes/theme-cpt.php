@@ -4,9 +4,7 @@ class htweCustomPostTypes {
 	public function __construct() {
 		add_action('init',array($this,'htwe_products'));
 		add_action('init',array($this,'htwe_productscat'));
-
 		add_action('init',array($this,'htwe_productstag'));
-
 		add_action('init',array($this,'htwe_internals'));
 
 	}

@@ -567,7 +567,6 @@ header{
 
 .shop-menu_list,#sidebar-shop .menu {
 	.list-inline();
-
 	>li {
 		a {
 			text-transform: uppercase;
@@ -575,6 +574,11 @@ header{
 			font-weight: 700;
 			letter-spacing: 0.05em;
 		}
+	}
+	.current-menu-item a,
+	.current-product-category-ancestor a{
+		color: @brand-primary;
+		border-bottom: 2px solid @brand-primary;
 	}
 }
 
@@ -1127,6 +1131,11 @@ header{
 
 
 // Widgets
+// Gallery & Boutiqu sub menu
+#nav_menu-6.widget_nav_menu .menu>li a,
+#nav_menu-5.widget_nav_menu .menu>li a{
+	text-transform: none;
+}
 
 .widget{
 	margin-bottom: 25px;
@@ -1264,14 +1273,24 @@ header{
 		max-width: 100%;
 		height: auto;
 	}
-	.wp-caption{
-		max-width: 100%;
-		.wp-caption-text{
-			font-family: @font-family-serif;
+}
+
+.wp-caption{
+	max-width: 100%;
+	.wp-caption-text{
+		font-family: @font-family-serif;
+		font-size: @font-size-small;
+		padding-top: 5px;
+		color: @gray-light;
+		.alignnone&,
+		.aligncenter&{
+			text-align: center;
+		}
+		.alignleft&{
+			text-align: left;
+		}
+		.alignright&{
 			text-align: right;
-			font-size: @font-size-small;
-			padding-top: 5px;
-			color: @gray-light;
 		}
 	}
 }
