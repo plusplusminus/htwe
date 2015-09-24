@@ -520,10 +520,18 @@
 	"buffers":
 	[
 		{
-			"file": "wp-content/themes/htwe/templates/contact/page-content.php",
+			"file": "wp-content/themes/htwe/functions.php",
 			"settings":
 			{
-				"buffer_size": 1378,
+				"buffer_size": 26244,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "wp-content/themes/htwe/library/js/ppm.js",
+			"settings":
+			{
+				"buffer_size": 2805,
 				"line_ending": "Unix"
 			}
 		},
@@ -531,26 +539,7 @@
 			"file": "wp-content/themes/htwe/library/less/theme.less",
 			"settings":
 			{
-				"buffer_size": 24669,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "wp-content/themes/htwe/templates/meta.php",
-			"settings":
-			{
-				"buffer_size": 539,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"contents": "<?php\nclass htweCustomPostTypes {\n\n	public function __construct() {\n		add_action('init',array($this,'htwe_products'));\n		add_action('init',array($this,'htwe_productscat'));\n		add_action('init',array($this,'htwe_productstag'));\n		add_action('init',array($this,'htwe_internals'));\n\n	}\n\n    public function htwe_productscat() {\n\n		register_taxonomy(	\"product-category\", \n			array(	\"products\"	), \n			array (	\"hierarchical\" 		=> true, \n					\"label\" 			=> \"Types\", \n					'labels' 			=> array(	'name' 				=> __('Product Categories'),\n													'singular_name' 	=> __('Product Category'),\n													'search_items' 		=> __('Search Product Category'),\n													'popular_items' 	=> __('Popular Product Categorie'),\n													'all_items' 		=> __('All Product Categories'),\n													'parent_item' 		=> __('Parent Product Category'),\n													'parent_item_colon' => __('Parent Product Category:'),\n													'edit_item' 		=> __('Edit Product Category'),\n													'update_item'		=> __('Update Product Category'),\n													'add_new_item' 		=> __('Add New Product Category'),\n													'new_item_name' 	=> __('New Product Category Name')	), \n					'public' 			=> true,\n					'show_ui' 			=> true,\n					\"rewrite\" 			=> array('slug' => 'product-category', 'hierarchical' => true)	\n				)\n		);\n	}\n\n\n    public function htwe_productstag() {\n\n		register_taxonomy(	\"product-tag\", \n			array(	\"products\"	), \n			array (	\"hierarchical\" 		=> false, \n					\"label\" 			=> \"Types\", \n					'labels' 			=> array(	'name' 				=> __('Product Tags'),\n													'singular_name' 	=> __('Product Tag'),\n													'search_items' 		=> __('Search Product Tags'),\n													'popular_items' 	=> __('Popular Product Tags'),\n													'all_items' 		=> __('All Product Tags'),\n													'parent_item' 		=> __('Parent Product Tag'),\n													'parent_item_colon' => __('Parent Product Tag:'),\n													'edit_item' 		=> __('Edit Product Tag'),\n													'update_item'		=> __('Update Product Tag'),\n													'add_new_item' 		=> __('Add New Product Tag'),\n													'new_item_name' 	=> __('New Product Tag Name')	), \n					'public' 			=> true,\n					'show_ui' 			=> true,\n					\"rewrite\" 			=> array('slug' => 'product-tag', 'hierarchical' => false)	\n				)\n		);\n	}\n\n\n\n\n    function htwe_products()\n	{\n		// Register custom post types\n		register_post_type(	'products', \n			array(	'label' 			=> __('Products'),\n					'labels' 			=> array(	'name' 					=> __('Products'),\n													'singular_name' 		=> __('Product'),\n													'add_new' 				=> __('Add New'),\n													'add_new_item' 			=> __('Add New Product'),\n													'edit' 					=> __('Edit'),\n													'edit_item' 			=> __('Edit Product'),\n													'new_item' 				=> __('New Product'),\n													'view_item'				=> __('View Product'),\n													'search_items' 			=> __('Search Product'),\n													'not_found' 			=> __('No Product found'),\n													'not_found_in_trash' 	=> __('No Product found in trash')	),\n					'public' 			=> true,\n					'can_export'		=> true,\n					'show_ui' 			=> true, // UI in admin panel\n					'_builtin' 			=> false, // It's a custom post type, not built in\n					'_edit_link' 		=> 'post.php?post=%d',\n					'capability_type' 	=> 'post',\n					'menu_icon' 		=> 'dashicons-awards',\n					'hierarchical' 		=> false,\n					'has_archive' 		=> true,\n					'rewrite' 			=> array(	\"slug\" => \"product\"	), // Permalinks\n					'query_var' 		=> \"product\", // This goes to the WP_Query schema\n					'supports' 			=> array(	'title',																\n													'editor',\n													'thumbnail'\n													),\n					'show_in_nav_menus'	=> false ,\n					'taxonomies'		=> array(	\n\n													)\n				)\n			);			\n	}\n\n\n    function htwe_internals()\n	{\n		// Register custom post types\n		register_post_type(	'internals', \n			array(	'label' 			=> __('Internals'),\n					'labels' 			=> array(	'name' 					=> __('Internals'),\n													'singular_name' 		=> __('Internal'),\n													'add_new' 				=> __('Add New'),\n													'add_new_item' 			=> __('Add New Internal'),\n													'edit' 					=> __('Edit'),\n													'edit_item' 			=> __('Edit Internal'),\n													'new_item' 				=> __('New Internal'),\n													'view_item'				=> __('View Internal'),\n													'search_items' 			=> __('Search Internals'),\n													'not_found' 			=> __('No Internal found'),\n													'not_found_in_trash' 	=> __('No Internal found in trash')	),\n					'public' 			=> true,\n					'can_export'		=> true,\n					'show_ui' 			=> true, // UI in admin panel\n					'_builtin' 			=> false, // It's a custom post type, not built in\n					'_edit_link' 		=> 'post.php?post=%d',\n					'capability_type' 	=> 'post',\n					'menu_icon' 		=> 'dashicons-pressthis',\n					'hierarchical' 		=> false,\n					'has_archive' 		=> false,\n					'rewrite' 			=> array(	\"slug\" => \"internal\"	), // Permalinks\n					'query_var' 		=> \"internal\", // This goes to the WP_Query schema\n					'supports' 			=> array(	'title',																\n													'editor',\n													'thumbnail'\n													),\n					'show_in_nav_menus'	=> false ,\n					'taxonomies'		=> array(	\n\n													)\n				)\n			);			\n	}\n\n\n}\nglobal $cpt; \n$cpt = new htweCustomPostTypes(); \n",
-			"file": "wp-content/themes/htwe/classes/theme-cpt.php",
-			"file_size": 5212,
-			"file_write_time": 130850449150000000,
-			"settings":
-			{
-				"buffer_size": 5210,
+				"buffer_size": 25047,
 				"line_ending": "Unix"
 			}
 		}
@@ -613,10 +602,17 @@
 		"/Users/iaanvn/Sites/htwe/wp-content/themes/htwe/library/less",
 		"/Users/iaanvn/Sites/htwe/wp-content/themes/htwe/templates",
 		"/Users/iaanvn/Sites/htwe/wp-content/themes/htwe/templates/contact",
-		"/Users/iaanvn/Sites/htwe/wp-content/themes/htwe/templates/post"
+		"/Users/iaanvn/Sites/htwe/wp-content/themes/htwe/templates/post",
+		"/Users/iaanvn/Sites/htwe/wp-content/themes/htwe/templates/shop"
 	],
 	"file_history":
 	[
+		"/Users/iaanvn/Sites/htwe/wp-content/themes/htwe/templates/meta.php",
+		"/Users/iaanvn/Sites/htwe/wp-content/themes/htwe/templates/contact/page-content.php",
+		"/Users/iaanvn/Sites/htwe/wp-content/themes/htwe/templates/section-newsletter.php",
+		"/Users/iaanvn/Sites/htwe/wp-content/themes/htwe/templates/shop/archive.php",
+		"/Users/iaanvn/Sites/htwe/wp-content/themes/htwe/templates/shop/product-menu.php",
+		"/Users/iaanvn/Sites/htwe/wp-content/themes/htwe/classes/theme-cpt.php",
 		"/Users/iaanvn/Sites/htwe/wp-content/themes/htwe/library/less/theme.less",
 		"/Users/iaanvn/Sites/htwe/wp-config.php",
 		"/Users/iaanvn/Sites/htwe/wp-content/themes/htwe/template-newsletter.php",
@@ -738,13 +734,7 @@
 		"/Users/iaanvn/Sites/theprettyblog/wp-content/themes/theprettyblog/library/less/theme.less",
 		"/Users/iaanvn/Sites/theprettyblog/wp-content/themes/theprettyblog/library/less/global/widgets.less",
 		"/Users/iaanvn/Sites/theprettyblog/wp-content/themes/theprettyblog/library/less/global/links.less",
-		"/Users/iaanvn/Sites/theprettyblog/wp-content/themes/theprettyblog/library/less/bootstrap/buttons.less",
-		"/Users/iaanvn/Sites/theprettyblog/wp-content/plugins/show-some-love-kikicoza/show-some-love-plugin.php",
-		"/Users/iaanvn/Sites/theprettyblog/wp-content/themes/theprettyblog/library/less/global/grid.less",
-		"/Users/iaanvn/Sites/theprettyblog/wp-content/themes/theprettyblog/templates/directory/_article.php",
-		"/Users/iaanvn/Sites/theprettyblog/wp-content/themes/theprettyblog/library/less/global/bootstrap-type.less",
-		"/Users/iaanvn/Sites/theprettyblog/wp-content/themes/theprettyblog/templates/single/_single-sharing.php",
-		"/Users/iaanvn/Sites/theprettyblog/wp-content/themes/theprettyblog/templates/single/_single-footer.php"
+		"/Users/iaanvn/Sites/theprettyblog/wp-content/themes/theprettyblog/library/less/bootstrap/buttons.less"
 	],
 	"find":
 	{
@@ -890,6 +880,12 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"menu",
+			"click",
+			"dropdown",
+			"get_sidebar('shop');",
+			"nav_menu",
+			"product_suppllier_email",
 			".shop_content--image",
 			"newsletter",
 			"supplier_email",
@@ -1011,13 +1007,7 @@
 			"action",
 			"content",
 			"options",
-			"social",
-			"@gray-lighter",
-			"gray-lighter",
-			"options_i",
-			".icon",
-			"social_item--bt",
-			"social_item--btN"
+			"social"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -1110,60 +1100,89 @@
 	"groups":
 	[
 		{
-			"selected": 0,
+			"sheets":
+			[
+			]
+		},
+		{
+			"selected": 1,
 			"sheets":
 			[
 				{
 					"buffer": 0,
-					"file": "wp-content/themes/htwe/templates/contact/page-content.php",
+					"file": "wp-content/themes/htwe/functions.php",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 1378,
+						"buffer_size": 26244,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1353,
-								1353
+								6661,
+								6665
 							]
 						],
 						"settings":
 						{
 							"color_scheme": "Packages/User/Color Highlighter/themes/Monokai.tmTheme",
 							"syntax": "Packages/PHP/PHP.tmLanguage",
-							"translate_tabs_to_spaces": false
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
 						},
-						"translation.x": 55.0,
-						"translation.y": 81.0,
+						"translation.x": 0.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 3,
+					"stack_index": 1,
 					"type": "text"
-				}
-			]
-		},
-		{
-			"selected": 0,
-			"sheets":
-			[
+				},
 				{
 					"buffer": 1,
-					"file": "wp-content/themes/htwe/library/less/theme.less",
-					"semi_transient": false,
+					"file": "wp-content/themes/htwe/library/js/ppm.js",
+					"semi_transient": true,
 					"settings":
 					{
-						"buffer_size": 24669,
+						"buffer_size": 2805,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								14395,
-								14395
+								206,
+								206
+							]
+						],
+						"settings":
+						{
+							"color_scheme": "Packages/User/Color Highlighter/themes/Monokai.tmTheme",
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "wp-content/themes/htwe/library/less/theme.less",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 25047,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								5479,
+								5479
 							]
 						],
 						"settings":
@@ -1173,43 +1192,7 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 16252.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 1,
-					"type": "text"
-				}
-			]
-		},
-		{
-			"selected": 0,
-			"sheets":
-			[
-				{
-					"buffer": 2,
-					"file": "wp-content/themes/htwe/templates/meta.php",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 539,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								138,
-								146
-							]
-						],
-						"settings":
-						{
-							"color_scheme": "Packages/User/Color Highlighter/themes/Monokai.tmTheme",
-							"syntax": "Packages/PHP/PHP.tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 5978.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 2,
@@ -1218,39 +1201,13 @@
 			]
 		},
 		{
-			"selected": 0,
 			"sheets":
 			[
-				{
-					"buffer": 3,
-					"file": "wp-content/themes/htwe/classes/theme-cpt.php",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 5210,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								172,
-								172
-							]
-						],
-						"settings":
-						{
-							"color_scheme": "Packages/User/Color Highlighter/themes/Monokai.tmTheme",
-							"syntax": "Packages/PHP/PHP.tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 411.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 0,
-					"type": "text"
-				}
+			]
+		},
+		{
+			"sheets":
+			[
 			]
 		}
 	],
@@ -1294,13 +1251,13 @@
 		"cols":
 		[
 			0.0,
-			0.352383725057,
+			0.415842401797,
 			1.0
 		],
 		"rows":
 		[
 			0.0,
-			0.353317296018,
+			0.683205137448,
 			1.0
 		]
 	},
@@ -1387,7 +1344,7 @@
 		],
 		"width": 0.0
 	},
-	"selected_group": 3,
+	"selected_group": 1,
 	"settings":
 	{
 	},

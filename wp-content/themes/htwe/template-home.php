@@ -8,7 +8,7 @@
 
 	<?php get_template_part('templates/section','welcome'); ?>
 
-	<?php get_template_part('templates/section','feature'); ?>
+	<?php get_template_part('templates/section','feature-simple'); ?>
 
 	<?php
 
