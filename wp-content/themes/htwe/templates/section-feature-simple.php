@@ -18,7 +18,20 @@
 					<div class="blog_article">
 						<a href="<?php the_permalink();?>" title="<?php the_title(); ?>">
 							<figure class="article_image">
-								<?php the_post_thumbnail('feature-lg',array('class'=>'img-responsive')); ?>
+								<?php // the_post_thumbnail('feature-lg',array('class'=>'img-responsive')); ?>
+								<?php $groups = get_post_meta($post->ID,'featured_group',true);?>
+								<?php if (!empty($groups)) { ?>
+									
+									<?php foreach ($groups as $key => $group) : ?>
+										<?php $img_id = $group['featured_img_id'];?>
+										<?php $image = wp_get_attachment_image_src( $img_id, 'full'); ?>
+										<img src="<?php echo $image[0]; ?>" class="img-responsive">
+									<?php endforeach;
+								
+									} else {
+										the_post_thumbnail('full',array('class'=>'img-responsive'));
+								} ?>
+							
 							</figure>
 						</a>
 						<div class="article_content">
