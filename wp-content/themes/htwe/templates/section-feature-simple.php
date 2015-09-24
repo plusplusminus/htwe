@@ -14,7 +14,7 @@
 	<section class="section_feature"> 
 		<div class="container-fluid wrap">
 			<?php while ( have_posts() ) : the_post(); ?>
-				<article class="grid_article css-fullwidth col-xs-12 js-infinite has-post-thumbnail">
+				<article class="css-fullwidth js-infinite has-post-thumbnail">
 					<div class="blog_article">
 						<a href="<?php the_permalink();?>" title="<?php the_title(); ?>">
 							<figure class="article_image">
