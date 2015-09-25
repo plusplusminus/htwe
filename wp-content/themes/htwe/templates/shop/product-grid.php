@@ -25,7 +25,7 @@
 
 		<aside class="content_meta">
 			<ul class="meta_list">
-				<li class="meta_list--item css-date">
+				<li class="meta_list--item css-btn">
 					<a class="btn btn-primary btn-sm" href="<?php the_permalink();?>" title="<?php the_title();?>">More</a>
 				</li>
 			</ul>
