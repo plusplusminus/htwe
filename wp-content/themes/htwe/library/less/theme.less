@@ -206,10 +206,27 @@ header{
 .navbar_bottom {
 	.nav();
 	.nav-pills();
-	margin: 0 0 3px 0;
+	margin: 0;
 	display: inline-block;
+	text-align: center;
+	float: left;
+	margin-top: 3px;
+	margin-bottom: 10px;
+	@media (min-width: @screen-sm-min) {
+		margin-bottom: 0px;
+	}
 	> li {
 		padding: 0px 15px;
+		float: none;
+		display: inline-block;
+		padding-bottom: 10px;
+		&:first-child{
+			padding-left: 0px;
+		}
+		@media (min-width: @screen-sm-min) {
+			float: left;
+			padding-bottom: 0;
+		}
 		> a {
 			padding: 0;
 			&:hover {
@@ -239,12 +256,11 @@ header{
 }
 
 .footer_social {
-	display: inline-block;
+	display: block;
 	font-size: @font-size-small;
 	.transition(padding .8s);
 	@media all and (min-width:@screen-sm-min) {
-	}
-	@media all and (min-width:@screen-md-min) {
+		display: inline-block;
 	}
 	li{
 		float: left;
@@ -271,6 +287,11 @@ header{
 .social_menu {
 	.list-inline();
 	margin: 0;
+	width: 100%;
+	text-align: center;
+	@media (min-width: @screen-sm-min) {
+		text-align: left;
+	}
 
 }
 
@@ -281,6 +302,7 @@ header{
 	font-size: @font-size-xsmall;
 	font-weight: 400;
 	vertical-align: middle;
+
 	a {
 		.transition(0.8s);
 		color: #fff;
@@ -294,6 +316,8 @@ header{
 
 .social_menu--item {
 	vertical-align: middle;
+	float: none !important;
+	display: inline-block !important;
 	> a {
 		.transition(0.8s);
 		color: #fff;
@@ -1107,6 +1131,13 @@ header{
 }
 
 // Footer
+@media (max-width: @screen-sm-min) {
+	.col-xs-8,
+	.col-xs-4{
+		flex-basis: 100%;
+		max-width: 100%;
+	}
+}
 
 .footer {
 	background: @brand-primary;
@@ -1136,7 +1167,12 @@ header{
 }
 
 .footer_attribution {
-	text-align: right;
+	text-align: center;
+	margin-top: 20px;
+	@media (min-width: @screen-sm-min) {
+		text-align: right;
+		margin-top: 0px;
+	}
 }
 
 
