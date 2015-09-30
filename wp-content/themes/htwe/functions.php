@@ -632,6 +632,8 @@ function newgravatar ($avatar_defaults) {
     $myavatar = get_stylesheet_directory_uri() . '/library/images/gravatar.png';
     $avatar_defaults[$myavatar] = "HTWE";
     return $avatar_defaults;
+
+    add_filter( 'avatar_defaults', 'newgravatar' );
 }
 
 

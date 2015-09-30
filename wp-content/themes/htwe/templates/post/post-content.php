@@ -8,7 +8,7 @@
 					<?php while ( have_posts() ) : the_post(); ?>
 						<aside class="article_meta media">
 							<div class="article_meta--image media-left">
-								<?php echo get_avatar( get_the_author_meta('email'), '40', $default='blank' ); ?>
+								<?php echo get_avatar( get_the_author_meta('email'), '40'); ?>
 							</div>
 							<div class="article_meta--content">
 								<ul class="meta_author">
