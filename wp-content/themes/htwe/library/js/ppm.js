@@ -35,16 +35,7 @@ jQuery(document).ready(function(){
   	ias.extension(new IASHistoryExtension({ prev: '.prev a' }));
   	ias.extension(new IASTriggerExtension({ html: '<div class="clearfix"></div><div class="ias-trigger ias-trigger-next" style="text-align: center; cursor: pointer;"><div class="row"><div class="load-more col-xs-12"><button class="load-more--btn">Show me more</button></div></div></div>'}));
 	ias.extension(new IASSpinnerExtension({}));
-  	jQuery('.js-comments').on('click', function(){
-          var disqus_shortname = 'highteawithelephants';
-          jQuery.ajax({
-                  type: "GET",
-                  url: "http://" + disqus_shortname + ".disqus.com/embed.js",
-                  dataType: "script",
-                  cache: true
-          });
-          jQuery(this).fadeOut();
-    });
+  	
 
 	jQuery('#subForm').submit(function (e) {
 	    e.preventDefault();
@@ -83,4 +74,12 @@ jQuery(document).ready(function(){
 			e.preventDefault();
 		}
 	})
+
+	var disqus_shortname = 'highteawithelephants';
+	jQuery.ajax({
+	      type: "GET",
+	      url: "http://" + disqus_shortname + ".disqus.com/embed.js",
+	      dataType: "script",
+	      cache: true
+	});
 })

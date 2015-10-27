@@ -25,6 +25,7 @@
 
     <!-- all js scripts are loaded in library/bones.php -->
     <?php wp_footer(); ?>
+    
   </body>
     <!-- Hello? Doctor? Name? Continue? Yesterday? Tomorrow?  -->
 
