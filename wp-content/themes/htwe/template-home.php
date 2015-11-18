@@ -20,6 +20,7 @@
 		$query_args = array(
 			'post_type' => 'post',
 			'paged' => $paged,
+			'tag__not_in' => array('170'),
 		);
 
 
