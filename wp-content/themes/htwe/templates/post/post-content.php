@@ -31,7 +31,6 @@
 						</div>
 						<div class="row">
 							<div class="load-more col-xs-12">
-								<button class="load-more--btn js-comments">Show Comments</button>
 								<div id="disqus_thread"></div>
 							</div>
 						</div>
