@@ -997,9 +997,6 @@ header{
 			// Home grid
 			font-size: @font-size-xsmall;
 		}
-		.section_feature & time{
-			display: none;
-		}
 		> a {
 			color: @text-color;
 			&.btn{
@@ -1012,6 +1009,14 @@ header{
 			color: @brand-bronze;
 			.section_grid &{
 				display: none;
+			}
+			.section_feature &{
+				display: none;
+			}
+		}
+		&.css-category {
+			.section_feature &{
+				padding-left: 0px;
 			}
 		}
 		&:first-child{
