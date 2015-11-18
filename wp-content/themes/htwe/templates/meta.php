@@ -11,9 +11,10 @@ global $post;
 		<li class="meta_list--item css-date">
 			<time class="updated" datetime="<?php get_the_time('Y-m-j') ?>">	
 				<?php 
-					if ( is_front_page() && is_home() ) {}
-					else {
-						echo get_the_time(get_option('date_format'))
+					if ( is_page_template( 'template-home.php' ) ) {
+						echo "x";
+					} else {
+						echo get_the_time(get_option('date_format'));
 					}
 				?>
 			</time>
