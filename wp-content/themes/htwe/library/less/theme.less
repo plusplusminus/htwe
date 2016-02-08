@@ -210,7 +210,7 @@ header{
 	display: inline-block;
 	text-align: center;
 	float: left;
-	margin-top: 3px;
+	margin-top: 6px;
 	margin-bottom: 10px;
 	@media (min-width: @screen-sm-min) {
 		margin-bottom: 0px;
@@ -328,6 +328,14 @@ header{
 		&:active,
 		&:focus  {
 			color: darken(#fff, 20%);
+		}
+		&.btn{
+			font-family: @font-family-sans-serif;
+			padding: 5px 15px;
+			text-transform: uppercase;
+			letter-spacing: 0.2em;
+			font-size: @font-size-xsmall;
+			background-color: #a15532;
 		}
 	}
 }
